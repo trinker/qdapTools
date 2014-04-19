@@ -45,3 +45,12 @@ function(multi.columns, sep=".", handle.na=TRUE, trim=TRUE){
     names(m) <- NULL
     return(m)
 }
+
+
+
+
+## Remove Leading/Trailing White Space
+## 
+## Remove leading/trailing white space.
+Trim <-
+function (x) gsub("^\\s+|\\s+$", "", x)

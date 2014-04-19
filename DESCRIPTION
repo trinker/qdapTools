@@ -8,7 +8,8 @@ Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 3.0.0)
 Imports:
-    chron
+    chron,
+    RCurl
 LazyData: TRUE
 Description: This package is a collection of tools associated with the qdap
     package that may be useful outside of the context of text analysis.

@@ -8,6 +8,7 @@
 #' @return Places a copy of the downloaded document in the users working 
 #' directory.
 #' @export
+#' @importFrom RCurl getBinaryURL
 #' @examples
 #' \dontrun{
 #' ## Example 1 (download from Dropbox)
