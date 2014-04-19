@@ -11,3 +11,4 @@ inst/staticdocs
 inst/maintenance.R
 inst/extra_statdoc
 travis-tool.sh
+inst/web
