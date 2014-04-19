@@ -25,4 +25,4 @@ install_github("qdapTools", "trinker")
 
 ## Help
 [Web Page](http://trinker.github.com/qdapTools/)    
-[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/qdapTools.pdf)   
+[Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/qdapTools.pdf)   
