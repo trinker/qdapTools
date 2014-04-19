@@ -10,3 +10,4 @@ FAQ.html
 inst/staticdocs
 inst/maintenance.R
 inst/extra_statdoc
+travis-tool.sh
