@@ -9,7 +9,7 @@ library(highlight); library(qdap); library(staticdocs); library(acc.roxygen2)
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/qdapTools")
+build_site(pkg="C:/Users/trinker/GitHub/qdapTools", launch = FALSE)
 
 #STEP 2: reshape index
 path <- "inst/web"
@@ -17,8 +17,7 @@ path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdap/inst/extra_statdoc/readme.R"
 extras <- qcv("%ha%", "hash_look", "%l%", "%l+%")
 
-expand_statdoc(path2, to.icon = extras, readme = rdme, 
-    combine = qcv(character_table, char_table))
+expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 #x <- readLines(path2)
 #x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
@@ -55,8 +54,7 @@ path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdap/inst/extra_statdoc/readme.R"
 extras <- qcv("%ha%", "hash_look", "%l%", "%l+%")
 
-expand_statdoc(path2, to.icon = extras, readme = rdme, 
-    combine = qcv(character_table, char_table))
+expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 #x <- readLines(path2)
 #x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 

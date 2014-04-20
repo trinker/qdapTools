@@ -1,7 +1,7 @@
 library(staticdocs)
 
 sd_section("qdap Tools", 
-  "Tools to assist in transcript/discourse analysis.",
+  description="Tools for use in the qdap package.",
   c(
     "hash",
     "hms2sec",
