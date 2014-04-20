@@ -14,12 +14,8 @@ Download the [zip ball](https://github.com/trinker/qdapTools/zipball/master) or 
 # install.packages("devtools")
 
 library(devtools)
-install_github("qdapTools", "trinker")
+install_github("trinker/qdapTools")
 ```
-
-**Note**: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
-
-**Note**: Mac users may also be required to install the appropriate version of [XTools](https://developer.apple.com/xcode/) from the [Apple Developer site](https://developer.apple.com/) in order to install the development version.  You may need to [register as an Apple developer](https://developer.apple.com/programs/register/).  An older version of XTools may also be required.
 
 
 
