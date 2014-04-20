@@ -22,8 +22,10 @@ words vector.
 A dictionary lookup that maps words to colors.
 }
 \examples{
-set.seed(10)
-x <- data.frame(X1 = sample(Top25Words[1:10], 20, TRUE))
+x <- structure(list(X1 = structure(c(3L, 1L, 8L, 4L, 7L, 2L, 2L, 2L,
+    4L, 8L, 4L, 3L, 5L, 3L, 1L, 8L, 7L, 2L, 1L, 6L), .Label = c("a",
+    "and", "in", "is", "of", "that", "the", "to"), class = "factor")),
+    .Names = "X1", row.names = c(NA, -20L), class = "data.frame")
 
 #blue was recycled
 text2color(x$X1, c("the", "and", "is"), c("red", "green", "blue"))
