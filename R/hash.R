@@ -18,7 +18,6 @@
 #' @rdname hash
 #' @export
 #' @examples
-#' \dontrun{
 #' (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
 #' new.hash1 <- hash(DF)  #numeric outcome
 #' x <- sample(DF[, 1], 20, TRUE)
@@ -26,7 +25,6 @@
 #' 
 #' new.hash2 <- hash(DF, "character") #character outcome
 #' x %ha% new.hash2
-#' }
 hash <- 
 function(x, mode.out = "numeric") {
     hash2 <- function(x, mode.out) {

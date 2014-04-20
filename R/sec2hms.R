@@ -10,9 +10,7 @@
 #' @export
 #' @importFrom chron times
 #' @examples 
-#' \dontrun{
 #' sec2hms(c(256, 3456, 56565))
-#' }
 sec2hms <-
 function(x) {
     l1 <- FALSE

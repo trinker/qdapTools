@@ -13,7 +13,6 @@
 #' @author Vincent Zoonekynd and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @export
 #' @examples
-#' \dontrun{
 #' pooled.sd <- function(x, y) {
 #'     n1 <- length(x)
 #'     n2 <- length(y)
@@ -40,6 +39,7 @@
 #' v_outer(mtcars2, euc.dist)
 #' v_outer(mtcars2, sum2)
 #' 
+#' \dontrun{
 #' library(qdap)
 #' wc3 <- function(x, y) sum(sapply(list(x, y), wc, byrow = FALSE))
 #' L1 <- word_list(DATA$state, DATA$person)$cwl

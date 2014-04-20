@@ -38,7 +38,6 @@ returned from \code{hash}, to lookup values.
 \code{hash_look}.
 }
 \examples{
-\dontrun{
 (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
 new.hash1 <- hash(DF)  #numeric outcome
 x <- sample(DF[, 1], 20, TRUE)
@@ -46,7 +45,6 @@ hash_look(x, new.hash1)
 
 new.hash2 <- hash(DF, "character") #character outcome
 x \%ha\% new.hash2
-}
 }
 \author{
 Bryan Goodrich and Tyler Rinker <tyler.rinker@gmail.com>.

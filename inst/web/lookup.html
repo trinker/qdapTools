@@ -87,7 +87,94 @@ for when <code>key.match</code> is a data.frame or named list and
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # ## Supply a dataframe to key.match# # lookup(1:5, data.frame(1:4, 11:14))# # ## Retain original values for missing# lookup(1:5, data.frame(1:4, 11:14), missing=NULL)# # lookup(LETTERS[1:5], data.frame(LETTERS[1:5], 100:104))# # key &lt;- data.frame(x=1:2, y=c(&quot;A&quot;, &quot;B&quot;))# big.vec &lt;- sample(1:2, 3000000, T)# out &lt;- lookup(big.vec, key)# out[1:20]# # ## Supply a named list of vectors to key.match# # codes &lt;- list(#     A = c(1, 2, 4),#     B = c(3, 5),#     C = 7,#     D = c(6, 8:10)# )# # lookup(1:10, codes)# # ## Supply a single vector to key.match and key.assign# # lookup(mtcars$carb, sort(unique(mtcars$carb)),#     c(&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;six&#39;, &#39;eight&#39;))# # lookup(mtcars$carb, sort(unique(mtcars$carb)),#     seq(10, 60, by=10))# # ## A big string to recode with variation# ## means a bigger dictionary# recode_me &lt;- sample(1:(length(LETTERS)*10), 1000000, TRUE)# # ## Time it# tic &lt;- Sys.time()# # output &lt;- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)# difftime(Sys.time(), tic)# # ## view it# sample(output, 100)# # # ## %l%, a binary operator version of lookup# 1:5 %l% data.frame(1:4, 11:14)# 1:10 %l% codes# # 1:12 %l% codes# 1:12 %l+% codes# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>## Supply a dataframe to key.match
+
+lookup(1:5, data.frame(1:4, 11:14))
+</div>
+<div class='output'>[1] 11 12 13 14 NA
+</div>
+<div class='input'>
+## Retain original values for missing
+lookup(1:5, data.frame(1:4, 11:14), missing=NULL)
+</div>
+<div class='output'>[1] 11 12 13 14  5
+</div>
+<div class='input'>
+lookup(LETTERS[1:5], data.frame(LETTERS[1:5], 100:104))
+</div>
+<div class='output'>[1] 100 101 102 103 104
+</div>
+<div class='input'>
+## Supply a named list of vectors to key.match
+
+codes &lt;- list(
+    A = c(1, 2, 4),
+    B = c(3, 5),
+    C = 7,
+    D = c(6, 8:10)
+)
+
+lookup(1:10, codes)
+</div>
+<div class='output'> [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;D&quot; &quot;C&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot;
+</div>
+<div class='input'>
+## Supply a single vector to key.match and key.assign
+
+lookup(mtcars$carb, sort(unique(mtcars$carb)),
+    c(&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;six&#39;, &#39;eight&#39;))
+</div>
+<div class='output'> [1] &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;four&quot;  &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;four&quot;  &quot;three&quot; &quot;three&quot; &quot;three&quot;
+[15] &quot;four&quot;  &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;two&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;  
+[29] &quot;four&quot;  &quot;six&quot;   &quot;eight&quot; &quot;two&quot;  
+</div>
+<div class='input'>
+lookup(mtcars$carb, sort(unique(mtcars$carb)),
+    seq(10, 60, by=10))
+</div>
+<div class='output'> [1] 40 40 10 10 20 10 40 20 20 40 40 30 30 30 40 40 40 10 20 10 10 20 20 40 20 10 20 20 40 50 60 20
+</div>
+<div class='input'>
+## %l%, a binary operator version of lookup
+1:5 %l% data.frame(1:4, 11:14)
+</div>
+<div class='output'>[1] 11 12 13 14 NA
+</div>
+<div class='input'>1:10 %l% codes
+</div>
+<div class='output'> [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;D&quot; &quot;C&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot;
+</div>
+<div class='input'>
+1:12 %l% codes
+</div>
+<div class='output'> [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;D&quot; &quot;C&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; NA  NA 
+</div>
+<div class='input'>1:12 %l+% codes
+</div>
+<div class='output'> [1] &quot;A&quot;  &quot;A&quot;  &quot;B&quot;  &quot;A&quot;  &quot;B&quot;  &quot;D&quot;  &quot;C&quot;  &quot;D&quot;  &quot;D&quot;  &quot;D&quot;  &quot;11&quot; &quot;12&quot;
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# ##Larger Examples
+# key &lt;- data.frame(x=1:2, y=c(&quot;A&quot;, &quot;B&quot;))
+# big.vec &lt;- sample(1:2, 3000000, T)
+# out &lt;- lookup(big.vec, key)
+# out[1:20]
+# 
+# ## A big string to recode with variation
+# ## means a bigger dictionary
+# recode_me &lt;- sample(1:(length(LETTERS)*10), 1000000, TRUE)
+# 
+# ## Time it
+# tic &lt;- Sys.time()
+# 
+# output &lt;- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)
+# difftime(Sys.time(), tic)
+# 
+# ## view it
+# sample(output, 100)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>

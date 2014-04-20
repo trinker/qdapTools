@@ -21,7 +21,6 @@ Returns a matrix with the vectorized
 Vectorized \code{\link[base]{outer}}.
 }
 \examples{
-\dontrun{
 pooled.sd <- function(x, y) {
     n1 <- length(x)
     n2 <- length(y)
@@ -48,6 +47,7 @@ print(v_outer(mtcars[, 1:7], pooled.sd), digits = NULL)
 v_outer(mtcars2, euc.dist)
 v_outer(mtcars2, sum2)
 
+\dontrun{
 library(qdap)
 wc3 <- function(x, y) sum(sapply(list(x, y), wc, byrow = FALSE))
 L1 <- word_list(DATA$state, DATA$person)$cwl

@@ -14,7 +14,7 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools", launch = FALSE)
 #STEP 2: reshape index
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
-rdme <- "C:/Users/trinker/GitHub/qdap/inst/extra_statdoc/readme.R"
+rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
 extras <- qcv("%ha%", "hash_look", "%l%", "%l+%")
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
@@ -51,7 +51,7 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools")
 #STEP 2: reshape index
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
-rdme <- "C:/Users/trinker/GitHub/qdap/inst/extra_statdoc/readme.R"
+rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
 extras <- qcv("%ha%", "hash_look", "%l%", "%l+%")
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)

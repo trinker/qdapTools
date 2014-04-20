@@ -92,7 +92,30 @@ returned from <code>hash</code>, to lookup values.</p>
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # (DF &lt;- aggregate(mpg~as.character(carb), mtcars, mean))# new.hash1 &lt;- hash(DF)  #numeric outcome# x &lt;- sample(DF[, 1], 20, TRUE)# hash_look(x, new.hash1)# # new.hash2 &lt;- hash(DF, &quot;character&quot;) #character outcome# x %ha% new.hash2# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>(DF &lt;- aggregate(mpg~as.character(carb), mtcars, mean))
+</div>
+<div class='output'>  as.character(carb)      mpg
+1                  1 25.34286
+2                  2 22.40000
+3                  3 16.30000
+4                  4 15.79000
+5                  6 19.70000
+6                  8 15.00000
+</div>
+<div class='input'>new.hash1 &lt;- hash(DF)  #numeric outcome
+x &lt;- sample(DF[, 1], 20, TRUE)
+hash_look(x, new.hash1)
+</div>
+<div class='output'> [1] 15.00000 15.79000 19.70000 16.30000 16.30000 19.70000 15.00000 22.40000 19.70000 16.30000 15.79000 25.34286
+[13] 22.40000 15.00000 16.30000 19.70000 19.70000 15.00000 19.70000 15.79000
+</div>
+<div class='input'>
+new.hash2 &lt;- hash(DF, &quot;character&quot;) #character outcome
+x %ha% new.hash2
+</div>
+<div class='output'> [1] &quot;15.00000&quot; &quot;15.79000&quot; &quot;19.70000&quot; &quot;16.30000&quot; &quot;16.30000&quot; &quot;19.70000&quot; &quot;15.00000&quot; &quot;22.40000&quot; &quot;19.70000&quot; &quot;16.30000&quot;
+[11] &quot;15.79000&quot; &quot;25.34286&quot; &quot;22.40000&quot; &quot;15.00000&quot; &quot;16.30000&quot; &quot;19.70000&quot; &quot;19.70000&quot; &quot;15.00000&quot; &quot;19.70000&quot; &quot;15.79000&quot;
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>

@@ -14,9 +14,7 @@ Returns a vector of times in h:m:s format.
 Converts a vector of seconds to h:m:s.
 }
 \examples{
-\dontrun{
 sec2hms(c(256, 3456, 56565))
-}
 }
 \seealso{
 \code{\link[chron]{times}}, \code{\link[qdap]{hms2sec}}

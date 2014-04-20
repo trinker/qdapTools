@@ -9,10 +9,8 @@
 #' \code{\link[qdap]{sec2hms}}
 #' @export
 #' @examples 
-#' \dontrun{
 #' hms2sec(c("02:00:03", "04:03:01"))
 #' hms2sec(sec2hms(c(222, 1234, 55)))
-#' }
 hms2sec <- 
 function(x) {
     hms <- as.character(x)

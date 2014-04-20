@@ -63,7 +63,14 @@
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # hms2sec(c(&quot;02:00:03&quot;, &quot;04:03:01&quot;))# hms2sec(sec2hms(c(222, 1234, 55)))# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>hms2sec(c(&quot;02:00:03&quot;, &quot;04:03:01&quot;))
+</div>
+<div class='output'>[1]  7203 14581
+</div>
+<div class='input'>hms2sec(sec2hms(c(222, 1234, 55)))
+</div>
+<div class='output'>[1]  222 1234   55
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>

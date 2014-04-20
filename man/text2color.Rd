@@ -22,17 +22,15 @@ words vector.
 A dictionary lookup that maps words to colors.
 }
 \examples{
-\dontrun{
 set.seed(10)
 x <- data.frame(X1 = sample(Top25Words[1:10], 20, TRUE))
 
 #blue was recycled
-text2color(x$X1, qcv(the, and, is), qcv(red, green, blue))
-text2color(x$X1, qcv(the, and, is), qcv(red, green, blue, white))
-x$X2 <- text2color(x$X1, list(qcv(the, and, is), "that"),
-    qcv(red, green, white))
+text2color(x$X1, c("the", "and", "is"), c("red", "green", "blue"))
+text2color(x$X1, c("the", "and", "is"), c("red", "green", "blue", "white"))
+x$X2 <- text2color(x$X1, list(c("the", "and", "is"), "that"),
+    c("red", "green", "white"))
 x
-}
 }
 \seealso{
 \code{\link[qdap]{lookup}}

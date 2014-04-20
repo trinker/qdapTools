@@ -23,6 +23,7 @@ instructional training.
 \dontrun{
 ## Example 1 (download from Dropbox)
 # download transcript of the debate to working directory
+library(qdap)
 url_dl(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)
 
 # load multiple files with read transcript and assign to working directory

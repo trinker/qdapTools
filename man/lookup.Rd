@@ -42,7 +42,6 @@ for when \code{key.match} is a data.frame or named list and
 \code{missing} is assumed to be \code{NULL}.
 }
 \examples{
-\dontrun{
 ## Supply a dataframe to key.match
 
 lookup(1:5, data.frame(1:4, 11:14))
@@ -51,11 +50,6 @@ lookup(1:5, data.frame(1:4, 11:14))
 lookup(1:5, data.frame(1:4, 11:14), missing=NULL)
 
 lookup(LETTERS[1:5], data.frame(LETTERS[1:5], 100:104))
-
-key <- data.frame(x=1:2, y=c("A", "B"))
-big.vec <- sample(1:2, 3000000, T)
-out <- lookup(big.vec, key)
-out[1:20]
 
 ## Supply a named list of vectors to key.match
 
@@ -76,6 +70,20 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
 lookup(mtcars$carb, sort(unique(mtcars$carb)),
     seq(10, 60, by=10))
 
+## \%l\%, a binary operator version of lookup
+1:5 \%l\% data.frame(1:4, 11:14)
+1:10 \%l\% codes
+
+1:12 \%l\% codes
+1:12 \%l+\% codes
+
+\dontrun{
+##Larger Examples
+key <- data.frame(x=1:2, y=c("A", "B"))
+big.vec <- sample(1:2, 3000000, T)
+out <- lookup(big.vec, key)
+out[1:20]
+
 ## A big string to recode with variation
 ## means a bigger dictionary
 recode_me <- sample(1:(length(LETTERS)*10), 1000000, TRUE)
@@ -88,14 +96,6 @@ difftime(Sys.time(), tic)
 
 ## view it
 sample(output, 100)
-
-
-## \%l\%, a binary operator version of lookup
-1:5 \%l\% data.frame(1:4, 11:14)
-1:10 \%l\% codes
-
-1:12 \%l\% codes
-1:12 \%l+\% codes
 }
 }
 \seealso{

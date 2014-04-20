@@ -73,7 +73,167 @@ Vincent Zoonekynd and Tyler Rinker
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # pooled.sd &lt;- function(x, y) {#     n1 &lt;- length(x)#     n2 &lt;- length(y)#     s1 &lt;- sd(x)#     s2 &lt;- sd(y)#     sqrt(((n1-1)*s1 + (n2-1)*s2)/((n1-1) + (n2-1)))# }# # euc.dist &lt;- function(x,y) sqrt(sum((x - y) ^ 2))# sum2 &lt;- function(x, y) sum(x, y)# # v_outer(mtcars, cor)# v_outer(mtcars, pooled.sd)# v_outer(mtcars[, 1:7], euc.dist)# v_outer(mtcars[, 1:7], sum2)# # #mtcars as a list# mtcars2 &lt;- lapply(mtcars[, 1:7], &quot;[&quot;)# v_outer(mtcars2, cor)# v_outer(mtcars2, cor,  method = &quot;spearman&quot;)# v_outer(mtcars2, pooled.sd)# print(v_outer(mtcars[, 1:7], pooled.sd), digits = 1)# print(v_outer(mtcars[, 1:7], pooled.sd), digits = NULL)# v_outer(mtcars2, euc.dist)# v_outer(mtcars2, sum2)# # library(qdap)# wc3 &lt;- function(x, y) sum(sapply(list(x, y), wc, byrow = FALSE))# L1 &lt;- word_list(DATA$state, DATA$person)$cwl# (x &lt;- v_outer(L1, wc3))# diag(x) &lt;- (sapply(L1, length))# x# # ## Cosine similarity# cos_sim &lt;- function(x, y) x %*% y / sqrt(x%*%x * y%*%y)# mat &lt;- matrix(rbinom(500, 0:1, .45), ncol=10)# v_outer(mat, cos_sim)# # v_outer(with(DATA, wfm(state, person)), cos_sim)# with(DATA, Dissimilarity(state, person))# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>pooled.sd &lt;- function(x, y) {
+    n1 &lt;- length(x)
+    n2 &lt;- length(y)
+    s1 &lt;- sd(x)
+    s2 &lt;- sd(y)
+    sqrt(((n1-1)*s1 + (n2-1)*s2)/((n1-1) + (n2-1)))
+}
+
+euc.dist &lt;- function(x,y) sqrt(sum((x - y) ^ 2))
+sum2 &lt;- function(x, y) sum(x, y)
+
+v_outer(mtcars, cor)
+</div>
+<div class='output'>        mpg    cyl   disp     hp   drat     wt   qsec     vs     am   gear   carb
+mpg   1.000 -0.852 -0.848 -0.776  0.681 -0.868  0.419  0.664  0.600  0.480 -0.551
+cyl  -0.852  1.000  0.902  0.832 -0.700  0.782 -0.591 -0.811 -0.523 -0.493  0.527
+disp -0.848  0.902  1.000  0.791 -0.710  0.888 -0.434 -0.710 -0.591 -0.556  0.395
+hp   -0.776  0.832  0.791  1.000 -0.449  0.659 -0.708 -0.723 -0.243 -0.126  0.750
+drat  0.681 -0.700 -0.710 -0.449  1.000 -0.712  0.091  0.440  0.713  0.700 -0.091
+wt   -0.868  0.782  0.888  0.659 -0.712  1.000 -0.175 -0.555 -0.692 -0.583  0.428
+qsec  0.419 -0.591 -0.434 -0.708  0.091 -0.175  1.000  0.745 -0.230 -0.213 -0.656
+vs    0.664 -0.811 -0.710 -0.723  0.440 -0.555  0.745  1.000  0.168  0.206 -0.570
+am    0.600 -0.523 -0.591 -0.243  0.713 -0.692 -0.230  0.168  1.000  0.794  0.058
+gear  0.480 -0.493 -0.556 -0.126  0.700 -0.583 -0.213  0.206  0.794  1.000  0.274
+carb -0.551  0.527  0.395  0.750 -0.091  0.428 -0.656 -0.570  0.058  0.274  1.000
+</div>
+<div class='input'>v_outer(mtcars, pooled.sd)
+</div>
+<div class='output'>       mpg   cyl   disp    hp  drat    wt  qsec    vs    am  gear  carb
+mpg  2.455 1.976  8.061 6.107 1.811 1.872 1.977 1.807 1.806 1.839 1.955
+cyl  1.976 1.336  7.929 5.931 1.077 1.176 1.337 1.070 1.069 1.123 1.304
+disp 8.061 7.929 11.133 9.811 7.889 7.903 7.929 7.888 7.888 7.895 7.923
+hp   6.107 5.931  9.811 8.280 5.878 5.897 5.931 5.877 5.876 5.886 5.924
+drat 1.811 1.077  7.889 5.878 0.731 0.870 1.077 0.721 0.719 0.798 1.037
+wt   1.872 1.176  7.903 5.897 0.870 0.989 1.176 0.861 0.859 0.926 1.139
+qsec 1.977 1.337  7.929 5.931 1.077 1.176 1.337 1.070 1.069 1.124 1.304
+vs   1.807 1.070  7.888 5.877 0.721 0.861 1.070 0.710 0.708 0.788 1.029
+am   1.806 1.069  7.888 5.876 0.719 0.859 1.069 0.708 0.706 0.786 1.028
+gear 1.839 1.123  7.895 5.886 0.798 0.926 1.124 0.788 0.786 0.859 1.085
+carb 1.955 1.304  7.923 5.924 1.037 1.139 1.304 1.029 1.028 1.085 1.271
+</div>
+<div class='input'>v_outer(mtcars[, 1:7], euc.dist)
+</div>
+<div class='output'>          mpg      cyl     disp      hp     drat       wt     qsec
+mpg     0.000   89.326 1391.495 824.375   98.512  102.877   33.261
+cyl    89.326    0.000 1441.252 878.177   19.079   18.058   68.311
+disp 1391.495 1441.252    0.000 656.640 1459.404 1458.014 1390.078
+hp    824.375  878.177  656.640   0.000  895.520  895.374  826.067
+drat   98.512   19.079 1459.404 895.520    0.000    8.140   81.255
+wt    102.877   18.058 1458.014 895.374    8.140    0.000   83.655
+qsec   33.261   68.311 1390.078 826.067   81.255   83.655    0.000
+</div>
+<div class='input'>v_outer(mtcars[, 1:7], sum2)
+</div>
+<div class='output'>          mpg      cyl      disp        hp     drat       wt     qsec
+mpg  1285.800  840.900  8026.000  5336.900  757.990  745.852 1214.060
+cyl   840.900  396.000  7581.100  4892.000  313.090  300.952  769.160
+disp 8026.000 7581.100 14766.200 12077.100 7498.190 7486.052 7954.260
+hp   5336.900 4892.000 12077.100  9388.000 4809.090 4796.952 5265.160
+drat  757.990  313.090  7498.190  4809.090  230.180  218.042  686.250
+wt    745.852  300.952  7486.052  4796.952  218.042  205.904  674.112
+qsec 1214.060  769.160  7954.260  5265.160  686.250  674.112 1142.320
+</div>
+<div class='input'>
+#mtcars as a list
+mtcars2 &lt;- lapply(mtcars[, 1:7], &quot;[&quot;)
+v_outer(mtcars2, cor)
+</div>
+<div class='output'>        mpg    cyl   disp     hp   drat     wt   qsec
+mpg   1.000 -0.852 -0.848 -0.776  0.681 -0.868  0.419
+cyl  -0.852  1.000  0.902  0.832 -0.700  0.782 -0.591
+disp -0.848  0.902  1.000  0.791 -0.710  0.888 -0.434
+hp   -0.776  0.832  0.791  1.000 -0.449  0.659 -0.708
+drat  0.681 -0.700 -0.710 -0.449  1.000 -0.712  0.091
+wt   -0.868  0.782  0.888  0.659 -0.712  1.000 -0.175
+qsec  0.419 -0.591 -0.434 -0.708  0.091 -0.175  1.000
+</div>
+<div class='input'>v_outer(mtcars2, cor,  method = &quot;spearman&quot;)
+</div>
+<div class='output'>        mpg    cyl   disp     hp   drat     wt   qsec
+mpg   1.000 -0.911 -0.909 -0.895  0.651 -0.886  0.467
+cyl  -0.911  1.000  0.928  0.902 -0.679  0.858 -0.572
+disp -0.909  0.928  1.000  0.851 -0.684  0.898 -0.460
+hp   -0.895  0.902  0.851  1.000 -0.520  0.775 -0.667
+drat  0.651 -0.679 -0.684 -0.520  1.000 -0.750  0.092
+wt   -0.886  0.858  0.898  0.775 -0.750  1.000 -0.225
+qsec  0.467 -0.572 -0.460 -0.667  0.092 -0.225  1.000
+</div>
+<div class='input'>v_outer(mtcars2, pooled.sd)
+</div>
+<div class='output'>       mpg   cyl   disp    hp  drat    wt  qsec
+mpg  2.455 1.976  8.061 6.107 1.811 1.872 1.977
+cyl  1.976 1.336  7.929 5.931 1.077 1.176 1.337
+disp 8.061 7.929 11.133 9.811 7.889 7.903 7.929
+hp   6.107 5.931  9.811 8.280 5.878 5.897 5.931
+drat 1.811 1.077  7.889 5.878 0.731 0.870 1.077
+wt   1.872 1.176  7.903 5.897 0.870 0.989 1.176
+qsec 1.977 1.337  7.929 5.931 1.077 1.176 1.337
+</div>
+<div class='input'>print(v_outer(mtcars[, 1:7], pooled.sd), digits = 1)
+</div>
+<div class='output'>     mpg cyl disp  hp drat  wt qsec
+mpg  2.5 2.0  8.1 6.1  1.8 1.9  2.0
+cyl  2.0 1.3  7.9 5.9  1.1 1.2  1.3
+disp 8.1 7.9 11.1 9.8  7.9 7.9  7.9
+hp   6.1 5.9  9.8 8.3  5.9 5.9  5.9
+drat 1.8 1.1  7.9 5.9  0.7 0.9  1.1
+wt   1.9 1.2  7.9 5.9  0.9 1.0  1.2
+qsec 2.0 1.3  7.9 5.9  1.1 1.2  1.3
+</div>
+<div class='input'>print(v_outer(mtcars[, 1:7], pooled.sd), digits = NULL)
+</div>
+<div class='output'>          mpg      cyl      disp       hp      drat        wt     qsec
+mpg  2.454984 1.976470  8.061192 6.106956 1.8113016 1.8715509 1.976600
+cyl  1.976470 1.336384  7.928575 5.930801 1.0771723 1.1756656 1.336575
+disp 8.061192 7.928575 11.132776 9.810748 7.8890232 7.9030738 7.928608
+hp   6.106956 5.930801  9.810748 8.280270 5.8778205 5.8966654 5.930844
+drat 1.811302 1.077172  7.889023 5.877820 0.7312173 0.8698092 1.077409
+wt   1.871551 1.175666  7.903074 5.896665 0.8698092 0.9891701 1.175883
+qsec 1.976600 1.336575  7.928608 5.930844 1.0774094 1.1758828 1.336766
+</div>
+<div class='input'>v_outer(mtcars2, euc.dist)
+</div>
+<div class='output'>          mpg      cyl     disp      hp     drat       wt     qsec
+mpg     0.000   89.326 1391.495 824.375   98.512  102.877   33.261
+cyl    89.326    0.000 1441.252 878.177   19.079   18.058   68.311
+disp 1391.495 1441.252    0.000 656.640 1459.404 1458.014 1390.078
+hp    824.375  878.177  656.640   0.000  895.520  895.374  826.067
+drat   98.512   19.079 1459.404 895.520    0.000    8.140   81.255
+wt    102.877   18.058 1458.014 895.374    8.140    0.000   83.655
+qsec   33.261   68.311 1390.078 826.067   81.255   83.655    0.000
+</div>
+<div class='input'>v_outer(mtcars2, sum2)
+</div>
+<div class='output'>          mpg      cyl      disp        hp     drat       wt     qsec
+mpg  1285.800  840.900  8026.000  5336.900  757.990  745.852 1214.060
+cyl   840.900  396.000  7581.100  4892.000  313.090  300.952  769.160
+disp 8026.000 7581.100 14766.200 12077.100 7498.190 7486.052 7954.260
+hp   5336.900 4892.000 12077.100  9388.000 4809.090 4796.952 5265.160
+drat  757.990  313.090  7498.190  4809.090  230.180  218.042  686.250
+wt    745.852  300.952  7486.052  4796.952  218.042  205.904  674.112
+qsec 1214.060  769.160  7954.260  5265.160  686.250  674.112 1142.320
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# library(qdap)
+# wc3 &lt;- function(x, y) sum(sapply(list(x, y), wc, byrow = FALSE))
+# L1 &lt;- word_list(DATA$state, DATA$person)$cwl
+# (x &lt;- v_outer(L1, wc3))
+# diag(x) &lt;- (sapply(L1, length))
+# x
+# 
+# ## Cosine similarity
+# cos_sim &lt;- function(x, y) x %*% y / sqrt(x%*%x * y%*%y)
+# mat &lt;- matrix(rbinom(500, 0:1, .45), ncol=10)
+# v_outer(mat, cos_sim)
+# 
+# v_outer(with(DATA, wfm(state, person)), cos_sim)
+# with(DATA, Dissimilarity(state, person))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
