@@ -42,12 +42,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-            -121.494927,
-              38.582061
+              47.423961,
+               8.502419
         ]
       },
       "properties": {
-        "marker-symbol": "point",
+        "marker-symbol": "star",
         "name": "Kirill Müller",
         "contribution": "contributor",
         "entity": "cat",
