@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>lookup. qdapTools 0.0.1</title>
+<title>lookup. qdapTools 0.0.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.0.1</a>
+      <a class="brand" href="#">qdapTools 0.0.2</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -42,7 +42,8 @@
     <h2>Usage</h2>
     <pre><div>lookup(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
 <div>terms %l% key.match</div>
-<div>terms %l+% key.match</div></pre>
+<div>terms %l+% key.match</div>
+<div>terms %l*% key.match</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -83,6 +84,11 @@ for when <code>key.match</code> is a data.frame or named list.</p>
       <p><code>%l+%</code> - A binary operator version of <code>lookup</code>
 for when <code>key.match</code> is a data.frame or named list and
 <code>missing</code> is assumed to be <code>NULL</code>.</p>
+  
+      <p><code>%l*%</code> - A binary operator version of <code>lookup</code>
+for when <code>key.match</code> is a data.frame with a factor in
+column 2 and the expected output should be factor
+(<code>%l%</code> converts factor to character).</p>
   
     </div>
     
@@ -154,6 +160,19 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
 <div class='output'> [1] &quot;A&quot;  &quot;A&quot;  &quot;B&quot;  &quot;A&quot;  &quot;B&quot;  &quot;D&quot;  &quot;C&quot;  &quot;D&quot;  &quot;D&quot;  &quot;D&quot;  &quot;11&quot; &quot;12&quot;
 </div>
 <div class='input'>
+(key &lt;- data.frame(a=1:3, b=factor(paste0(&quot;l&quot;, 1:3))))
+</div>
+<div class='output'>  a  b
+1 1 l1
+2 2 l2
+3 3 l3
+</div>
+<div class='input'>1:3 %l*% key
+</div>
+<div class='output'>[1] l1 l2 l3
+Levels: l1 l2 l3
+</div>
+<div class='input'>
 ## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # ##Larger Examples
 # key &lt;- data.frame(x=1:2, y=c(&quot;A&quot;, &quot;B&quot;))
@@ -178,7 +197,7 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>%l+%</li><li>%l%</li><li>lookup</li>
+      <li>%l*%</li><li>%l+%</li><li>%l%</li><li>lookup</li>
     </ul>
     <ul>
       <li>dictionary,</li><li>hash,</li><li>lookup</li>

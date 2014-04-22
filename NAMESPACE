@@ -1,6 +1,7 @@
 S3method(print,v_outer)
 export("%ha%")
 export("%l%")
+export("%l*%")
 export("%l+%")
 export(hash)
 export(hash_look)

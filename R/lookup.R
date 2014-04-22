@@ -54,6 +54,9 @@
 #' 1:12 %l% codes
 #' 1:12 %l+% codes
 #'   
+#' (key <- data.frame(a=1:3, b=factor(paste0("l", 1:3))))
+#' 1:3 %l*% key
+#' 
 #' \dontrun{
 #' ##Larger Examples
 #' key <- data.frame(x=1:2, y=c("A", "B"))
@@ -145,3 +148,19 @@ recoder <- function(x, envr, missing){
 `%l+%` <- function(terms, key.match) {
     lookup(terms = terms, key.match = key.match, missing = NULL)
 }
+
+
+#' Hash/Dictionary Lookup
+#' 
+#' \code{\%l*\%} - A binary operator version of \code{lookup} 
+#' for when \code{key.match} is a data.frame with a factor in column 2 and
+#' the expected output should be factor (\code{\%l\%} converts
+#' factor to character).
+#'
+#' @export
+#' @rdname lookup
+`%l*%` <- function(terms, key.match) {
+    setNames(terms %ha% hash(key.match, class(key.match[[2L]])), NULL)
+}
+
+

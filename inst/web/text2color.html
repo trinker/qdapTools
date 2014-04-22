@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>text2color. qdapTools 0.0.1</title>
+<title>text2color. qdapTools 0.0.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.0.1</a>
+      <a class="brand" href="#">qdapTools 0.0.2</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -71,8 +71,10 @@ words vector.</p>
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>set.seed(10)
-x &lt;- data.frame(X1 = sample(Top25Words[1:10], 20, TRUE))
+    <pre class="examples"><div class='input'>x &lt;- structure(list(X1 = structure(c(3L, 1L, 8L, 4L, 7L, 2L, 2L, 2L,
+    4L, 8L, 4L, 3L, 5L, 3L, 1L, 8L, 7L, 2L, 1L, 6L), .Label = c(&quot;a&quot;,
+    &quot;and&quot;, &quot;in&quot;, &quot;is&quot;, &quot;of&quot;, &quot;that&quot;, &quot;the&quot;, &quot;to&quot;), class = &quot;factor&quot;)),
+    .Names = &quot;X1&quot;, row.names = c(NA, -20L), class = &quot;data.frame&quot;)
 
 #blue was recycled
 text2color(x$X1, c(&quot;the&quot;, &quot;and&quot;, &quot;is&quot;), c(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;))

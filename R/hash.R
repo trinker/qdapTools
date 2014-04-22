@@ -27,18 +27,18 @@
 #' x %ha% new.hash2
 hash <- 
 function(x, mode.out = "numeric") {
-    hash2 <- function(x, mode.out) {
-        evnt <- new.env(hash = TRUE, size = nrow(x), 
-            parent = emptyenv())
-        FUN <- paste0("as.", mode.out)
-        FUN <- match.fun(FUN)
-        apply(x, 1, function(col) {
-            assign(col[1], FUN(col[2]), envir = evnt)
-        })
-        evnt
-    }  
-    hash2(x, mode.out = mode.out)                                                                   
+    hash_help(x, mode.out = mode.out)                                                                   
 }
+
+hash_help <- function(x, mode.out) {
+    evnt <- new.env(hash = TRUE, size = nrow(x), 
+        parent = emptyenv())
+    outmode <- match.fun(paste0("as.", mode.out))
+    apply(x, 1, function(col) {
+        assign(col[1], outmode(col[2]), envir = evnt)
+    })
+    evnt
+} 
 
 #' Hash/Dictionary Lookup
 #' 

@@ -15,16 +15,16 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools", launch = FALSE)
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
-extras <- qcv("%ha%", "hash_look", "%l%", "%l+%")
+extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%")
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
-#x <- readLines(path2)
-#x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
-#    rep("<h2>Contributor</h2>", 2)),
-#    c("Tyler W. Rinker", "Dason Kurkiewicz", "Bryan Goodrich"))
-#
-#cat(paste(x, collapse="\n"), file=path2)
+x <- readLines(path2)
+x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
+    rep("<h2>Contributor</h2>", 3)),
+    c("Tyler W. Rinker", "Dason Kurkiewicz", "Bryan Goodrich", "Kirill M&uuml;ller"))
+
+cat(paste(x, collapse="\n"), file=path2)
 
 
 #STEP 3: move to trinker.guthub
@@ -52,16 +52,16 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools")
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
-extras <- qcv("%ha%", "hash_look", "%l%", "%l+%")
+extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%")
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
-#x <- readLines(path2)
-#x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
-#    rep("<h2>Contributor</h2>", 2)),
-#    c("Tyler W. Rinker", "Dason Kurkiewicz", "Bryan Goodrich"))
-#
-#cat(paste(x, collapse="\n"), file=path2)
+x <- readLines(path2)
+x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
+    rep("<h2>Contributor</h2>", 3)),
+    c("Tyler W. Rinker", "Dason Kurkiewicz", "Bryan Goodrich", "Kirill M&uuml;ller"))
+
+cat(paste(x, collapse="\n"), file=path2)
 
 
 #STEP 3: move to trinker.guthub
