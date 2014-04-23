@@ -20,11 +20,11 @@ qdapTools 0.0.2
 ----------------------------------------------------------------
 
 
-&lt;b&gt;BUG FIXES&lt;/b&gt;
+**BUG FIXES**
 
-&lt;b&gt;NEW FEATURES&lt;/b&gt;
+**NEW FEATURES**
 
-&lt;b&gt;MINOR FEATURES&lt;/b&gt;
+**MINOR FEATURES**
 
 * `%l*%` added as a beinary operator form of `lookup` that returns a factor when 
   one is supplied in column 2 of the `key.match` `data.frame` supplied. 
@@ -33,7 +33,7 @@ qdapTools 0.0.2
 
 IMPROVEMENTS
 
-&lt;b&gt;CHANGES&lt;/b&gt;
+**CHANGES**
 
 qdapTools 0.0.1
 ----------------------------------------------------------------
