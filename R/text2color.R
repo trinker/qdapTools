@@ -5,7 +5,7 @@
 #' @param words A vector of words.
 #' @param recode.words A vector of unique words or a list of unique word vectors 
 #' that will be matched against corresponding colors.
-#' @param colors A vector of colors of equal in length to recode.words + 1(the 
+#' @param colors A vector of colors of equal in length to recode.words +1 (the 
 #' +1 is for unmatched words).
 #' @return Returns a vector of mapped colors equal in length to the words vector.
 #' @seealso \code{\link[qdap]{lookup}}

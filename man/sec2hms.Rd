@@ -17,7 +17,8 @@ Converts a vector of seconds to h:m:s.
 sec2hms(c(256, 3456, 56565))
 }
 \seealso{
-\code{\link[chron]{times}}, \code{\link[qdap]{hms2sec}}
+\code{\link[chron]{times}},
+\code{\link[qdapTools]{hms2sec}}
 }
 \keyword{conversion}
 \keyword{time,}

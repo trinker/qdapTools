@@ -12,7 +12,7 @@ text2color(words, recode.words, colors)
   corresponding colors.}
 
   \item{colors}{A vector of colors of equal in length to
-  recode.words + 1(the +1 is for unmatched words).}
+  recode.words +1 (the +1 is for unmatched words).}
 }
 \value{
 Returns a vector of mapped colors equal in length to the

@@ -6,7 +6,7 @@
 #' @return Returns a vector of times in h:m:s format.  
 #' @keywords time, conversion
 #' @seealso \code{\link[chron]{times}},
-#' \code{\link[qdap]{hms2sec}}
+#' \code{\link[qdapTools]{hms2sec}}
 #' @export
 #' @importFrom chron times
 #' @examples 

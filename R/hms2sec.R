@@ -6,7 +6,7 @@
 #' @return Returns a vector of times in seconds.  
 #' @keywords time, conversion
 #' @seealso \code{\link[chron]{times}},
-#' \code{\link[qdap]{sec2hms}}
+#' \code{\link[qdapTools]{sec2hms}}
 #' @export
 #' @examples 
 #' hms2sec(c("02:00:03", "04:03:01"))

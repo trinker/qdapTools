@@ -80,9 +80,9 @@ Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
       
       <p>Allows uploading a local repository to GitHub without first
 creating the repository in the clouds.
-<code><a href='http://www.inside-r.org/r-doc/qdap/repo2github'>repo2github</a></code> is designed for the initial
-push to GitHub.  Future pushes can be handled via RStudio
-or other git interface.</p>
+<code>repo2github</code> is designed for the
+initial push to GitHub.  Future pushes can be handled via
+RStudio or other git interface.</p>
   
     </div>
 
@@ -112,10 +112,10 @@ correct root directory/name to these arguments.</p>
       <p>For Windows users this function creates a temporary
   _netrc file in the home directory and attempts to delete
   this file.  The _netrc contains username and password
-  information for GitHub. <code><a href='http://www.inside-r.org/r-doc/qdap/repo2github'>repo2github</a></code>
-  attempts to delete this file but care should be taken.
-  The file is created in: 
-  <code>file.path(Sys.getenv()["HOME"],
+  information for GitHub.
+  <code>repo2github</code> attempts to delete
+  this file but care should be taken.  The file is created
+  in:  <code>file.path(Sys.getenv()["HOME"],
   "DELETE_ME_REPORTS_PACKAGE/_nectrc")</code>.</p>
   
     </div>

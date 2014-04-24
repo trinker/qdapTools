@@ -1,7 +1,7 @@
 #' Upload a Local Repo to GitHub 
 #' 
 #' Allows uploading a local repository to GitHub without first creating the 
-#' repository in the clouds. \code{\link[qdap]{repo2github}} is designed for 
+#' repository in the clouds. \code{\link[qdapTools]{repo2github}} is designed for 
 #' the initial push to GitHub.  Future pushes can be handled via RStudio or 
 #' other git interface.
 #' 
@@ -21,7 +21,7 @@
 #' @section Warning: For Windows users this function creates a temporary _netrc 
 #' file in the home directory and attempts to delete this file.  The _netrc 
 #' contains username and password information for GitHub. 
-#' \code{\link[qdap]{repo2github}} attempts to delete this file but care 
+#' \code{\link[qdapTools]{repo2github}} attempts to delete this file but care 
 #' should be taken.  The file is created in: \cr
 #' \code{file.path(Sys.getenv()["HOME"], "DELETE_ME_REPORTS_PACKAGE/_nectrc")}.
 #' @details The arguments \code{project.dir} and \code{repo} use 
