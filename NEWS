@@ -35,9 +35,9 @@ qdapTools 0.0.2
 
 First push to CRAN.
 
-* `%l*%` added as a beinary operator form of `lookup` that returns a factor when 
+* `%l*%` added as a binary operator form of `lookup` that returns a factor when 
   one is supplied in column 2 of the `key.match` `data.frame` supplied. 
-  Suggestion by Kirill Müller see: 
+  Suggestion by Kirill Muller see: 
   https://github.com/trinker/qdap/issues/167#issuecomment-41009219
 
 qdapTools 0.0.1
