@@ -6,11 +6,11 @@ citEntry(entry = "manual",
     author = "Tyler W. Rinker",
     organization = "University at Buffalo/SUNY",
     address = "Buffalo, New York",
-    note = "version 0.0.2",
+    note = "version 0.0.3",
     year = "2014",
     url = "http://github.com/trinker/qdapTools", 
     textVersion  = paste("Rinker, T. W. (2014).",
         "qdapTools: Tools to Accompany the qdap Package.",
-        "version 0.0.2. University at Buffalo. Buffalo, New York.",
+        "version 0.0.3. University at Buffalo. Buffalo, New York.",
         "http://github.com/trinker/qdapTools")
 )

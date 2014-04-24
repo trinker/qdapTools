@@ -2,7 +2,7 @@
 #' 
 #' Allows uploading a local repository to GitHub without first creating the 
 #' repository in the clouds. \code{\link[qdap]{repo2github}} is designed for 
-#' the initial push to github.  Future pushes can be handled via RStudio or 
+#' the initial push to GitHub.  Future pushes can be handled via RStudio or 
 #' other git interface.
 #' 
 #' @param password GitHub user password (character string).  If this is not 
@@ -20,12 +20,12 @@
 #' \url{http://stackoverflow.com/a/18692400/1000343}
 #' @section Warning: For Windows users this function creates a temporary _netrc 
 #' file in the home directory and attempts to delete this file.  The _netrc 
-#' contains username and password information for github. 
+#' contains username and password information for GitHub. 
 #' \code{\link[qdap]{repo2github}} attempts to delete this file but care 
 #' should be taken.  The file is created in: \cr
 #' \code{file.path(Sys.getenv()["HOME"], "DELETE_ME_REPORTS_PACKAGE/_nectrc")}.
 #' @details The arguments \code{project.dir} and \code{repo} use 
-#' \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
+#' \code{\link[base]{getwd}}.  This assumes is the current working directory is 
 #' the root directory and is done for convenience.  The user should ensure that 
 #' either their working directory is the root directory or supply the correct 
 #' root directory/name to these arguments.

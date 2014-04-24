@@ -13,3 +13,4 @@ inst/extra_statdoc
 travis-tool.sh
 inst/web
 contributors.geojson
+inst/build.R
