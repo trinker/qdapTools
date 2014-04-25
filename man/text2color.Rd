@@ -35,7 +35,7 @@ x$X2 <- text2color(x$X1, list(c("the", "and", "is"), "that"),
 x
 }
 \seealso{
-\code{\link[qdap]{lookup}}
+\code{\link[Tools]{lookup}}
 }
 \keyword{color,}
 \keyword{dictionary}
