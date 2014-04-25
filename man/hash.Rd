@@ -53,7 +53,8 @@ Bryan Goodrich and Tyler Rinker <tyler.rinker@gmail.com>.
 \url{http://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary}
 }
 \seealso{
-\code{\link[qdap]{lookup}}, \code{\link[base]{environment}}
+\code{\link[qdapTools]{lookup}},
+\code{\link[base]{environment}}
 }
 \keyword{dictionary,}
 \keyword{hash,}

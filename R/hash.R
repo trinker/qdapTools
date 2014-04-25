@@ -11,7 +11,7 @@
 #' @return Creates a "hash table", a two column data frame in its own 
 #' environment.  
 #' @author Bryan Goodrich and Tyler Rinker <tyler.rinker@@gmail.com>.
-#' @seealso \code{\link[qdap]{lookup}},
+#' @seealso \code{\link[qdapTools]{lookup}},
 #' \code{\link[base]{environment}}
 #' @references \url{http://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary}
 #' @keywords hash, dictionary, lookup
