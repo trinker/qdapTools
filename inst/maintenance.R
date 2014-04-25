@@ -9,7 +9,7 @@ source("inst/build.R")
 #packages
 # library(devtools); install_github("staticdocs", "hadley")
 # install_github("acc.roxygen2", "trinker");install.packages("rstudioapi")
-library(highlight); library(qdap); library(staticdocs); library(acc.roxygen2)
+library(highlight);  library(staticdocs); 
 
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
@@ -20,6 +20,7 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools", launch = FALSE)
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
+library(acc.roxygen2); library(qdap);
 extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%")
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
@@ -46,7 +47,7 @@ file.rename(file.path(file, "web"), incoming)
 #packages
 # library(devtools); install_github("staticdocs", "hadley")
 # install_github("acc.roxygen2", "trinker"); install.packages("rstudioapi")
-library(highlight); library(qdap); library(staticdocs); library(acc.roxygen2)
+library(highlight);library(staticdocs); 
 
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
@@ -57,6 +58,7 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools")
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
+library(acc.roxygen2); library(qdap);
 extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%")
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
