@@ -8,7 +8,7 @@
 #' @param colors A vector of colors of equal in length to recode.words +1 (the 
 #' +1 is for unmatched words).
 #' @return Returns a vector of mapped colors equal in length to the words vector.
-#' @seealso \code{\link[Tools]{lookup}}
+#' @seealso \code{\link[qdapTools]{lookup}}
 #' @keywords color, lookup, recode, dictionary
 #' @export
 #' @examples
