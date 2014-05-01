@@ -16,10 +16,23 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-qdapTools 0.0.3
+qdapTools 0.0.4
 ----------------------------------------------------------------
 
 BUG FIXES
+
+NEW FEATURES
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
+
+
+
+qdapTools 0.0.3
+----------------------------------------------------------------
 
 NEW FEATURES
 
@@ -28,12 +41,6 @@ NEW FEATURES
 
 * `pad` a convenience wrapper for `sprintf` that pads the front end of strings 
   with spaces or 0s.
-
-MINOR FEATURES
-
-IMPROVEMENTS
-
-CHANGES
 
 
 qdapTools 0.0.2

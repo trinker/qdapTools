@@ -16,7 +16,7 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-qdapTools 0.0.3
+qdapTools 0.0.4
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -28,6 +28,19 @@ qdapTools 0.0.3
 IMPROVEMENTS
 
 **CHANGES**
+
+
+
+qdapTools 0.0.3
+----------------------------------------------------------------
+
+**NEW FEATURES**
+
+* `id` a function to generate a sequence of integers the `length`/`nrow` of an 
+  object.
+
+* `pad` a convenience wrapper for `sprintf` that pads the front end of strings 
+  with spaces or 0s.
 
 
 qdapTools 0.0.2
