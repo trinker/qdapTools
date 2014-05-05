@@ -87,7 +87,7 @@ function(x, FUN, ...){
 #' @param digits Number of decimal places to print. 
 #' @param \ldots ignored
 #' @method print v_outer
-#' @S3method print v_outer
+#' @export
 print.v_outer <-
 function(x, digits = 3, ...) {
     WD <- options()[["width"]]
