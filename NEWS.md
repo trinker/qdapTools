@@ -21,7 +21,7 @@ qdapTools 0.1.0
 ----------------------------------------------------------------
 
 This release moves the `list2df` family of functions from `qdap` to <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a>.  
-This completes the process of moving generic `qdap` tools into a separate the
+This completes the process of moving generic `qdap` tools into a separate 
 qdapTools package.
 
 **CHANGES**
