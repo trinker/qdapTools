@@ -12,11 +12,10 @@
 #' @export
 #' @rdname list2df
 #' @examples
-#' \dontrun{
 #' lst1 <- list(x=c("foo", "bar"), y=1:5)
 #' list2df(lst1)
 #' 
-#' lst2 <- list(a=qcv(hello, everybody), b = mtcars[1:6, 1])
+#' lst2 <- list(a=c("hello", "everybody"), b = mtcars[1:6, 1])
 #' list2df(lst2, "col 1", "col 2")
 #' 
 #' matrix2df(mtcars)
@@ -31,11 +30,14 @@
 #' L1 <- list(a=1:10, b=1:6, c=5:8)
 #' list_vect2df(L1)
 #' 
+#' \dontrun{
+#' library(qdap)
 #' term <- c("the ", "she", " wh")
 #' (out <- with(raj.act.1,  termco(dialogue, person, term)))
 #' x <- counts(out)
 #' 
 #' counts2list(x[, -c(1:2)], x[, 1])
+#' }
 #' 
 #' vect2list(LETTERS[1:10])
 #' vect2list(LETTERS[1:10], numbered.names = TRUE)
@@ -43,7 +45,6 @@
 #' vect2list(x)
 #' vect2list(x, FALSE)
 #' vect2list(x, FALSE, TRUE)
-#' }
 list2df <- function(list.object, col1 = "X1", col2 = "X2") {
 
     ## Make sure the vectors have names; if not use numbers

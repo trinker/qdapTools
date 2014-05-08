@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>pad. qdapTools 0.0.4</title>
+<title>pad. qdapTools 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.0.4</a>
+      <a class="brand" href="#">qdapTools 0.1.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -47,35 +47,35 @@
       <dt>x</dt>
       <dd>A character, factor, numeric vector.</dd>
       <dt>padding</dt>
-      <dd>Number of characters to pad.  Default
-  makes all elements of a string the number of characters
-  of the element with the maximum characters.</dd>
+      <dd>Number of characters to pad.  Default makes all elements of a
+string the number of characters of the element with the maximum characters.</dd>
       <dt>sort</dt>
-      <dd>logical.  If <code>TRUE</code> the outcome is
-  sorted.</dd>
+      <dd>logical.  If <code>TRUE</code> the outcome is sorted.</dd>
       <dt>type</dt>
-      <dd>A character string of <code>"detect"</code>,
-  <code>"numeric"</code>, <code>"character"</code>, <code>"d"</code> or
-  <code>"s"</code>.  If numeric zeros are padded. If character
-  spaces are padded.  The <code>detect</code> attempts to
-  determine if x is numeric (d) or not (s).</dd>
+      <dd>A character string of <code>"detect"</code>, <code>"numeric"</code>,
+<code>"character"</code>, <code>"d"</code> or <code>"s"</code>.  If numeric zeros are padded.
+If character spaces are padded.  The <code>detect</code> attempts to determine if x
+is numeric (d) or not (s).</dd>
     </dl>
     
+    <div class="Pad Strings">
+      <h2>Pad Strings</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Returns a character vector every element padded with
-0/spaces.</p>
+      <p>Returns a character vector every element padded with 0/spaces.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>A convenience wrapper for <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> that
-pads the front end of strings with spaces or 0s. Useful for
-creating multiple uniform directories that will maintain
-correct order.</p>
+      <p>A convenience wrapper for <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> that pads the front end
+of strings with spaces or 0s. Useful for creating multiple uniform directories
+that will maintain correct order.</p>
   
     </div>
     
@@ -86,7 +86,7 @@ correct order.</p>
 </div>
 <div class='input'>pad(sample(1:10, 10), sort=FALSE)
 </div>
-<div class='output'> [1] &quot;05&quot; &quot;02&quot; &quot;09&quot; &quot;06&quot; &quot;08&quot; &quot;03&quot; &quot;07&quot; &quot;10&quot; &quot;04&quot; &quot;01&quot;
+<div class='output'> [1] &quot;02&quot; &quot;01&quot; &quot;05&quot; &quot;07&quot; &quot;08&quot; &quot;10&quot; &quot;03&quot; &quot;06&quot; &quot;09&quot; &quot;04&quot;
 </div>
 <div class='input'>pad(as.character(sample(1:10, 10)))
 </div>
@@ -94,7 +94,7 @@ correct order.</p>
 </div>
 <div class='input'>pad(as.character(sample(1:10, 10)), sort=FALSE)
 </div>
-<div class='output'> [1] &quot;10&quot; &quot; 2&quot; &quot; 5&quot; &quot; 7&quot; &quot; 1&quot; &quot; 4&quot; &quot; 8&quot; &quot; 9&quot; &quot; 3&quot; &quot; 6&quot;
+<div class='output'> [1] &quot; 8&quot; &quot;10&quot; &quot; 9&quot; &quot; 1&quot; &quot; 2&quot; &quot; 5&quot; &quot; 3&quot; &quot; 4&quot; &quot; 6&quot; &quot; 7&quot;
 </div>
 <div class='input'>pad(as.character(sample(1:10, 10)), 4)
 </div>

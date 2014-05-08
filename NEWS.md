@@ -16,16 +16,13 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-qdapTools 0.0.4
+
+qdapTools 0.1.0
 ----------------------------------------------------------------
 
-**BUG FIXES**
-
-**NEW FEATURES**
-
-**MINOR FEATURES**
-
-**IMPROVEMENTS**
+This release moves the `list2df` family of functions from `qdap` to <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a>.  
+This completes the process of moving generic `qdap` tools into a separate the
+qdapTools package.
 
 **CHANGES**
 

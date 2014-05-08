@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>lookup. qdapTools 0.0.4</title>
+<title>lookup. qdapTools 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.0.4</a>
+      <a class="brand" href="#">qdapTools 0.1.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -50,21 +50,24 @@
       <dt>terms</dt>
       <dd>A vector of terms to undergo a lookup.</dd>
       <dt>key.match</dt>
-      <dd>Takes one of the following: (1) a two
-  column data.frame of a match key and reassignment column,
-  (2) a named list of vectors (Note: if data.frame or named
-  list supplied no key reassign needed) or (3) a single
-  vector match key.</dd>
+      <dd>Takes one of the following: (1) a two column data.frame of a
+match key and reassignment column, (2) a named list of vectors (Note: if
+data.frame or named list supplied no key reassign needed) or (3) a single
+vector match key.</dd>
       <dt>key.reassign</dt>
-      <dd>A single reassignment vector supplied
-  if key.match is not a two column data.frame/named list.</dd>
+      <dd>A single reassignment vector supplied if key.match is
+not a two column data.frame/named list.</dd>
       <dt>missing</dt>
-      <dd>Value to assign to terms not matching the
-  key.match.  If set to <code>NULL</code> the original values in
-  <code>terms</code> corresponding to the missing elements are
-  retained.</dd>
+      <dd>Value to assign to terms not matching the key.match.  If set
+to <code>NULL</code> the original values in <code>terms</code> corresponding to the
+missing elements are retained.</dd>
     </dl>
     
+    <div class="Hash Table/Dictionary Lookup">
+      <h2>Hash Table/Dictionary Lookup</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
@@ -75,20 +78,19 @@
     <div class="Description">
       <h2>Description</h2>
       
-      <p><code>lookup</code> - Environment based hash table useful for
-large vector lookups.</p>
+      <p><code>lookup</code> - Environment based hash table useful for large vector lookups.</p>
   
       <p><code>%l%</code> - A binary operator version of <code>lookup</code>
 for when <code>key.match</code> is a data.frame or named list.</p>
   
       <p><code>%l+%</code> - A binary operator version of <code>lookup</code>
-for when <code>key.match</code> is a data.frame or named list and
-<code>missing</code> is assumed to be <code>NULL</code>.</p>
+for when <code>key.match</code> is a data.frame or named list and <code>missing</code> is
+assumed to be <code>NULL</code>.</p>
   
       <p><code>%l*%</code> - A binary operator version of <code>lookup</code>
-for when <code>key.match</code> is a data.frame with a factor in
-column 2 and the expected output should be factor
-(<code>%l%</code> converts factor to character).</p>
+for when <code>key.match</code> is a data.frame with a factor in column 2 and
+the expected output should be factor (<code>%l%</code> converts
+factor to character).</p>
   
     </div>
     

@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>repo2github. qdapTools 0.0.4</title>
+<title>repo2github. qdapTools 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
-Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
-&lt;tyler.rinker@gmail.com&gt;
+Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;
 ">
 
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -23,7 +22,7 @@ Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.0.4</a>
+      <a class="brand" href="#">qdapTools 0.1.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -48,26 +47,27 @@ Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
     <h2>Arguments</h2>
     <dl>
       <dt>password</dt>
-      <dd>GitHub user password (character string).
-  If this is not supplied the user will be prompted to
-  enter a password.</dd>
+      <dd>GitHub user password (character string).  If this is not
+supplied the user will be prompted to enter a password.</dd>
       <dt>project.dir</dt>
-      <dd>The path to the root directory of the
-  report/presentation.</dd>
+      <dd>The path to the root directory of the report/presentation.</dd>
       <dt>repo</dt>
-      <dd>A character string naming the repo; default
-  attempts to use the report project directory name.</dd>
+      <dd>A character string naming the repo; default attempts to use the
+report project directory name.</dd>
       <dt>github.user</dt>
       <dd>GitHub user name (character string).</dd>
       <dt>gitpath</dt>
-      <dd>Path to the location of git.  If
-  <code>NULL</code> <code>repo2github</code> will attempt to locate the
-  path if necessary.</dd>
+      <dd>Path to the location of git.  If <code>NULL</code>
+<code>repo2github</code> will attempt to locate the path if necessary.</dd>
       <dt>readme</dt>
-      <dd>logical.  If <code>TRUE</code> repo initializes
-  with a README.md file.</dd>
+      <dd>logical.  If <code>TRUE</code> repo initializes with a README.md file.</dd>
     </dl>
     
+    <div class="Upload a Local Repo to GitHub">
+      <h2>Upload a Local Repo to GitHub</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
@@ -78,11 +78,10 @@ Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Allows uploading a local repository to GitHub without first
-creating the repository in the clouds.
-<code>repo2github</code> is designed for the
-initial push to GitHub.  Future pushes can be handled via
-RStudio or other git interface.</p>
+      <p>Allows uploading a local repository to GitHub without first creating the
+repository in the clouds. <code>repo2github</code> is designed for
+the initial push to GitHub.  Future pushes can be handled via RStudio or
+other git interface.</p>
   
     </div>
 
@@ -90,33 +89,30 @@ RStudio or other git interface.</p>
       <h2>Details</h2>
       
       <p>The arguments <code>project.dir</code> and <code>repo</code> use
-<code><a href='http://www.inside-r.org/r-doc/base/getwd'>getwd</a></code>.  This assumes is the current
-working directory is the root directory and is done for
-convenience.  The user should ensure that either their
-working directory is the root directory or supply the
-correct root directory/name to these arguments.</p>
+<code><a href='http://www.inside-r.org/r-doc/base/getwd'>getwd</a></code>.  This assumes is the current working directory is
+the root directory and is done for convenience.  The user should ensure that
+either their working directory is the root directory or supply the correct
+root directory/name to these arguments.</p>
   
     </div>
 
     <div class="Note">
       <h2>Note</h2>
       
-      <p>The user will need to have a
-<a href = 'https://github.com/'>GitHub</a> account established.</p>
+      <p>The user will need to have a <a href = 'https://github.com/'>GitHub</a> account
+established.</p>
   
     </div>
 
     <div class="Warning">
       <h2>Warning</h2>
       
-      <p>For Windows users this function creates a temporary
-  _netrc file in the home directory and attempts to delete
-  this file.  The _netrc contains username and password
-  information for GitHub.
-  <code>repo2github</code> attempts to delete
-  this file but care should be taken.  The file is created
-  in:  <code>file.path(Sys.getenv()["HOME"],
-  "DELETE_ME_REPORTS_PACKAGE/_nectrc")</code>.</p>
+      <p>For Windows users this function creates a temporary _netrc
+file in the home directory and attempts to delete this file.  The _netrc
+contains username and password information for GitHub.
+<code>repo2github</code> attempts to delete this file but care
+should be taken.  The file is created in: 
+<code>file.path(Sys.getenv()["HOME"], "DELETE_ME_REPORTS_PACKAGE/_nectrc")</code>.</p>
   
     </div>
 
@@ -124,8 +120,7 @@ correct root directory/name to these arguments.</p>
       <h2>Suggestion</h2>
       
       <p>The user may want to set <code><a href='http://www.inside-r.org/r-doc/base/options'>options</a></code> for
-  <code>github.user</code> in the user's primary
-  <code>.Rprofile</code>.</p>
+<code>github.user</code> in the user's primary <code>.Rprofile</code>.</p>
   
     </div>
 
@@ -151,8 +146,7 @@ correct root directory/name to these arguments.</p>
     
     <h2>Author</h2>
     
-Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
-<tyler.rinker@gmail.com>
+Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@gmail.com>
 
     
   </div>

@@ -25,6 +25,18 @@
 #' 
 #' new.hash2 <- hash(DF, "character") #character outcome
 #' x %ha% new.hash2
+#' 
+#' ## Create generic functions
+#' hfun <- function(x, ...) {
+#'     hsh <- hash(x, ...)
+#'     function(x, ...) hash_look(x, hsh, ...)
+#' }
+#' 
+#' m <- hfun(DF)
+#' m(x)
+#' 
+#' m <- hfun(DF, "character")
+#' m(x)
 hash <- 
 function(x, mode.out = "numeric") {
     hash_help(x, mode.out = mode.out)                                                                   
