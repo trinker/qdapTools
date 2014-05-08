@@ -181,7 +181,6 @@ counts2list <- function(mat, nm = rownames(mat)) {
 #' 
 #' \code{vect2list} - Convert a vector to a named list.
 #' 
-#' @param vector.object A vector object.
 #' @param use.names logical.  If \code{TRUE} and the vector is named, these 
 #' names will be transferred to the list names.
 #' @param numbered.names logical.  If \code{TRUE} padded numbers will be used

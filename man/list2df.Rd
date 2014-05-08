@@ -55,8 +55,6 @@ columns.}
 
 \item{nm}{A character vector of names to assign to the list.}
 
-\item{vector.object}{A vector object.}
-
 \item{use.names}{logical.  If \code{TRUE} and the vector is named, these
 names will be transferred to the list names.}
 
