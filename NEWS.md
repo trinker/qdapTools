@@ -29,6 +29,10 @@ qdapTools 0.0.4
 
 **CHANGES**
 
+* The `list2df` family of functions have been moved from `qdap` to `qdapTools`.
+  These functions include: `list2df`, `matrix2df`, `vect2df`, `list_df2df`, 
+  `list_vect2df`, `counts2list`, & `vect2list`.
+
 
 
 qdapTools 0.0.3
