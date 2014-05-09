@@ -17,6 +17,25 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+
+qdapTools 0.1.1
+----------------------------------------------------------------
+
+BUG FIXES
+
+NEW FEATURES
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+* `lookup` and `hash_look` family of functions gains a major speed boost thanks 
+  to @Arun Srinivasan.  See: https://gist.github.com/arunsrinivasan/ee2d9ef43bdc02c32958
+
+CHANGES
+
+
+
 qdapTools 0.1.0
 ----------------------------------------------------------------
 

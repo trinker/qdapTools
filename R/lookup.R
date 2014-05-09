@@ -83,7 +83,7 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
     if (is.matrix(key.match)) {
         key.match <- data.frame(key.match)
     }
-	
+
     if (is.list(key.match)) {
         if (!is.data.frame(key.match)) {
             key.match <- list2df(key.match) 
@@ -102,29 +102,24 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
         DF <- data.frame(as.character(key.match), key.reassign, 
             stringsAsFactors = FALSE)   
     }
+
+    hits <- which(!is.na(match(terms, DF[, 1])))
+    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
 	
     KEY <- hash(DF, mode.out = mode.out)   
-	
-    if (is.null(missing)) {
-        x <- recoder(terms, envr = KEY, missing = NA) 
+    x[hits] <- recoder(terms[hits], envr = KEY)
+
+    if (is.null(missing)) { 
         x[is.na(x)] <- terms[is.na(x)]
         x
-    } else {                                                         
-        recoder(terms, envr = KEY, missing = missing)     
-    }
+    }   
+    x
 }
 
 ## Helper function
-recoder <- function(x, envr, missing){                               
-    x <- as.character(x) #turn the numbers to character    
-    rc <- function(x, envr){                                    
-        if(exists(x, envir = envr)) {
-            get(x, envir = envr) 
-        } else {
-            missing     
-        }
-    }                                                      
-    sapply(x, rc, USE.NAMES = FALSE, envr = envr)                       
+recoder <- function(x, envr){                               
+    x <- as.character(x) #turn the numbers to character                                                        
+    unlist(lapply(x, get, envir = envr))                      
 }  
 
 
