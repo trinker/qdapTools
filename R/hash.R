@@ -61,7 +61,7 @@ hash_help <- function(x, mode.out) {
 #' @rdname hash
 hash_look <- function(terms, envir, missing = NA) {
 	
-    hits <- which(!is.na(match(terms, DF[, 1])))
+    hits <- which(!is.na(match(terms, names(as.list(envir)))))
     x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
 	
     x[hits] <- recoder(terms[hits], envr = envir)
