@@ -19,7 +19,7 @@ vect2df(vector.object, col1 = "X1", col2 = "X2", order = TRUE,
 list_df2df(list.df.object, col1 = "X1")
 
 list_vect2df(list.vector.object, col1 = "X1", col2 = "X2", col3 = "X3",
-  ...)
+  order = TRUE, ...)
 
 counts2list(mat, nm = rownames(mat))
 
@@ -116,6 +116,14 @@ list_df2df(list(mtcars, mtcars))
 
 L1 <- list(a=1:10, b=1:6, c=5:8)
 list_vect2df(L1)
+
+L2 <- list(
+  months=setNames(1:12, month.abb),
+  numbers=1:6,
+  states=setNames(factor(state.name[1:4]), state.abb[1:4])
+)
+
+list_vect2df(L2)
 
 \dontrun{
 library(qdap)

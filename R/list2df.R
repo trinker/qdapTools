@@ -30,6 +30,14 @@
 #' L1 <- list(a=1:10, b=1:6, c=5:8)
 #' list_vect2df(L1)
 #' 
+#' L2 <- list(
+#'   months=setNames(1:12, month.abb),
+#'   numbers=1:6, 
+#'   states=setNames(factor(state.name[1:4]), state.abb[1:4])
+#' )
+#' 
+#' list_vect2df(L2)
+#' 
 #' \dontrun{
 #' library(qdap)
 #' term <- c("the ", "she", " wh")
@@ -79,7 +87,7 @@ matrix2df <- function(matrix.object, col1 = "var1") {
         rownames(matrix.object) <- 1:nrow(matrix.object)
     }
     dat <- data.frame(rownames(matrix.object), matrix.object, row.names=NULL, 
-        check.names=FALSE)
+        check.names=FALSE, stringsAsFactors = FALSE)
     colnames(dat)[1] <- col1
     dat
 }
@@ -102,9 +110,10 @@ vect2df <- function(vector.object, col1 = "X1", col2 = "X2", order = TRUE,
         warning("Does not appear to be a vector: Results my be inconsistent")
     }
     if (is.null(names(vector.object))) {
-        names(vector.object) <- paste0("x", 1:length(vector.object))
+        names(vector.object) <- paste0("x", pad(vector.object))
     }
-    out <- data.frame(names(vector.object), vector.object, check.names=FALSE)
+    out <- data.frame(names(vector.object), vector.object, check.names=FALSE, 
+    	stringsAsFactors = FALSE)
     colnames(out) <- c(col1, col2)
     if (order) {
         FUN <- match.fun(ifelse(rev, "rev", "c"))
@@ -135,7 +144,7 @@ list_df2df <- function(list.df.object, col1 = "X1") {
     }
     list.names <- rep(names(list.df.object), sapply(list.df.object, nrow))
     out <- data.frame(list.names, do.call(rbind, list.df.object), 
-        row.names=NULL, check.names=FALSE)
+        row.names=NULL, check.names=FALSE, stringsAsFactors = FALSE)
     colnames(out)[1] <- col1
     out
 }
@@ -153,13 +162,19 @@ list_df2df <- function(list.df.object, col1 = "X1") {
 #' @return \code{list_vect2df} - Returns a dataframe.
 #' @export
 list_vect2df <- function(list.vector.object, col1 = "X1", col2 = "X2", 
-    col3 = "X3", ...) {
+    col3 = "X3", order=TRUE, ...) {
 
-    list_df2df(lapply(list.vector.object, vect2df, col1=col2, col2=col3, ...), 
-        col1=col1)
+    fct <- sapply(list.vector.object, is.factor)
+    if (sum(fct > 0)) {
+        list.vector.object[fct] <- lapply(list.vector.object[fct], as.character)
+    }
+    cls <- class(unlist(list.vector.object))
+    list.vector.object <- lapply(list.vector.object, as, cls)
+
+    list_df2df(lapply(list.vector.object, vect2df, col1=col2, col2=col3, 
+    	order=order, ...), col1=col1)
 
 }
-
 
 #' List/Matrix/Vector to Dataframe/List
 #' 

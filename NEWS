@@ -34,6 +34,8 @@ IMPROVEMENTS
 
 CHANGES
 
+* `mtabulate` moved from `qdap` to `qdapTools`.
+
 
 
 qdapTools 0.1.0

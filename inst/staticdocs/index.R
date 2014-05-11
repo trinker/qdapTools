@@ -30,7 +30,8 @@ sd_section("Identification",
 sd_section("Data Reshaping", 
   description="Data reshaping tools for use in the qdap package.",
   c(
-    "list2df"
+    "list2df",
+  	"mtabulate"
   ) 
 )
 
