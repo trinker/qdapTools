@@ -2,6 +2,7 @@
 
 S3method(lookup,character)
 S3method(lookup,data.frame)
+S3method(lookup,factor)
 S3method(lookup,list)
 S3method(lookup,matrix)
 S3method(lookup,numeric)

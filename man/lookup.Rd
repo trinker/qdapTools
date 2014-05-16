@@ -6,6 +6,7 @@
 \alias{lookup}
 \alias{lookup.character}
 \alias{lookup.data.frame}
+\alias{lookup.factor}
 \alias{lookup.list}
 \alias{lookup.matrix}
 \alias{lookup.numeric}
@@ -22,6 +23,8 @@ lookup(terms, key.match, key.reassign = NULL, missing = NA)
 
 \method{lookup}{numeric}(terms, key.match, key.reassign = NULL,
   missing = NA)
+
+\method{lookup}{factor}(terms, key.match, key.reassign = NULL, missing = NA)
 
 \method{lookup}{character}(terms, key.match, key.reassign = NULL,
   missing = NA)
@@ -74,6 +77,7 @@ lookup(1:5, data.frame(1:4, 11:14))
 lookup(1:5, data.frame(1:4, 11:14), missing=NULL)
 
 lookup(LETTERS[1:5], data.frame(LETTERS[1:5], 100:104))
+lookup(LETTERS[1:5], factor(LETTERS[1:5]), 100:104)
 
 ## Supply a named list of vectors to key.match
 

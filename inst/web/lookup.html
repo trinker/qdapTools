@@ -46,6 +46,7 @@
 <div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
 <div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
 <div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
+<div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
 <div>terms %l% key.match</div>
 <div>terms %l+% key.match</div>
 <div>terms %l*% key.match</div></pre>
@@ -116,6 +117,10 @@ lookup(1:5, data.frame(1:4, 11:14), missing=NULL)
 lookup(LETTERS[1:5], data.frame(LETTERS[1:5], 100:104))
 </div>
 <div class='output'>[1] 100 101 102 103 104
+</div>
+<div class='input'>lookup(LETTERS[1:5], factor(LETTERS[1:5]), 100:104)
+</div>
+<div class='output'>[1] &quot;100&quot; &quot;101&quot; &quot;102&quot; &quot;103&quot; &quot;104&quot;
 </div>
 <div class='input'>
 ## Supply a named list of vectors to key.match
@@ -203,7 +208,7 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>%l*%</li><li>%l+%</li><li>%l%</li><li>lookup</li><li>lookup.character</li><li>lookup.data.frame</li><li>lookup.list</li><li>lookup.matrix</li><li>lookup.numeric</li>
+      <li>%l*%</li><li>%l+%</li><li>%l%</li><li>lookup</li><li>lookup.character</li><li>lookup.data.frame</li><li>lookup.factor</li><li>lookup.list</li><li>lookup.matrix</li><li>lookup.numeric</li>
     </ul>
     <ul>
       <li>dictionary,</li><li>hash,</li><li>lookup</li>

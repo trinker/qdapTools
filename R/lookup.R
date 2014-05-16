@@ -27,6 +27,7 @@
 #' lookup(1:5, data.frame(1:4, 11:14), missing=NULL) 
 #' 
 #' lookup(LETTERS[1:5], data.frame(LETTERS[1:5], 100:104))
+#' lookup(LETTERS[1:5], factor(LETTERS[1:5]), 100:104)
 #' 
 #' ## Supply a named list of vectors to key.match
 #' 
@@ -176,10 +177,34 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
 #' @rdname lookup
 lookup.numeric <-
 function(terms, key.match, key.reassign=NULL, missing = NA) {
+     
+    mode.out <- mode(key.reassign)    
+    DF <- data.frame(as.character(key.match), key.reassign, 
+        stringsAsFactors = FALSE)   
 
-    if (is.factor(key.reassign)) {
-        key.reassign <- as.character(key.reassign)
-    }        
+    hits <- which(!is.na(match(terms, DF[, 1])))
+    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
+	
+    KEY <- hash(DF, mode.out = mode.out)   
+    x[hits] <- recoder(terms[hits], envr = KEY)
+
+    if (is.null(missing)) { 
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
+        x
+    }   
+    x
+}
+
+
+#' @export
+#' @method lookup factor
+#' @rdname lookup
+lookup.factor <-
+function(terms, key.match, key.reassign=NULL, missing = NA) {
+
+    key.reassign <- as.character(key.reassign)
+        
     mode.out <- mode(key.reassign)    
     DF <- data.frame(as.character(key.match), key.reassign, 
         stringsAsFactors = FALSE)   

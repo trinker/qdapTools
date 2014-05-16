@@ -17,6 +17,21 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+qdapTools 0.2.1
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+* `lookup` did not have a method for when `key.match` was a factor;
+  `lookup.factor` added.
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
 
 qdapTools 0.2.0
 ----------------------------------------------------------------
