@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>hash. qdapTools 0.2.0</title>
+<title>hash. qdapTools 0.2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Bryan Goodrich and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@ Bryan Goodrich and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.2.0</a>
+      <a class="brand" href="#">qdapTools 0.2.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -108,15 +108,15 @@ environment.</p>
 x &lt;- sample(DF[, 1], 20, TRUE)
 hash_look(x, new.hash1)
 </div>
-<div class='output'> [1] 16.30000 19.70000 15.79000 19.70000 15.79000 19.70000 16.30000 15.00000 22.40000 22.40000 25.34286 22.40000
-[13] 22.40000 19.70000 25.34286 15.00000 16.30000 19.70000 15.00000 25.34286
+<div class='output'> [1] 15.00000 15.79000 25.34286 16.30000 22.40000 25.34286 15.79000 25.34286 15.79000 25.34286 19.70000 16.30000
+[13] 22.40000 15.00000 15.79000 16.30000 15.00000 15.00000 15.00000 16.30000
 </div>
 <div class='input'>
 new.hash2 &lt;- hash(DF, &quot;character&quot;) #character outcome
 x %ha% new.hash2
 </div>
-<div class='output'> [1] &quot;16.30000&quot; &quot;19.70000&quot; &quot;15.79000&quot; &quot;19.70000&quot; &quot;15.79000&quot; &quot;19.70000&quot; &quot;16.30000&quot; &quot;15.00000&quot; &quot;22.40000&quot; &quot;22.40000&quot;
-[11] &quot;25.34286&quot; &quot;22.40000&quot; &quot;22.40000&quot; &quot;19.70000&quot; &quot;25.34286&quot; &quot;15.00000&quot; &quot;16.30000&quot; &quot;19.70000&quot; &quot;15.00000&quot; &quot;25.34286&quot;
+<div class='output'> [1] &quot;15.00000&quot; &quot;15.79000&quot; &quot;25.34286&quot; &quot;16.30000&quot; &quot;22.40000&quot; &quot;25.34286&quot; &quot;15.79000&quot; &quot;25.34286&quot; &quot;15.79000&quot; &quot;25.34286&quot;
+[11] &quot;19.70000&quot; &quot;16.30000&quot; &quot;22.40000&quot; &quot;15.00000&quot; &quot;15.79000&quot; &quot;16.30000&quot; &quot;15.00000&quot; &quot;15.00000&quot; &quot;15.00000&quot; &quot;16.30000&quot;
 </div>
 <div class='input'>
 ## Create generic functions
@@ -128,15 +128,15 @@ hfun &lt;- function(x, ...) {
 m &lt;- hfun(DF)
 m(x)
 </div>
-<div class='output'> [1] 16.30000 19.70000 15.79000 19.70000 15.79000 19.70000 16.30000 15.00000 22.40000 22.40000 25.34286 22.40000
-[13] 22.40000 19.70000 25.34286 15.00000 16.30000 19.70000 15.00000 25.34286
+<div class='output'> [1] 15.00000 15.79000 25.34286 16.30000 22.40000 25.34286 15.79000 25.34286 15.79000 25.34286 19.70000 16.30000
+[13] 22.40000 15.00000 15.79000 16.30000 15.00000 15.00000 15.00000 16.30000
 </div>
 <div class='input'>
 m &lt;- hfun(DF, &quot;character&quot;)
 m(x)
 </div>
-<div class='output'> [1] &quot;16.30000&quot; &quot;19.70000&quot; &quot;15.79000&quot; &quot;19.70000&quot; &quot;15.79000&quot; &quot;19.70000&quot; &quot;16.30000&quot; &quot;15.00000&quot; &quot;22.40000&quot; &quot;22.40000&quot;
-[11] &quot;25.34286&quot; &quot;22.40000&quot; &quot;22.40000&quot; &quot;19.70000&quot; &quot;25.34286&quot; &quot;15.00000&quot; &quot;16.30000&quot; &quot;19.70000&quot; &quot;15.00000&quot; &quot;25.34286&quot;
+<div class='output'> [1] &quot;15.00000&quot; &quot;15.79000&quot; &quot;25.34286&quot; &quot;16.30000&quot; &quot;22.40000&quot; &quot;25.34286&quot; &quot;15.79000&quot; &quot;25.34286&quot; &quot;15.79000&quot; &quot;25.34286&quot;
+[11] &quot;19.70000&quot; &quot;16.30000&quot; &quot;22.40000&quot; &quot;15.00000&quot; &quot;15.79000&quot; &quot;16.30000&quot; &quot;15.00000&quot; &quot;15.00000&quot; &quot;15.00000&quot; &quot;16.30000&quot;
 </div></pre>
   </div>
   <div class="span4">
