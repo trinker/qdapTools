@@ -13,7 +13,7 @@ id(x, prefix = FALSE, pad = TRUE, ...)
 \item{pad}{logical.  If \code{TRUE} the beginning number will be padded with
 zeros.}
 
-\item{\ldots}{Other arguments passed to \code{link[qdapTools]{pad}}.}
+\item{\ldots}{Other arguments passed to \code{\link[qdapTools]{pad}}.}
 }
 \value{
 Returns a vector of sequential integers.

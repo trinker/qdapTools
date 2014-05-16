@@ -2,7 +2,7 @@ curd <- getwd()
 loc <- "C:/Users/trinker/Desktop"
 setwd(loc)
 
-qman <- function(x = "qdapDictionaries", db = "C:/Users/trinker/Dropbox/Public", dir=loc) {
+qman <- function(x = "qdapTools", db = "C:/Users/trinker/Dropbox/Public", dir=loc) {
     path <- file.path(dir, paste0(x, ".pdf"))
 	if (!file.exists(path)) stop(paste(x, "does not exist..."))
     opath <- file.path(db, paste0(x, ".pdf"))

@@ -7,7 +7,7 @@
 #' @param prefix logical.  If \code{TRUE} an "X." is place before each id.
 #' @param pad logical.  If \code{TRUE} the beginning number will be padded with 
 #' zeros.
-#' @param \ldots Other arguments passed to \code{link[qdapTools]{pad}}.
+#' @param \ldots Other arguments passed to \code{\link[qdapTools]{pad}}.
 #' @return Returns a vector of sequential integers.
 #' @keywords id
 #' @export

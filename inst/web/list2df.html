@@ -44,7 +44,7 @@
 <div>matrix2df(matrix.object, col1&nbsp;=&nbsp;"var1")</div>
 <div>vect2df(vector.object, col1&nbsp;=&nbsp;"X1", col2&nbsp;=&nbsp;"X2", order&nbsp;=&nbsp;TRUE, rev&nbsp;=&nbsp;FALSE)</div>
 <div>list_df2df(list.df.object, col1&nbsp;=&nbsp;"X1")</div>
-<div>list_vect2df(list.vector.object, col1&nbsp;=&nbsp;"X1", col2&nbsp;=&nbsp;"X2", col3&nbsp;=&nbsp;"X3", ...)</div>
+<div>list_vect2df(list.vector.object, col1&nbsp;=&nbsp;"X1", col2&nbsp;=&nbsp;"X2", col3&nbsp;=&nbsp;"X3", order&nbsp;=&nbsp;TRUE, ...)</div>
 <div>counts2list(mat, nm&nbsp;=&nbsp;rownames(mat))</div>
 <div>vect2list(vector.object, use.names&nbsp;=&nbsp;TRUE, numbered.names&nbsp;=&nbsp;FALSE)</div></pre>
     
@@ -243,15 +243,15 @@ matrix2df(mtcars)
 vect2df(1:10)
 </div>
 <div class='output'>    X1 X2
-1   x1  1
-2   x2  2
-3   x3  3
-4   x4  4
-5   x5  5
-6   x6  6
-7   x7  7
-8   x8  8
-9   x9  9
+1  x01  1
+2  x02  2
+3  x03  3
+4  x04  4
+5  x05  5
+6  x06  6
+7  x07  7
+8  x08  8
+9  x09  9
 10 x10 10
 </div>
 <div class='input'>vect2df(c(table(mtcars[, &quot;gear&quot;])))
@@ -335,15 +335,15 @@ L1 &lt;- list(a=1:10, b=1:6, c=5:8)
 list_vect2df(L1)
 </div>
 <div class='output'>   X1  X2 X3
-1   a  x1  1
-2   a  x2  2
-3   a  x3  3
-4   a  x4  4
-5   a  x5  5
-6   a  x6  6
-7   a  x7  7
-8   a  x8  8
-9   a  x9  9
+1   a x01  1
+2   a x02  2
+3   a x03  3
+4   a x04  4
+5   a x05  5
+6   a x06  6
+7   a x07  7
+8   a x08  8
+9   a x09  9
 10  a x10 10
 11  b  x1  1
 12  b  x2  2
@@ -351,10 +351,43 @@ list_vect2df(L1)
 14  b  x4  4
 15  b  x5  5
 16  b  x6  6
-17  c  x1  5
-18  c  x2  6
-19  c  x3  7
-20  c  x4  8
+17  c  x5  5
+18  c  x6  6
+19  c  x7  7
+20  c  x8  8
+</div>
+<div class='input'>
+L2 &lt;- list(
+  months=setNames(1:12, month.abb),
+  numbers=1:6,
+  states=setNames(factor(state.name[1:4]), state.abb[1:4])
+)
+
+list_vect2df(L2)
+</div>
+<div class='output'>        X1        X2       X3
+1   months       x 1        1
+2   months       x10       10
+3   months       x11       11
+4   months       x12       12
+5   months       x 2        2
+6   months       x 3        3
+7   months       x 4        4
+8   months       x 5        5
+9   months       x 6        6
+10  months       x 7        7
+11  months       x 8        8
+12  months       x 9        9
+13 numbers        x1        1
+14 numbers        x2        2
+15 numbers        x3        3
+16 numbers        x4        4
+17 numbers        x5        5
+18 numbers        x6        6
+19  states x  Alaska  Alabama
+20  states x Alabama   Alaska
+21  states x Arizona  Arizona
+22  states xArkansas Arkansas
 </div>
 <div class='input'>
 ## &lt;strong&gt;Not run&lt;/strong&gt;: 

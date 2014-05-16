@@ -71,7 +71,7 @@ lookup(1:10, codes)
 ## Supply a single vector to key.match and key.assign
 
 lookup(mtcars$carb, sort(unique(mtcars$carb)),
-    c('one', 'two', 'three', 'four', 'six', 'eight'))
+    c("one", "two", "three", "four", "six", "eight"))
 
 lookup(mtcars$carb, sort(unique(mtcars$carb)),
     seq(10, 60, by=10))

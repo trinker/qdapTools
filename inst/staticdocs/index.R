@@ -13,8 +13,7 @@ sd_section("Look Up/Hash",
 sd_section("Conversion", 
   description="Conversion tools for use in the qdap package.",
   c(
-    "hms2sec", 
-    "sec2hms"     
+    "hms2sec"   
   ) 
 )
 

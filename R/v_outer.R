@@ -12,6 +12,7 @@
 #' \code{\link[stats]{cor}}
 #' @author Vincent Zoonekynd and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @export
+#' @rdname v_outer
 #' @examples
 #' pooled.sd <- function(x, y) {
 #'     n1 <- length(x)
@@ -55,20 +56,66 @@
 #' v_outer(with(DATA, wfm(state, person)), cos_sim)
 #' with(DATA, Dissimilarity(state, person))
 #' }
-v_outer <- 
+v_outer <-
+function(x, FUN, ...){
+	FUN
+    UseMethod("v_outer")
+}
+
+
+#' @export
+#' @method v_outer list
+#' @rdname v_outer
+v_outer.list <- 
 function(x, FUN, ...){
     FUN <- match.fun(FUN)
-    if (is.matrix(x)) {
-        x <- as.data.frame(x)
+
+    if (is.null(names(x))) {
+        names(x) <- paste0("X", seq_along(x))
     }
-    if (is.list(x) & !is.data.frame(x)){
-        if (is.null(names(x))) {
-            names(x) <- paste0("X", seq_along(x))
-        }
-        nms <- names(x)   
-    } else {
-        nms <- colnames(x)
-    }
+    nms <- names(x)   
+
+    z <- outer(
+      nms, 
+      nms, 
+      Vectorize(function(i,j) FUN(unlist(x[[i]]), unlist(x[[j]]), ...))
+    )
+    dimnames(z) <- list(nms, nms)
+    class(z) <- "v_outer"
+    z
+}
+
+
+#' @export
+#' @method v_outer data.frame 
+#' @rdname v_outer
+v_outer.data.frame <- 
+function(x, FUN, ...){
+    FUN <- match.fun(FUN)
+	
+    nms <- colnames(x)
+
+    z <- outer(
+      nms, 
+      nms, 
+      Vectorize(function(i,j) FUN(unlist(x[[i]]), unlist(x[[j]]), ...))
+    )
+    dimnames(z) <- list(nms, nms)
+    class(z) <- "v_outer"
+    z
+}
+
+
+#' @export
+#' @method v_outer matrix
+#' @rdname v_outer
+v_outer.matrix <- 
+function(x, FUN, ...){
+    FUN <- match.fun(FUN)
+ 
+	x <- as.data.frame(x)
+    nms <- colnames(x)
+
     z <- outer(
       nms, 
       nms, 
