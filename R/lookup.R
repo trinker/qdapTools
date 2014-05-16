@@ -91,16 +91,13 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
 lookup.matrix <-
 function(terms, key.match, key.reassign=NULL, missing = NA) {
 
-    if (is.matrix(key.match)) {
-        key.match <- data.frame(key.match, stringsAsFactors = FALSE)
-    }
+    key.match <- data.frame(key.match, stringsAsFactors = FALSE)
 
     if (is.factor(key.match[, 2])) {
         key.match[, 2] <- as.character(key.match[, 2])
     }
     mode.out <- mode(key.match[, 2])    
     key.match[, 1] <- as.character(key.match[, 1])
-
 
     hits <- which(!is.na(match(terms, key.match[, 1])))
     x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
@@ -122,14 +119,11 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
 lookup.data.frame <-
 function(terms, key.match, key.reassign=NULL, missing = NA) {
 
-
-
     if (is.factor(key.match[, 2])) {
         key.match[, 2] <- as.character(key.match[, 2])
     }
     mode.out <- mode(key.match[, 2])    
     key.match[, 1] <- as.character(key.match[, 1])
-
 
     hits <- which(!is.na(match(terms, key.match[, 1])))
     x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
