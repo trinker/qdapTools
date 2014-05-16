@@ -18,21 +18,28 @@ And constructed with the following guidelines:
 
 
 
-qdapTools 0.1.1
+qdapTools 0.2.0
 ----------------------------------------------------------------
 
-**BUG FIXES**
-
-**NEW FEATURES**
-
-**MINOR FEATURES**
+This version of <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> highlights optimization of `lookup` and `v_outer`.
+It also adds the `mtabulate` function from the qdap package.  Future development 
+will revolve around further optimization of `lookup` and `v_outer`.  `lookup` 
+may utilize the **data.table** package to gain speed. 
 
 **IMPROVEMENTS**
 
 * `lookup` and `hash_look` family of functions gains a major speed boost thanks 
   to @Arun Srinivasan.  See: https://gist.github.com/arunsrinivasan/ee2d9ef43bdc02c32958
 
+* `lookup` becomes a generic method that operates on various classes.  This 
+  gains a slight speed boost.
+
+* `v_outer` becomes a generic method that operates on various classes.  This 
+  gains a slight speed boost.
+
 **CHANGES**
+
+* `mtabulate` moved from `qdap` to `qdapTools`.
 
 
 
@@ -77,5 +84,5 @@ qdapTools 0.0.1
 ----------------------------------------------------------------
 
 Tools used by qdap that may be of use outside of the context of text analysis 
-realated tasks, have been moved to a separate package, <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a>.  This is the 
+related tasks, have been moved to a separate package, <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a>.  This is the 
 first installment of the package.

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>lookup. qdapTools 0.1.1</title>
+<title>lookup. qdapTools 0.2.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 0.1.1</a>
+      <a class="brand" href="#">qdapTools 0.2.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -41,6 +41,11 @@
   <div class="span8">
     <h2>Usage</h2>
     <pre><div>lookup(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
+<div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
+<div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
+<div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
+<div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
+<div>"lookup"(terms, key.match, key.reassign&nbsp;=&nbsp;NULL, missing&nbsp;=&nbsp;NA)</div>
 <div>terms %l% key.match</div>
 <div>terms %l+% key.match</div>
 <div>terms %l*% key.match</div></pre>
@@ -127,7 +132,7 @@ lookup(1:10, codes)
 <div class='output'> [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;D&quot; &quot;C&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot;
 </div>
 <div class='input'>
-## Supply a single vector to key.match and key.assign
+## Supply a single vector to key.match and key.reassign
 
 lookup(mtcars$carb, sort(unique(mtcars$carb)),
     c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;six&quot;, &quot;eight&quot;))
@@ -198,7 +203,7 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>%l*%</li><li>%l+%</li><li>%l%</li><li>lookup</li>
+      <li>%l*%</li><li>%l+%</li><li>%l%</li><li>lookup</li><li>lookup.character</li><li>lookup.data.frame</li><li>lookup.list</li><li>lookup.matrix</li><li>lookup.numeric</li>
     </ul>
     <ul>
       <li>dictionary,</li><li>hash,</li><li>lookup</li>

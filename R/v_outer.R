@@ -71,9 +71,10 @@ function(x, FUN, ...){
     FUN <- match.fun(FUN)
 
     if (is.null(names(x))) {
-        names(x) <- paste0("X", seq_along(x))
+        nms <- names(x) <- paste0("X", seq_along(x))
+    } else {
+        nms <- names(x)
     }
-    nms <- names(x)   
 
     z <- outer(
       nms, 
@@ -98,7 +99,7 @@ function(x, FUN, ...){
     z <- outer(
       nms, 
       nms, 
-      Vectorize(function(i,j) FUN(unlist(x[[i]]), unlist(x[[j]]), ...))
+      Vectorize(function(i,j) FUN(x[, i], x[, j], ...))
     )
     dimnames(z) <- list(nms, nms)
     class(z) <- "v_outer"
@@ -112,17 +113,21 @@ function(x, FUN, ...){
 v_outer.matrix <- 
 function(x, FUN, ...){
     FUN <- match.fun(FUN)
- 
-	x <- as.data.frame(x)
-    nms <- colnames(x)
+
+    if (is.null(colnames(x))) {
+        nms <- colnames(x) <- paste0("X", 1:ncol(x))
+    } else {
+        nms <- colnames(x)
+    }
 
     z <- outer(
       nms, 
       nms, 
-      Vectorize(function(i,j) FUN(unlist(x[[i]]), unlist(x[[j]]), ...))
+      Vectorize(function(i,j) FUN(x[, i], x[, j], ...))
     )
+
     dimnames(z) <- list(nms, nms)
-    class(z) <- "v_outer"
+    class(z) <- c("v_outer", class(z))
     z
 }
 

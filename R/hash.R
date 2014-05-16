@@ -67,7 +67,8 @@ hash_look <- function(terms, envir, missing = NA) {
     x[hits] <- recoder(terms[hits], envr = envir)
 
     if (is.null(missing)) { 
-        x[is.na(x)] <- terms[is.na(x)]
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
         x
     }   
     x

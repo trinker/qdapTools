@@ -39,7 +39,7 @@
 #' 
 #' lookup(1:10, codes)
 #' 
-#' ## Supply a single vector to key.match and key.assign
+#' ## Supply a single vector to key.match and key.reassign
 #' 
 #' lookup(mtcars$carb, sort(unique(mtcars$carb)),        
 #'     c("one", "two", "three", "four", "six", "eight")) 
@@ -80,28 +80,109 @@
 lookup <-
 function(terms, key.match, key.reassign=NULL, missing = NA) {
 
+    UseMethod("lookup", key.match)
+
+}
+
+#' @export
+#' @method lookup matrix
+#' @rdname lookup
+lookup.matrix <-
+function(terms, key.match, key.reassign=NULL, missing = NA) {
+
     if (is.matrix(key.match)) {
-        key.match <- data.frame(key.match)
+        key.match <- data.frame(key.match, stringsAsFactors = FALSE)
     }
 
-    if (is.list(key.match)) {
-        if (!is.data.frame(key.match)) {
-            key.match <- list2df(key.match) 
-        }
-        if (is.factor(key.match[, 2])) {
-            key.match[, 2] <- as.character(key.match[, 2])
-        }
-        mode.out <- mode(key.match[, 2])    
-        DF <- key.match
-        DF[, 1] <- as.character(DF[, 1])
-    } else {
-        if (is.factor(key.reassign)) {
-            key.reassign <- as.character(key.reassign)
-        }        
-        mode.out <- mode(key.reassign)    
-        DF <- data.frame(as.character(key.match), key.reassign, 
-            stringsAsFactors = FALSE)   
+    if (is.factor(key.match[, 2])) {
+        key.match[, 2] <- as.character(key.match[, 2])
     }
+    mode.out <- mode(key.match[, 2])    
+    key.match[, 1] <- as.character(key.match[, 1])
+
+
+    hits <- which(!is.na(match(terms, key.match[, 1])))
+    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
+	
+    KEY <- hash(key.match, mode.out = mode.out)   
+    x[hits] <- recoder(terms[hits], envr = KEY)
+
+    if (is.null(missing)) { 
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
+        x
+    }   
+    x
+}
+
+#' @export
+#' @method lookup data.frame
+#' @rdname lookup
+lookup.data.frame <-
+function(terms, key.match, key.reassign=NULL, missing = NA) {
+
+
+
+    if (is.factor(key.match[, 2])) {
+        key.match[, 2] <- as.character(key.match[, 2])
+    }
+    mode.out <- mode(key.match[, 2])    
+    key.match[, 1] <- as.character(key.match[, 1])
+
+
+    hits <- which(!is.na(match(terms, key.match[, 1])))
+    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
+	
+    KEY <- hash(key.match, mode.out = mode.out)   
+    x[hits] <- recoder(terms[hits], envr = KEY)
+
+    if (is.null(missing)) { 
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
+        x
+    }   
+	x
+}
+
+#' @export
+#' @method lookup list
+#' @rdname lookup
+lookup.list <-
+function(terms, key.match, key.reassign=NULL, missing = NA) {
+
+    key.match <- list2df(key.match) 
+    if (is.factor(key.match[, 2])) {
+        key.match[, 2] <- as.character(key.match[, 2])
+    }
+    mode.out <- mode(key.match[, 2])    
+    key.match[, 1] <- as.character(key.match[, 1])
+
+    hits <- which(!is.na(match(terms, key.match[, 1])))
+    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
+	
+    KEY <- hash(key.match, mode.out = mode.out)   
+    x[hits] <- recoder(terms[hits], envr = KEY)
+
+    if (is.null(missing)) { 
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
+        x
+    }    
+    x
+}
+
+#' @export
+#' @method lookup numeric
+#' @rdname lookup
+lookup.numeric <-
+function(terms, key.match, key.reassign=NULL, missing = NA) {
+
+    if (is.factor(key.reassign)) {
+        key.reassign <- as.character(key.reassign)
+    }        
+    mode.out <- mode(key.reassign)    
+    DF <- data.frame(as.character(key.match), key.reassign, 
+        stringsAsFactors = FALSE)   
 
     hits <- which(!is.na(match(terms, DF[, 1])))
     x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
@@ -110,11 +191,37 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
     x[hits] <- recoder(terms[hits], envr = KEY)
 
     if (is.null(missing)) { 
-        x[is.na(x)] <- terms[is.na(x)]
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
         x
     }   
     x
 }
+
+#' @export
+#' @method lookup character
+#' @rdname lookup
+lookup.character <-
+function(terms, key.match, key.reassign=NULL, missing = NA) {
+
+    mode.out <- mode(key.reassign)    	
+    DF <- data.frame(as.character(key.match), key.reassign, 
+        stringsAsFactors = FALSE)   
+
+    hits <- which(!is.na(match(terms, DF[, 1])))
+    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
+	
+    KEY <- hash(DF, mode.out = mode.out)   
+    x[hits] <- recoder(terms[hits], envr = KEY)
+
+    if (is.null(missing)) { 
+    	keeps <- which(is.na(x))
+        x[keeps] <- terms[keeps]
+        x
+    }   
+    x
+}
+
 
 ## Helper function
 recoder <- function(x, envr){                               
@@ -157,5 +264,4 @@ recoder <- function(x, envr){
 `%l*%` <- function(terms, key.match) {
     setNames(terms %ha% hash(key.match, class(key.match[[2L]])), NULL)
 }
-
 

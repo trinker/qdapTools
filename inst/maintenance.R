@@ -21,7 +21,8 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
-extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%", "sec2hms")
+extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%", "sec2hms", 
+	lookup.character, lookup.data.frame, lookup.list, lookup.matrix, lookup.numeric)
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
@@ -59,7 +60,8 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
-extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%", "sec2hms")
+extras <- qcv("%ha%", "hash_look", "%l%", "%l+%", "%l*%", "sec2hms", 
+	lookup.character, lookup.data.frame, lookup.list, lookup.matrix, lookup.numeric)
 
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
