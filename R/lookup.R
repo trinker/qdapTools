@@ -259,7 +259,7 @@ lookup_helper <- function(terms, key, missing = NA) {
 #' instead.
 #' 
 #' @export
-#' @rdname lookup
+#' @rdname Deprecated
 `%l*%` <- function(terms, key.match) {
     .Deprecated(msg = paste("`%l*%` is deprecated.  Please use `%l%` instead."), 
     	old = as.character(sys.call(sys.parent()))[1L])

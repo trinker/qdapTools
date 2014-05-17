@@ -48,8 +48,7 @@
 <div>"lookup"(terms, key.match, key.reassign, missing&nbsp;=&nbsp;NA)</div>
 <div>"lookup"(terms, key.match, key.reassign, missing&nbsp;=&nbsp;NA)</div>
 <div>terms %l% key.match</div>
-<div>terms %l+% key.match</div>
-<div>terms %l*% key.match</div></pre>
+<div>terms %l+% key.match</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -93,10 +92,6 @@ for when <code>key.match</code> is a data.frame or named list.</p>
       <p><code>%l+%</code> - A binary operator version of <code>lookup</code>
 for when <code>key.match</code> is a data.frame or named list and <code>missing</code> is
 assumed to be <code>NULL</code>.</p>
-  
-      <p><code>%l*%</code> - A deprecated binary operator version of <code>lookup</code>.  This
-will be removed in a subsequent version of <span class = "pkg">qdapTools</span>.  Use <code>%l%</code>
-instead.</p>
   
     </div>
     
@@ -191,7 +186,7 @@ big.vec &lt;- sample(1:2, 3000000, TRUE)
 out &lt;- lookup(big.vec, key)
 out[1:20]
 </div>
-<div class='output'> [1] B B A A B B B B A B A B B B B A B B B A
+<div class='output'> [1] B B B B A B B A A B A B B B A B A A A B
 Levels: A B
 </div>
 <div class='input'>
@@ -205,21 +200,21 @@ tic &lt;- Sys.time()
 output &lt;- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)
 difftime(Sys.time(), tic)
 </div>
-<div class='output'>Time difference of 0.9260528 secs
+<div class='output'>Time difference of 0.9530551 secs
 </div>
 <div class='input'>
 ## view it
 sample(output, 100)
 </div>
-<div class='output'>  [1] &quot;U&quot; &quot;Y&quot; &quot;E&quot; &quot;Z&quot; &quot;X&quot; &quot;C&quot; &quot;Q&quot; &quot;C&quot; &quot;V&quot; &quot;P&quot; &quot;E&quot; &quot;C&quot; &quot;B&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;T&quot; &quot;R&quot; &quot;Y&quot; &quot;L&quot; &quot;H&quot; &quot;R&quot; &quot;L&quot; &quot;Y&quot; &quot;R&quot; &quot;B&quot; &quot;W&quot; &quot;W&quot;
- [29] &quot;J&quot; &quot;F&quot; &quot;C&quot; &quot;R&quot; &quot;Z&quot; &quot;G&quot; &quot;G&quot; &quot;T&quot; &quot;L&quot; &quot;G&quot; &quot;R&quot; &quot;T&quot; &quot;X&quot; &quot;Q&quot; &quot;S&quot; &quot;I&quot; &quot;O&quot; &quot;S&quot; &quot;Y&quot; &quot;W&quot; &quot;F&quot; &quot;W&quot; &quot;C&quot; &quot;H&quot; &quot;I&quot; &quot;N&quot; &quot;X&quot; &quot;Y&quot;
- [57] &quot;M&quot; &quot;P&quot; &quot;A&quot; &quot;T&quot; &quot;I&quot; &quot;N&quot; &quot;L&quot; &quot;E&quot; &quot;U&quot; &quot;V&quot; &quot;V&quot; &quot;E&quot; &quot;M&quot; &quot;N&quot; &quot;P&quot; &quot;J&quot; &quot;K&quot; &quot;B&quot; &quot;W&quot; &quot;E&quot; &quot;N&quot; &quot;B&quot; &quot;M&quot; &quot;P&quot; &quot;T&quot; &quot;V&quot; &quot;G&quot; &quot;D&quot;
- [85] &quot;B&quot; &quot;B&quot; &quot;Q&quot; &quot;E&quot; &quot;V&quot; &quot;V&quot; &quot;L&quot; &quot;F&quot; &quot;E&quot; &quot;B&quot; &quot;N&quot; &quot;L&quot; &quot;R&quot; &quot;S&quot; &quot;W&quot; &quot;T&quot;
+<div class='output'>  [1] &quot;T&quot; &quot;V&quot; &quot;W&quot; &quot;J&quot; &quot;I&quot; &quot;O&quot; &quot;X&quot; &quot;C&quot; &quot;I&quot; &quot;T&quot; &quot;L&quot; &quot;R&quot; &quot;U&quot; &quot;B&quot; &quot;W&quot; &quot;U&quot; &quot;H&quot; &quot;P&quot; &quot;X&quot; &quot;M&quot; &quot;J&quot; &quot;S&quot; &quot;N&quot; &quot;M&quot; &quot;G&quot; &quot;Z&quot; &quot;V&quot; &quot;Z&quot;
+ [29] &quot;W&quot; &quot;B&quot; &quot;K&quot; &quot;R&quot; &quot;B&quot; &quot;T&quot; &quot;U&quot; &quot;P&quot; &quot;O&quot; &quot;G&quot; &quot;T&quot; &quot;E&quot; &quot;P&quot; &quot;B&quot; &quot;B&quot; &quot;O&quot; &quot;L&quot; &quot;H&quot; &quot;B&quot; &quot;L&quot; &quot;A&quot; &quot;F&quot; &quot;Z&quot; &quot;N&quot; &quot;Q&quot; &quot;E&quot; &quot;L&quot; &quot;Y&quot;
+ [57] &quot;B&quot; &quot;R&quot; &quot;Y&quot; &quot;C&quot; &quot;F&quot; &quot;Z&quot; &quot;Q&quot; &quot;M&quot; &quot;B&quot; &quot;U&quot; &quot;A&quot; &quot;T&quot; &quot;F&quot; &quot;L&quot; &quot;Y&quot; &quot;M&quot; &quot;Y&quot; &quot;J&quot; &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;X&quot; &quot;Y&quot; &quot;T&quot; &quot;C&quot; &quot;L&quot; &quot;S&quot; &quot;N&quot;
+ [85] &quot;C&quot; &quot;W&quot; &quot;N&quot; &quot;E&quot; &quot;Z&quot; &quot;C&quot; &quot;U&quot; &quot;D&quot; &quot;H&quot; &quot;Y&quot; &quot;C&quot; &quot;O&quot; &quot;R&quot; &quot;W&quot; &quot;A&quot; &quot;K&quot;
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>%l*%</li><li>%l+%</li><li>%l%</li><li>lookup</li><li>lookup.character</li><li>lookup.data.frame</li><li>lookup.factor</li><li>lookup.list</li><li>lookup.matrix</li><li>lookup.numeric</li>
+      <li>%l+%</li><li>%l%</li><li>lookup</li><li>lookup.character</li><li>lookup.data.frame</li><li>lookup.factor</li><li>lookup.list</li><li>lookup.matrix</li><li>lookup.numeric</li>
     </ul>
     <ul>
       <li>dictionary,</li><li>hash,</li><li>lookup</li>

@@ -95,7 +95,7 @@ hash_look <- function(terms, key, missing = NA) {
 #' \code{\%hl\%} instead.
 #'
 #' @export
-#' @rdname hash
+#' @rdname Deprecated
 `%ha%` <- function(terms, key) {
     .Deprecated(msg = paste("`%ha%` is deprecated.  Please use `%hl%` instead."), 
     	old = as.character(sys.call(sys.parent()))[1L])
