@@ -1,30 +1,29 @@
 #' Hash/Dictionary Lookup
 #' 
-#' \code{hash} - Creates a new environment for quick hash style dictionary lookup.
+#' \code{hash} - Creates a \pkg{data.table} based hash table for quick hash 
+#' style dictionary lookup.
 #' 
 #' @param x A two column dataframe.
-#' @param mode.out The type of output (column 2) expected (e.g.,
-#' \code{"character"}, \code{"numeric"}, etc.)
 #' @param terms A vector of terms to undergo a lookup.
-#' @param envir The hash environment to use.
+#' @param key The hash key to use.
 #' @param missing Value to assign to terms not found in the hash table.
 #' @return Creates a "hash table", a two column data frame in its own 
 #' environment.  
-#' @author Bryan Goodrich and Tyler Rinker <tyler.rinker@@gmail.com>.
-#' @seealso \code{\link[qdapTools]{lookup}},
-#' \code{\link[base]{environment}}
-#' @references \url{http://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary}
+#' @seealso \code{\link[qdapTools]{lookup}}
 #' @keywords hash, dictionary, lookup
 #' @rdname hash
 #' @export
+#' @importFrom data.table setkey setDT := 
 #' @examples
 #' (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
-#' new.hash1 <- hash(DF)  #numeric outcome
 #' x <- sample(DF[, 1], 20, TRUE)
-#' hash_look(x, new.hash1)
+#' new.hash <- hash(DF) 
+#' x2 <- c(9, 12, x)
+#' hash_look(x, new.hash)
 #' 
-#' new.hash2 <- hash(DF, "character") #character outcome
-#' x %ha% new.hash2
+#' x %hl% new.hash
+#' x2 %hl% new.hash
+#' x2 %hl+% new.hash
 #' 
 #' ## Create generic functions
 #' hfun <- function(x, ...) {
@@ -34,23 +33,29 @@
 #' 
 #' m <- hfun(DF)
 #' m(x)
-#' 
-#' m <- hfun(DF, "character")
-#' m(x)
 hash <- 
-function(x, mode.out = "numeric") {
-    hash_help(x, mode.out = mode.out)                                                                   
+function(x) {
+
+    key <- data.frame(x=x[, 1], y=x[,2], 
+        stringsAsFactors = FALSE)
+
+    if (is.factor(key[, 2])) {
+        key[, 2] <- as.character(key[, 2])
+        FUN <- as.factor
+    } else {
+        FUN <- match.fun(paste0("as.", mode(key[, 2])))
+    }
+
+    setDT(key)
+    setkey(key, x)        
+
+    class(key) <- c("qdap_hash", class(key))
+    attributes(key)[["mode"]] <- FUN
+    key
+                                                           
 }
 
-hash_help <- function(x, mode.out) {
-    evnt <- new.env(hash = TRUE, size = nrow(x), 
-        parent = emptyenv())
-    outmode <- match.fun(paste0("as.", mode.out))
-    apply(x, 1, function(col) {
-        assign(col[1], outmode(col[2]), envir = evnt)
-    })
-    evnt
-} 
+
 
 #' Hash/Dictionary Lookup
 #' 
@@ -59,19 +64,9 @@ hash_help <- function(x, mode.out) {
 #' 
 #' @export
 #' @rdname hash
-hash_look <- function(terms, envir, missing = NA) {
+hash_look <- function(terms, key, missing = NA) {
 	
-    hits <- which(!is.na(match(terms, names(as.list(envir)))))
-    x <- rep(ifelse(is.null(missing), NA, missing), length(terms))
-	
-    x[hits] <- recoder(terms[hits], envr = envir)
-
-    if (is.null(missing)) { 
-    	keeps <- which(is.na(x))
-        x[keeps] <- terms[keeps]
-        x
-    }   
-    x
+    attributes(key)[["mode"]](hash_lookup_helper(terms, key, missing))
 	
 }
 
@@ -81,6 +76,53 @@ hash_look <- function(terms, envir, missing = NA) {
 #'
 #' @export
 #' @rdname hash
-`%ha%` <- function(terms, envir) hash_look(terms = terms, envir = envir)
+`%hl%` <- function(terms, key) hash_look(terms = terms, key = key)
 
+#' Hash/Dictionary Lookup
+#' 
+#' \code{\%ha\%} - A binary operator version of \code{hash_look} 
+#' for when \code{key.match} is a data.frame or named list and \code{missing} is
+#' assumed to be \code{NULL}.
+#'
+#' @export
+#' @rdname hash
+`%hl+%` <- function(terms, key) hash_look(terms = terms, key = key, missing=NULL)
 
+#' Hash/Dictionary Lookup
+#' 
+#' \code{\%ha\%} - A deprecated binary operator version of \code{hash_look}.  
+#' This will be removed in a subsequent version of \pkg{qdapTools}.  Use 
+#' \code{\%hl\%} instead.
+#'
+#' @export
+#' @rdname hash
+`%ha%` <- function(terms, key) {
+    .Deprecated(msg = paste("`%ha%` is deprecated.  Please use `%hl%` instead."), 
+    	old = as.character(sys.call(sys.parent()))[1L])
+	
+	hash_look(terms = terms, key = key)
+}
+
+### Helper function
+#' @importFrom data.table setDT
+hash_lookup_helper <- function(terms, key, missing = NA) {
+	
+    terms <- data.frame(x=terms, stringsAsFactors = FALSE)
+    setDT(terms)
+ 
+    out <- key[terms][[2]]
+
+    if (!is.null(missing) && is.na(missing)) return(out)
+    if (!is.null(missing) && !is.na(missing)) {
+        hits <- which(is.na(out))
+        out[hits] <- missing
+        return(out)
+    }
+
+    if (is.null(missing)) {
+        hits <- which(is.na(out))
+        out[hits] <- terms[[1]][hits]
+        return(out)
+    }
+
+}

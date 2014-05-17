@@ -14,20 +14,18 @@
 \usage{
 lookup(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup}{matrix}(terms, key.match, key.reassign = NULL, missing = NA)
+\method{lookup}{list}(terms, key.match, key.reassign = NULL, missing = NA)
 
 \method{lookup}{data.frame}(terms, key.match, key.reassign = NULL,
   missing = NA)
 
-\method{lookup}{list}(terms, key.match, key.reassign = NULL, missing = NA)
+\method{lookup}{matrix}(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup}{numeric}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup}{numeric}(terms, key.match, key.reassign, missing = NA)
 
-\method{lookup}{factor}(terms, key.match, key.reassign = NULL, missing = NA)
+\method{lookup}{factor}(terms, key.match, key.reassign, missing = NA)
 
-\method{lookup}{character}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup}{character}(terms, key.match, key.reassign, missing = NA)
 
 terms \%l\% key.match
 
@@ -54,7 +52,8 @@ missing elements are retained.}
 Outputs A new vector with reassigned values.
 }
 \description{
-\code{lookup} - Environment based hash table useful for large vector lookups.
+\code{lookup} - \pkg{data.table} based hash table useful for large vector
+lookups.
 
 \code{\%l\%} - A binary operator version of \code{lookup}
 for when \code{key.match} is a data.frame or named list.
@@ -63,10 +62,9 @@ for when \code{key.match} is a data.frame or named list.
 for when \code{key.match} is a data.frame or named list and \code{missing} is
 assumed to be \code{NULL}.
 
-\code{\%l*\%} - A binary operator version of \code{lookup}
-for when \code{key.match} is a data.frame with a factor in column 2 and
-the expected output should be factor (\code{\%l\%} converts
-factor to character).
+\code{\%l*\%} - A deprecated binary operator version of \code{lookup}.  This
+will be removed in a subsequent version of \pkg{qdapTools}.  Use \code{\%l\%}
+instead.
 }
 \examples{
 ## Supply a dataframe to key.match
@@ -106,9 +104,8 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
 1:12 \%l+\% codes
 
 (key <- data.frame(a=1:3, b=factor(paste0("l", 1:3))))
-1:3 \%l*\% key
+1:3 \%l\% key
 
-\dontrun{
 ##Larger Examples
 key <- data.frame(x=1:2, y=c("A", "B"))
 big.vec <- sample(1:2, 3000000, T)
@@ -117,7 +114,7 @@ out[1:20]
 
 ## A big string to recode with variation
 ## means a bigger dictionary
-recode_me <- sample(1:(length(LETTERS)*10), 1000000, TRUE)
+recode_me <- sample(1:(length(LETTERS)*10), 10000000, TRUE)
 
 ## Time it
 tic <- Sys.time()
@@ -128,9 +125,8 @@ difftime(Sys.time(), tic)
 ## view it
 sample(output, 100)
 }
-}
 \seealso{
-\code{\link[base]{new.env}}
+\code{\link[data.table]{setDT}}
 }
 \keyword{dictionary,}
 \keyword{hash,}

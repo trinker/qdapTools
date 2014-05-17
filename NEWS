@@ -17,8 +17,16 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-qdapTools 0.2.1
+qdapTools 1.0.0
 ----------------------------------------------------------------
+
+This version of `qdapTools` incorporates the `data.table` package.  This 
+  provides huge speed boosts within a flexible frame work.  The old behavior of 
+  the `lookup` functions was to convert `factor` to `character`.  The latest 
+  version does not perform this coercion.  Those relying on this behavior may 
+  find their code breaks hence the major bump to version 1.0.0.  Thank you to 
+  Arun Srinivasan for his demonstration of the `data.table` package and help in 
+  incorporating it into `qdapTools`.
 
 BUG FIXES
 
@@ -27,11 +35,20 @@ BUG FIXES
 
 NEW FEATURES
 
+* `lookup` and `hash` families of functions wraps `data.table` package to 
+  provide the ease of the lookup binary operators with the speed of the 
+  `data.table` package.
+
 MINOR FEATURES
 
 IMPROVEMENTS
 
 CHANGES
+
+* `The `%l*%` binary operator becomes deprecated as its behavior is no longer 
+  needed with the inclusion of the `data.table` package.  it will be removed in 
+  a subsequent version of `qdapTools`.
+
 
 qdapTools 0.2.0
 ----------------------------------------------------------------
