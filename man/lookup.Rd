@@ -108,7 +108,7 @@ lookup(mtcars$carb, sort(unique(mtcars$carb)),
 
 ##Larger Examples
 key <- data.frame(x=1:2, y=c("A", "B"))
-big.vec <- sample(1:2, 3000000, T)
+big.vec <- sample(1:2, 3000000, TRUE)
 out <- lookup(big.vec, key)
 out[1:20]
 
