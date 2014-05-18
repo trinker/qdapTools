@@ -7,13 +7,14 @@
 #' @param terms A vector of terms to undergo a lookup.
 #' @param key The hash key to use.
 #' @param missing Value to assign to terms not found in the hash table.
-#' @return Creates a "hash table", a two column data frame in its own 
-#' environment.  
-#' @seealso \code{\link[qdapTools]{lookup}}
+#' @return Creates a "hash table", a two column \pkg{data.table}. 
+#' @seealso 
+#' \code{\link[data.table]{setDT}},
+#' \code{\link[qdapTools]{hash}}
 #' @keywords hash, dictionary, lookup
 #' @rdname hash
 #' @export
-#' @importFrom data.table setkey setDT := 
+#' @importFrom data.table setkey setDT 
 #' @examples
 #' (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
 #' x <- sample(DF[, 1], 20, TRUE)

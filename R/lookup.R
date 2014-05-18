@@ -15,7 +15,8 @@
 #' missing elements are retained.
 #' @return Outputs A new vector with reassigned values.
 #' @seealso 
-#' \code{\link[data.table]{setDT}}
+#' \code{\link[data.table]{setDT}},
+#' \code{\link[qdapTools]{hash}}
 #' @keywords dictionary, hash, lookup
 #' @export
 #' @rdname lookup
@@ -250,6 +251,7 @@ lookup_helper <- function(terms, key, missing = NA) {
 `%l+%` <- function(terms, key.match) {
     lookup(terms = terms, key.match = key.match, missing = NULL)
 }
+
 
 
 #' Hash/Dictionary Lookup

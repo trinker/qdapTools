@@ -24,8 +24,7 @@ terms \%hl+\% key
 \item{missing}{Value to assign to terms not found in the hash table.}
 }
 \value{
-Creates a "hash table", a two column data frame in its own
-environment.
+Creates a "hash table", a two column \pkg{data.table}.
 }
 \description{
 \code{hash} - Creates a \pkg{data.table} based hash table for quick hash
@@ -61,7 +60,8 @@ m <- hfun(DF)
 m(x)
 }
 \seealso{
-\code{\link[qdapTools]{lookup}}
+\code{\link[data.table]{setDT}},
+\code{\link[qdapTools]{hash}}
 }
 \keyword{dictionary,}
 \keyword{hash,}

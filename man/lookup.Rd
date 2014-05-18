@@ -119,7 +119,8 @@ difftime(Sys.time(), tic)
 sample(output, 100)
 }
 \seealso{
-\code{\link[data.table]{setDT}}
+\code{\link[data.table]{setDT}},
+\code{\link[qdapTools]{hash}}
 }
 \keyword{dictionary,}
 \keyword{hash,}
