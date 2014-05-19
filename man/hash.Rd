@@ -45,8 +45,7 @@ style dictionary lookup.
 \code{\%hl\%} - A binary operator version of \code{hash_look}.
 
 \code{\%hl+\%} - A binary operator version of \code{hash_look}
-for when \code{key.match} is a data.frame or named list and \code{missing} is
-assumed to be \code{NULL}.
+for when \code{missing} is assumed to be \code{NULL}.
 
 \code{hash_e} - Creates a new environment for quick hash style dictionary lookup.
 }

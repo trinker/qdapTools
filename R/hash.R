@@ -103,8 +103,7 @@ hash_look <- function(terms, key, missing = NA) {
 #' Hash/Dictionary Lookup
 #' 
 #' \code{\%hl+\%} - A binary operator version of \code{hash_look} 
-#' for when \code{key.match} is a data.frame or named list and \code{missing} is
-#' assumed to be \code{NULL}.
+#' for when \code{missing} is assumed to be \code{NULL}.
 #'
 #' @export
 #' @rdname hash
@@ -118,6 +117,10 @@ hash_look <- function(terms, key, missing = NA) {
 #'
 #' @param terms A vector of terms to undergo a lookup.
 #' @param key The hash key to use.
+#' @param key.match Takes one of the following: (1) a two column data.frame of a 
+#' match key and reassignment column, (2) a named list of vectors (Note: if 
+#' data.frame or named list supplied no key reassign needed) or (3) a single 
+#' vector match key.
 #' @export
 #' @rdname Deprecated
 `%ha%` <- function(terms, key) {

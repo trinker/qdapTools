@@ -15,8 +15,8 @@ test_that("lookup is producing vectors with factors",{
 })
 
 test_that("lookup gives a character when column 2 is character",{
-    is.character(lookup(mtcars$carb, sort(unique(mtcars$carb)),
-        c("one", "two", "three", "four", "six", "eight")))
+    expect_true(is.character(lookup(mtcars$carb, sort(unique(mtcars$carb)),
+        c("one", "two", "three", "four", "six", "eight"))))
 })
 
 test_that("lookup works with lists",{
@@ -36,7 +36,7 @@ test_that("lookup is speedy; less than 1.5 sec on 10 mill",{
     recode_me <- sample(1:(length(LETTERS)*10), 10000000, TRUE)
     tic <- Sys.time()
     output <- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)
-    as.numeric(difftime(Sys.time(), tic)) < 1.5
+    expect_true(as.numeric(difftime(Sys.time(), tic)) < 1.5)
 
 })
 

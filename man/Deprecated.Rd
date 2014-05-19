@@ -12,6 +12,11 @@ terms \%l*\% key.match
 \item{terms}{A vector of terms to undergo a lookup.}
 
 \item{key}{The hash key to use.}
+
+\item{key.match}{Takes one of the following: (1) a two column data.frame of a
+match key and reassignment column, (2) a named list of vectors (Note: if
+data.frame or named list supplied no key reassign needed) or (3) a single
+vector match key.}
 }
 \description{
 \code{\%ha\%} - A deprecated binary operator version of \code{hash_look}.
