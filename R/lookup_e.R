@@ -46,12 +46,12 @@
 #' lookup_e(mtcars$carb, sort(unique(mtcars$carb)),
 #'     seq(10, 60, by=10))
 #' 
-#' ## %l.%, a binary operator version of lookup
-#' 1:5 %l.% data.frame(1:4, 11:14)
-#' 1:10 %l.% codes
+#' ## %le%, a binary operator version of lookup
+#' 1:5 %le% data.frame(1:4, 11:14)
+#' 1:10 %le% codes
 #' 
-#' 1:12 %l.% codes
-#' 1:12 %l.+% codes
+#' 1:12 %le% codes
+#' 1:12 %le+% codes
 lookup_e <-
 function(terms, key.match, key.reassign=NULL, missing = NA) {
 
