@@ -3,6 +3,7 @@
 \alias{\%hl+\%}
 \alias{\%hl\%}
 \alias{hash}
+\alias{hash_e}
 \alias{hash_look}
 \title{Hash/Dictionary Lookup}
 \usage{
@@ -13,6 +14,8 @@ hash_look(terms, key, missing = NA)
 terms \%hl\% key
 
 terms \%hl+\% key
+
+hash_e(x, mode.out = "numeric")
 }
 \arguments{
 \item{x}{A two column dataframe.}
@@ -22,9 +25,17 @@ terms \%hl+\% key
 \item{key}{The hash key to use.}
 
 \item{missing}{Value to assign to terms not found in the hash table.}
+
+\item{mode.out}{The type of output (column 2) expected (e.g.,
+\code{"character"}, \code{"numeric"}, etc.)}
+
+\item{missing}{Value to assign to terms not found in the hash table.}
 }
 \value{
-Creates a "hash table", a two column \pkg{data.table}.
+\code{hash} - Creates a "hash table", a two column \pkg{data.table}.
+
+\code{hash_e} - Creates a "hash table", a two column \code{data.frame}
+in its own environment.
 }
 \description{
 \code{hash} - Creates a \pkg{data.table} based hash table for quick hash
@@ -33,13 +44,18 @@ style dictionary lookup.
 \code{hash_look} - Works with a hash table such as is returned from
 \code{hash}, to lookup values.
 
-\code{\%ha\%} - A binary operator version of \code{hash_look}.
+\code{\%hl\%} - A binary operator version of \code{hash_look}.
 
-\code{\%ha\%} - A binary operator version of \code{hash_look}
+\code{\%hl+\%} - A binary operator version of \code{hash_look}
 for when \code{key.match} is a data.frame or named list and \code{missing} is
 assumed to be \code{NULL}.
+
+\code{hash_e} - Creates a new environment for quick hash style dictionary lookup.
 }
 \examples{
+##===================##
+## data.table Hashes ##
+##===================##
 (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
 x <- sample(DF[, 1], 20, TRUE)
 new.hash <- hash(DF)
@@ -58,10 +74,27 @@ hfun <- function(x, ...) {
 
 m <- hfun(DF)
 m(x)
+
+##====================##
+## Environment Hashes ##
+##====================##
+new.hash2 <- hash_e(DF)
+
+x \%hl\% new.hash2
+x2 \%hl\% new.hash2
+x2 \%hl+\% new.hash2
+}
+\author{
+\code{hash_e} - Bryan Goodrich and Tyler Rinker <tyler.rinker@gmail.com>.
+}
+\references{
+\url{http://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary}
 }
 \seealso{
 \code{\link[data.table]{setDT}},
 \code{\link[qdapTools]{hash}}
+
+\code{\link[base]{environment}}
 }
 \keyword{dictionary,}
 \keyword{hash,}

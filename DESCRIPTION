@@ -20,3 +20,4 @@ Description: This package is a collection of tools associated with the qdap
 License: GPL-2
 URL: http://trinker.github.com/qdapTools/
 BugReports: http://github.com/trinker/qdapTools/issues
+Roxygen: list(wrap = FALSE)

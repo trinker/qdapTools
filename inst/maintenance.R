@@ -22,10 +22,12 @@ path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
 extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
-	"%hl+%", lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
-	lookup.numeric)
+	"%hl+%",  "%lc%", "%lc+%")
 
-expand_statdoc(path2, to.icon = extras, readme = rdme)
+drops <- qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
+	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, v_outer.matrix)
+
+expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
 
 x <- readLines(path2)
 x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
@@ -62,10 +64,12 @@ path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
 library(acc.roxygen2); library(qdap);
 extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
-	"%hl+%", lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
-	lookup.numeric)
+	"%hl+%",  "%lc%", "%lc+%")
 
-expand_statdoc(path2, to.icon = extras, readme = rdme)
+drops <- qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
+	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, v_outer.matrix)
+
+expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
 
 x <- readLines(path2)
 x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
@@ -90,5 +94,9 @@ file.rename(file.path(file, "web"), incoming)
 x <- c("BUG FIXES", "NEW FEATURES", "MINOR FEATURES", "IMPROVEMENTS", "CHANGES")
 cat(paste(x, collapse = "\n\n"), file="clipboard")
 
+#==========================
+# Run unit tests
+#==========================
+devtools::test()
 
 

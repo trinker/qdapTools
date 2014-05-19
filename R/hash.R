@@ -7,7 +7,7 @@
 #' @param terms A vector of terms to undergo a lookup.
 #' @param key The hash key to use.
 #' @param missing Value to assign to terms not found in the hash table.
-#' @return Creates a "hash table", a two column \pkg{data.table}. 
+#' @return \code{hash} - Creates a "hash table", a two column \pkg{data.table}. 
 #' @seealso 
 #' \code{\link[data.table]{setDT}},
 #' \code{\link[qdapTools]{hash}}
@@ -16,6 +16,9 @@
 #' @export
 #' @importFrom data.table setkey setDT 
 #' @examples
+#' ##===================##
+#' ## data.table Hashes ##
+#' ##===================##
 #' (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
 #' x <- sample(DF[, 1], 20, TRUE)
 #' new.hash <- hash(DF) 
@@ -34,6 +37,15 @@
 #' 
 #' m <- hfun(DF)
 #' m(x)
+#' 
+#' ##====================##
+#' ## Environment Hashes ##
+#' ##====================##
+#' new.hash2 <- hash_e(DF)
+#' 
+#' x %hl% new.hash2
+#' x2 %hl% new.hash2
+#' x2 %hl+% new.hash2
 hash <- 
 function(x) {
 
@@ -50,7 +62,7 @@ function(x) {
     setDT(key)
     setkey(key, x)        
 
-    class(key) <- c("qdap_hash", class(key))
+    class(key) <- c("qdap_hash", "key", class(key))
     attributes(key)[["mode"]] <- FUN
     key
                                                            
@@ -66,14 +78,23 @@ function(x) {
 #' @export
 #' @rdname hash
 hash_look <- function(terms, key, missing = NA) {
-	
-    attributes(key)[["mode"]](hash_lookup_helper(terms, key, missing))
-	
+
+	if (!is.environment(key)) {
+		if (is.null(attributes(key)[["mode"]])) {
+			return(hash_lookup_helper(terms, key, missing))
+		}		
+        attributes(key)[["mode"]](hash_lookup_helper(terms, key, missing))
+	} else {
+		if (is.null(attributes(key)[["mode"]])) {
+			return(hash_look_e(terms, key, missing))
+		}
+		attributes(key)[["mode"]](hash_look_e(terms, key, missing))
+	} 
 }
 
 #' Hash/Dictionary Lookup
 #' 
-#' \code{\%ha\%} - A binary operator version of \code{hash_look}.
+#' \code{\%hl\%} - A binary operator version of \code{hash_look}.
 #'
 #' @export
 #' @rdname hash
@@ -81,7 +102,7 @@ hash_look <- function(terms, key, missing = NA) {
 
 #' Hash/Dictionary Lookup
 #' 
-#' \code{\%ha\%} - A binary operator version of \code{hash_look} 
+#' \code{\%hl+\%} - A binary operator version of \code{hash_look} 
 #' for when \code{key.match} is a data.frame or named list and \code{missing} is
 #' assumed to be \code{NULL}.
 #'

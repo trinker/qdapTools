@@ -85,8 +85,7 @@ function(terms, key.match, key.reassign=NULL, missing = NA) {
 
 }
 
-require(data.table)
- 
+
 #' @export
 #' @method lookup list
 #' @rdname lookup
@@ -251,6 +250,45 @@ lookup_helper <- function(terms, key, missing = NA) {
 `%l+%` <- function(terms, key.match) {
     lookup(terms = terms, key.match = key.match, missing = NULL)
 }
+
+#' Hash/Dictionary Lookup
+#' 
+#' \code{\%lc\%} - A binary operator version of \code{lookup} 
+#' for when \code{key.match} is a data.frame or named list and all arguments are 
+#' converted to character.
+#'
+#' @export
+#' @rdname lookup
+`%lc%` <- function(terms, key.match) {
+	
+	terms <- as.character(terms)
+	if (!is.data.frame(key.match) && is.list(key.match)) {
+	    key.match <- list2df(key.match, "x", "y")	
+	}
+	key.match[] <- lapply(key.match, as.character)
+	
+    lookup(terms = terms, key.match = key.match)
+}
+
+#' Hash/Dictionary Lookup
+#' 
+#' \code{\%lc+\%} - A binary operator version of \code{lookup} 
+#' for when \code{key.match} is a data.frame or named list, \code{missing} is
+#' assumed to be \code{NULL}, and all arguments are converted to character.
+#'
+#' @export
+#' @rdname lookup
+`%lc+%` <- function(terms, key.match) {
+	
+	terms <- as.character(terms)
+	if (!is.data.frame(key.match) && is.list(key.match)) {
+	    key.match <- list2df(key.match, "x", "y")	
+	}
+	key.match[] <- lapply(key.match, as.character)
+	
+    lookup(terms = terms, key.match = key.match, missing = NULL)
+}
+
 
 
 

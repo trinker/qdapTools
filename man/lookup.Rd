@@ -2,6 +2,8 @@
 \name{lookup}
 \alias{\%l+\%}
 \alias{\%l\%}
+\alias{\%lc+\%}
+\alias{\%lc\%}
 \alias{lookup}
 \alias{lookup.character}
 \alias{lookup.data.frame}
@@ -29,6 +31,10 @@ lookup(terms, key.match, key.reassign = NULL, missing = NA)
 terms \%l\% key.match
 
 terms \%l+\% key.match
+
+terms \%lc\% key.match
+
+terms \%lc+\% key.match
 }
 \arguments{
 \item{terms}{A vector of terms to undergo a lookup.}
@@ -58,6 +64,14 @@ for when \code{key.match} is a data.frame or named list.
 \code{\%l+\%} - A binary operator version of \code{lookup}
 for when \code{key.match} is a data.frame or named list and \code{missing} is
 assumed to be \code{NULL}.
+
+\code{\%lc\%} - A binary operator version of \code{lookup}
+for when \code{key.match} is a data.frame or named list and all arguments are
+converted to character.
+
+\code{\%lc+\%} - A binary operator version of \code{lookup}
+for when \code{key.match} is a data.frame or named list, \code{missing} is
+assumed to be \code{NULL}, and all arguments are converted to character.
 }
 \examples{
 ## Supply a dataframe to key.match
