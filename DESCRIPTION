@@ -14,6 +14,8 @@ Imports:
     chron,
     data.table,
     RCurl
+Suggests:
+    testthat
 LazyData: TRUE
 Description: This package is a collection of tools associated with the qdap
     package that may be useful outside of the context of text analysis.
