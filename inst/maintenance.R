@@ -3,6 +3,11 @@
 #========
 source("inst/build.R")
 
+#==========================
+# Run unit tests
+#==========================
+devtools::test()
+
 #========================
 #staticdocs dev version
 #========================
@@ -94,9 +99,6 @@ file.rename(file.path(file, "web"), incoming)
 x <- c("BUG FIXES", "NEW FEATURES", "MINOR FEATURES", "IMPROVEMENTS", "CHANGES")
 cat(paste(x, collapse = "\n\n"), file="clipboard")
 
-#==========================
-# Run unit tests
-#==========================
-devtools::test()
+
 
 

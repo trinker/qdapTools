@@ -28,8 +28,6 @@ hash_e(x, mode.out = "numeric")
 
 \item{mode.out}{The type of output (column 2) expected (e.g.,
 \code{"character"}, \code{"numeric"}, etc.)}
-
-\item{missing}{Value to assign to terms not found in the hash table.}
 }
 \value{
 \code{hash} - Creates a "hash table", a two column \pkg{data.table}.

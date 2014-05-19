@@ -116,6 +116,8 @@ hash_look <- function(terms, key, missing = NA) {
 #' This will be removed in a subsequent version of \pkg{qdapTools}.  Use 
 #' \code{\%hl\%} instead.
 #'
+#' @param terms A vector of terms to undergo a lookup.
+#' @param key The hash key to use.
 #' @export
 #' @rdname Deprecated
 `%ha%` <- function(terms, key) {

@@ -4,7 +4,6 @@
 #' 
 #' @param mode.out The type of output (column 2) expected (e.g.,
 #' \code{"character"}, \code{"numeric"}, etc.)
-#' @param missing Value to assign to terms not found in the hash table.
 #' @return \code{hash_e} - Creates a "hash table", a two column \code{data.frame} 
 #' in its own environment.  
 #' @author \code{hash_e} - Bryan Goodrich and Tyler Rinker <tyler.rinker@@gmail.com>.

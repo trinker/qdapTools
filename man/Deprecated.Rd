@@ -8,6 +8,11 @@ terms \%ha\% key
 
 terms \%l*\% key.match
 }
+\arguments{
+\item{terms}{A vector of terms to undergo a lookup.}
+
+\item{key}{The hash key to use.}
+}
 \description{
 \code{\%ha\%} - A deprecated binary operator version of \code{hash_look}.
 This will be removed in a subsequent version of \pkg{qdapTools}.  Use
