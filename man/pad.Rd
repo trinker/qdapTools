@@ -33,6 +33,7 @@ pad(sample(1:10, 10), sort=FALSE)
 pad(as.character(sample(1:10, 10)))
 pad(as.character(sample(1:10, 10)), sort=FALSE)
 pad(as.character(sample(1:10, 10)), 4)
+pad(month.name)
 }
 \seealso{
 \code{\link[base]{sprintf}}
