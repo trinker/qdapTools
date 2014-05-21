@@ -21,6 +21,7 @@
 #' pad(as.character(sample(1:10, 10)))
 #' pad(as.character(sample(1:10, 10)), sort=FALSE)
 #' pad(as.character(sample(1:10, 10)), 4)
+#' pad(month.name)
 pad <- function (x, padding = max(nchar(as.character(x))), sort = TRUE, 
     type = "detect") {
     poss <- c("detect", "numeric", "character", "d", "s")

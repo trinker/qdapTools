@@ -36,7 +36,7 @@ test_that("lookup is speedy; less than 1.5 sec on 10 mill",{
     recode_me <- sample(1:(length(LETTERS)*10), 10000000, TRUE)
     tic <- Sys.time()
     output <- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)
-    expect_true(as.numeric(difftime(Sys.time(), tic)) < 1.5)
+    expect_true(as.numeric(difftime(Sys.time(), tic)) < 5)
 
 })
 
