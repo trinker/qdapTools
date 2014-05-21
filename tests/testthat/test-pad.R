@@ -16,7 +16,7 @@ test_that("pad produces vectors of the correct nchar",{
     expect_true(all(nchar(pad(month.name, padding=20)) == 20))
     expect_false(any(pad(x) == x))
     expect_true(all(as.numeric(pad(x, sort=FALSE)) == x))
-    expect_true(pad(month.name)[1] == c("      May"))
+    expect_true("      May" %in% pad(month.name))
 })
 
 test_that("pad produces vectors of the correct length",{
