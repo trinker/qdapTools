@@ -17,6 +17,21 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+
+qdapTools 1.0.1
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+
 qdapTools 1.0.0
 ----------------------------------------------------------------
 
@@ -39,6 +54,9 @@ This version of `qdapTools` incorporates the `data.table` package.  This
   provide the ease of the lookup binary operators with the speed of the 
   `data.table` package.
 
+* `qdapTools` now uses the `testthat` package to provide unit testing on 
+  the package functions.
+
 **IMPROVEMENTS**
 
 * `v_outer` gains a speed boost through optimization optimization, including a 
@@ -50,7 +68,7 @@ This version of `qdapTools` incorporates the `data.table` package.  This
 
 **CHANGES**
 
-* `The `%l*%` binary operator becomes deprecated as its behavior is no longer 
+* The `%l*%` binary operator becomes deprecated as its behavior is no longer 
   needed with the inclusion of the `data.table` package.  it will be removed in 
   a subsequent version of `qdapTools`.
 

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>mtabulate. qdapTools 1.0.0</title>
+<title>mtabulate. qdapTools 1.0.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Joran Elias and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@ Joran Elias and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.0</a>
+      <a class="brand" href="#">qdapTools 1.0.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -197,11 +197,30 @@ mtabulate(mtcars$cyl[1:10])
 </div>
 <div class='input'>
 dat &lt;- data.frame(matrix(sample(c(&quot;A&quot;, &quot;B&quot;), 30, TRUE), ncol=3))
-t(mtabulate(dat))
+mtabulate(dat)
+</div>
+<div class='output'>   A B
+X1 4 6
+X2 4 6
+X3 8 2
+</div>
+<div class='input'>t(mtabulate(dat))
 </div>
 <div class='output'>  X1 X2 X3
-A  6  6  6
-B  4  4  4
+A  4  4  8
+B  6  6  2
+</div>
+<div class='input'>counts2list(mtabulate(dat))
+</div>
+<div class='output'>$X1
+ [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;
+
+$X2
+ [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;
+
+$X3
+ [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot;
+
 </div></pre>
   </div>
   <div class="span4">
@@ -214,7 +233,7 @@ B  4  4  4
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/r-doc/base/tabulate'>tabulate</a></code>
+<code><a href='http://www.inside-r.org/r-doc/base/tabulate'>tabulate</a></code>, <code>counts2list</code>
 
     
     <h2>Author</h2>

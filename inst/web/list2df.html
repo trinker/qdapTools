@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>list2df. qdapTools 1.0.0</title>
+<title>list2df. qdapTools 1.0.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.0</a>
+      <a class="brand" href="#">qdapTools 1.0.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -35,7 +35,7 @@
         
       </header>
       
-      <h1>List/Matrix/Vector to Dataframe/List</h1>
+      <h1>List/Matrix/Vector to Dataframe/List/Matrix</h1>
 
 <div class="row">
   <div class="span8">
@@ -46,7 +46,8 @@
 <div>list_df2df(list.df.object, col1&nbsp;=&nbsp;"X1")</div>
 <div>list_vect2df(list.vector.object, col1&nbsp;=&nbsp;"X1", col2&nbsp;=&nbsp;"X2", col3&nbsp;=&nbsp;"X3", order&nbsp;=&nbsp;TRUE, ...)</div>
 <div>counts2list(mat, nm&nbsp;=&nbsp;rownames(mat))</div>
-<div>vect2list(vector.object, use.names&nbsp;=&nbsp;TRUE, numbered.names&nbsp;=&nbsp;FALSE)</div></pre>
+<div>vect2list(vector.object, use.names&nbsp;=&nbsp;TRUE, numbered.names&nbsp;=&nbsp;FALSE)</div>
+<div>df2matrix(data.frame.object, i&nbsp;=&nbsp;1)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -74,7 +75,7 @@ columns.</dd>
       <dt>col3</dt>
       <dd>The name of the third column (<code>list_vect2df</code>).</dd>
       <dt>...</dt>
-      <dd>Further arguments passed to <code>vect2df</code>)</dd>
+      <dd>Further arguments passed to <code>vect2df</code>.</dd>
       <dt>mat</dt>
       <dd>A matrix of counts.</dd>
       <dt>nm</dt>
@@ -86,10 +87,15 @@ names will be transferred to the list names.</dd>
       <dd>logical.  If <code>TRUE</code> padded numbers will be used
 as list names.  If <code>FALSE</code> the vector elements themselves will become
 the list names.</dd>
+      <dt>data.frame.object</dt>
+      <dd>A <code>data.frame</code> object.</dd>
+      <dt>i</dt>
+      <dd>The column number or name to become the rownames of the
+<code>matrix</code>.</dd>
     </dl>
     
-    <div class="List/Matrix/Vector to Dataframe/List">
-      <h2>List/Matrix/Vector to Dataframe/List</h2>
+    <div class="List/Matrix/Vector to Dataframe/List/Matrix">
+      <h2>List/Matrix/Vector to Dataframe/List/Matrix</h2>
       
     </div>
 
@@ -109,6 +115,8 @@ the list names.</dd>
       <p><code>counts2list</code> - Returns a list of elements.</p>
   
       <p><code>vect2list</code> - Returns a list of named elements.</p>
+  
+      <p><code>df2matrix</code> - Returns a matrix.</p>
   
     </div>
 
@@ -132,12 +140,9 @@ dataframe.</p>
   
       <p><code>vect2list</code> - Convert a vector to a named list.</p>
   
-    </div>
-
-    <div class="Details">
-      <h2>Details</h2>
-      
-      <p>generally an internal function used for reshaping data.</p>
+      <p><code>df2matrix</code> - Convert a dataframe to a <code>matrix</code> and simultaneously
+move a column (default is the first column) to the rownames of a
+<code>matrix</code>.</p>
   
     </div>
     
@@ -390,6 +395,119 @@ list_vect2df(L2)
 22  states xArkansas Arkansas
 </div>
 <div class='input'>
+set.seed(10)
+cnts &lt;- data.frame(month=month.name,
+    matrix(sample(0:2, 36, TRUE), ncol=3))
+
+counts2list(cnts[, -1], cnts[, 1])
+</div>
+<div class='output'>$January
+[1] &quot;X1&quot; &quot;X3&quot;
+
+$February
+[1] &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+$March
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+$April
+[1] &quot;X1&quot; &quot;X1&quot; &quot;X2&quot;
+
+$May
+[1] &quot;X3&quot; &quot;X3&quot;
+
+$June
+[1] &quot;X3&quot;
+
+$July
+[1] &quot;X2&quot; &quot;X3&quot;
+
+$August
+[1] &quot;X2&quot; &quot;X2&quot;
+
+$September
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X2&quot;
+
+$October
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+$November
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X2&quot; &quot;X3&quot;
+
+$December
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+</div>
+<div class='input'>df2matrix(cnts)
+</div>
+<div class='output'>          X1 X2 X3
+January    1  0  1
+February   0  1  2
+March      1  1  2
+April      2  1  0
+May        0  0  2
+June       0  0  1
+July       0  1  1
+August     0  2  0
+September  1  2  0
+October    1  1  2
+November   1  2  1
+December   1  1  2
+</div>
+<div class='input'>counts2list(df2matrix(cnts))
+</div>
+<div class='output'>$January
+[1] &quot;X1&quot; &quot;X3&quot;
+
+$February
+[1] &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+$March
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+$April
+[1] &quot;X1&quot; &quot;X1&quot; &quot;X2&quot;
+
+$May
+[1] &quot;X3&quot; &quot;X3&quot;
+
+$June
+[1] &quot;X3&quot;
+
+$July
+[1] &quot;X2&quot; &quot;X3&quot;
+
+$August
+[1] &quot;X2&quot; &quot;X2&quot;
+
+$September
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X2&quot;
+
+$October
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+$November
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X2&quot; &quot;X3&quot;
+
+$December
+[1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; &quot;X3&quot;
+
+</div>
+<div class='input'>counts2list(t(df2matrix(cnts)))
+</div>
+<div class='output'>$X1
+[1] &quot;January&quot;   &quot;March&quot;     &quot;April&quot;     &quot;April&quot;     &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot; 
+
+$X2
+ [1] &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;July&quot;      &quot;August&quot;    &quot;August&quot;    &quot;September&quot; &quot;September&quot; &quot;October&quot;  
+[10] &quot;November&quot;  &quot;November&quot;  &quot;December&quot; 
+
+$X3
+ [1] &quot;January&quot;  &quot;February&quot; &quot;February&quot; &quot;March&quot;    &quot;March&quot;    &quot;May&quot;      &quot;May&quot;      &quot;June&quot;     &quot;July&quot;     &quot;October&quot; 
+[11] &quot;October&quot;  &quot;November&quot; &quot;December&quot; &quot;December&quot;
+
+</div>
+<div class='input'>
 ## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # library(qdap)
 # term &lt;- c(&quot;the &quot;, &quot;she&quot;, &quot; wh&quot;)
@@ -514,12 +632,16 @@ $`4`
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>counts2list</li><li>list2df</li><li>list_df2df</li><li>list_vect2df</li><li>matrix2df</li><li>vect2df</li><li>vect2list</li>
+      <li>counts2list</li><li>df2matrix</li><li>list2df</li><li>list_df2df</li><li>list_vect2df</li><li>matrix2df</li><li>vect2df</li><li>vect2list</li>
     </ul>
     <ul>
       <li>collapse</li><li>list</li>
     </ul> -->
       
+    <h2>See also</h2>
+    
+<code>mtabulate</code>
+
         
   </div>
 </div>

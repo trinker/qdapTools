@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>lookup. qdapTools 1.0.0</title>
+<title>lookup. qdapTools 1.0.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.0</a>
+      <a class="brand" href="#">qdapTools 1.0.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -85,8 +85,8 @@ missing elements are retained.</dd>
     <div class="Description">
       <h2>Description</h2>
       
-      <p><code>lookup</code> - <span class = "pkg">data.table</span> based hash table useful for large vector
-lookups.</p>
+      <p><code>lookup</code> - <a href = 'http://datatable.r-forge.r-project.org/'><span class = "pkg">data.table</span></a>
+based hash table useful for large vector lookups.</p>
   
       <p><code>%l%</code> - A binary operator version of <code>lookup</code>
 for when <code>key.match</code> is a data.frame or named list.</p>
@@ -196,7 +196,7 @@ big.vec &lt;- sample(1:2, 3000000, TRUE)
 out &lt;- lookup(big.vec, key)
 out[1:20]
 </div>
-<div class='output'> [1] B B B A B B A B A A A A B A A B A A B B
+<div class='output'> [1] B B B B A A A B A A A A A B A B A A A B
 Levels: A B
 </div>
 <div class='input'>
@@ -210,16 +210,16 @@ tic &lt;- Sys.time()
 output &lt;- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)
 difftime(Sys.time(), tic)
 </div>
-<div class='output'>Time difference of 0.9260528 secs
+<div class='output'>Time difference of 0.7880449 secs
 </div>
 <div class='input'>
 ## view it
 sample(output, 100)
 </div>
-<div class='output'>  [1] &quot;T&quot; &quot;M&quot; &quot;I&quot; &quot;U&quot; &quot;C&quot; &quot;P&quot; &quot;K&quot; &quot;I&quot; &quot;D&quot; &quot;X&quot; &quot;O&quot; &quot;S&quot; &quot;I&quot; &quot;Z&quot; &quot;Y&quot; &quot;V&quot; &quot;U&quot; &quot;G&quot; &quot;Z&quot; &quot;N&quot; &quot;P&quot; &quot;C&quot; &quot;O&quot; &quot;M&quot; &quot;G&quot; &quot;Y&quot; &quot;E&quot; &quot;Y&quot;
- [29] &quot;B&quot; &quot;U&quot; &quot;Q&quot; &quot;A&quot; &quot;B&quot; &quot;W&quot; &quot;K&quot; &quot;B&quot; &quot;B&quot; &quot;H&quot; &quot;I&quot; &quot;C&quot; &quot;V&quot; &quot;N&quot; &quot;X&quot; &quot;H&quot; &quot;B&quot; &quot;L&quot; &quot;Y&quot; &quot;P&quot; &quot;W&quot; &quot;C&quot; &quot;T&quot; &quot;X&quot; &quot;R&quot; &quot;O&quot; &quot;B&quot; &quot;S&quot;
- [57] &quot;K&quot; &quot;T&quot; &quot;W&quot; &quot;T&quot; &quot;V&quot; &quot;X&quot; &quot;K&quot; &quot;Q&quot; &quot;L&quot; &quot;F&quot; &quot;K&quot; &quot;A&quot; &quot;W&quot; &quot;W&quot; &quot;Y&quot; &quot;G&quot; &quot;B&quot; &quot;H&quot; &quot;L&quot; &quot;X&quot; &quot;P&quot; &quot;L&quot; &quot;Y&quot; &quot;J&quot; &quot;H&quot; &quot;N&quot; &quot;K&quot; &quot;G&quot;
- [85] &quot;Y&quot; &quot;A&quot; &quot;T&quot; &quot;K&quot; &quot;F&quot; &quot;Y&quot; &quot;H&quot; &quot;K&quot; &quot;E&quot; &quot;R&quot; &quot;I&quot; &quot;F&quot; &quot;V&quot; &quot;A&quot; &quot;S&quot; &quot;P&quot;
+<div class='output'>  [1] &quot;K&quot; &quot;K&quot; &quot;E&quot; &quot;S&quot; &quot;M&quot; &quot;N&quot; &quot;P&quot; &quot;E&quot; &quot;L&quot; &quot;E&quot; &quot;S&quot; &quot;M&quot; &quot;U&quot; &quot;C&quot; &quot;M&quot; &quot;C&quot; &quot;Q&quot; &quot;S&quot; &quot;Z&quot; &quot;Y&quot; &quot;G&quot; &quot;A&quot; &quot;H&quot; &quot;A&quot; &quot;J&quot; &quot;O&quot; &quot;R&quot; &quot;K&quot;
+ [29] &quot;F&quot; &quot;H&quot; &quot;F&quot; &quot;T&quot; &quot;N&quot; &quot;R&quot; &quot;L&quot; &quot;E&quot; &quot;D&quot; &quot;W&quot; &quot;H&quot; &quot;L&quot; &quot;P&quot; &quot;W&quot; &quot;Q&quot; &quot;Z&quot; &quot;M&quot; &quot;Z&quot; &quot;X&quot; &quot;Z&quot; &quot;Z&quot; &quot;J&quot; &quot;O&quot; &quot;L&quot; &quot;X&quot; &quot;X&quot; &quot;E&quot; &quot;T&quot;
+ [57] &quot;W&quot; &quot;N&quot; &quot;O&quot; &quot;H&quot; &quot;F&quot; &quot;J&quot; &quot;P&quot; &quot;X&quot; &quot;N&quot; &quot;Y&quot; &quot;T&quot; &quot;G&quot; &quot;X&quot; &quot;A&quot; &quot;M&quot; &quot;N&quot; &quot;U&quot; &quot;M&quot; &quot;Z&quot; &quot;K&quot; &quot;S&quot; &quot;A&quot; &quot;R&quot; &quot;Q&quot; &quot;Q&quot; &quot;C&quot; &quot;Y&quot; &quot;P&quot;
+ [85] &quot;L&quot; &quot;G&quot; &quot;K&quot; &quot;C&quot; &quot;N&quot; &quot;X&quot; &quot;Z&quot; &quot;T&quot; &quot;D&quot; &quot;C&quot; &quot;N&quot; &quot;B&quot; &quot;F&quot; &quot;I&quot; &quot;O&quot; &quot;K&quot;
 </div></pre>
   </div>
   <div class="span4">

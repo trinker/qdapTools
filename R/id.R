@@ -19,6 +19,7 @@
 #' id(mtcars)
 #' id(mtcars, TRUE)
 #' id("w")
+#' id(mtcars, prefix="id-")
 #' \dontrun{
 #' library(qdap)
 #' question_type(DATA.SPLIT$state, id(DATA.SPLIT, TRUE))

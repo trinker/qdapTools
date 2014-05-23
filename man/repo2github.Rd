@@ -17,8 +17,8 @@ report project directory name.}
 
 \item{github.user}{GitHub user name (character string).}
 
-\item{gitpath}{Path to the location of git.  If \code{NULL}
-\code{repo2github} will attempt to locate the path if necessary.}
+\item{gitpath}{Path to the location of \href{http://git-scm.com/}{Git}.  If
+\code{NULL} \code{repo2github} will attempt to locate the path if necessary.}
 
 \item{readme}{logical.  If \code{TRUE} repo initializes with a README.md file.}
 }
@@ -26,10 +26,11 @@ report project directory name.}
 Creates GitHub repository.
 }
 \description{
-Allows uploading a local repository to GitHub without first creating the
-repository in the clouds. \code{\link[qdapTools]{repo2github}} is designed for
-the initial push to GitHub.  Future pushes can be handled via RStudio or
-other git interface.
+Allows uploading a local repository to \href{https://github.com/}{GitHub}
+without first creating the repository in the clouds.
+\code{\link[qdapTools]{repo2github}} is designed for the initial push to
+GitHub.  Future pushes can be handled via RStudio or other
+\href{http://git-scm.com/}{Git} interface.
 }
 \details{
 The arguments \code{project.dir} and \code{repo} use

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>%ha%. qdapTools 1.0.0</title>
+<title>%ha%. qdapTools 1.0.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.0</a>
+      <a class="brand" href="#">qdapTools 1.0.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -42,7 +42,20 @@
     <h2>Usage</h2>
     <pre><div>terms %ha% key</div>
 <div>terms %l*% key.match</div></pre>
-        
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>terms</dt>
+      <dd>A vector of terms to undergo a lookup.</dd>
+      <dt>key</dt>
+      <dd>The hash key to use.</dd>
+      <dt>key.match</dt>
+      <dd>Takes one of the following: (1) a two column data.frame of a
+match key and reassignment column, (2) a named list of vectors (Note: if
+data.frame or named list supplied no key reassign needed) or (3) a single
+vector match key.</dd>
+    </dl>
+    
     <div class="Hash/Dictionary Lookup">
       <h2>Hash/Dictionary Lookup</h2>
       

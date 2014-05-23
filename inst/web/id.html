@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>id. qdapTools 1.0.0</title>
+<title>id. qdapTools 1.0.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.0</a>
+      <a class="brand" href="#">qdapTools 1.0.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -47,7 +47,9 @@
       <dt>x</dt>
       <dd>A dataframe, matrix, vector, or list object.</dd>
       <dt>prefix</dt>
-      <dd>logical.  If <code>TRUE</code> an "X." is place before each id.</dd>
+      <dd>A character string to use as a prefix. <code>FALSE</code> or
+<code>NULL</code> results in no prefix being used.  <code>TRUE</code> will utilize the
+prefix <code>"X."</code>.</dd>
       <dt>pad</dt>
       <dd>logical.  If <code>TRUE</code> the beginning number will be padded with
 zeros.</dd>
@@ -97,6 +99,12 @@ zeros.</dd>
 <div class='input'>id(&quot;w&quot;)
 </div>
 <div class='output'>[1] &quot;1&quot;
+</div>
+<div class='input'>id(mtcars, prefix=&quot;id-&quot;)
+</div>
+<div class='output'> [1] &quot;id-01&quot; &quot;id-02&quot; &quot;id-03&quot; &quot;id-04&quot; &quot;id-05&quot; &quot;id-06&quot; &quot;id-07&quot; &quot;id-08&quot; &quot;id-09&quot; &quot;id-10&quot; &quot;id-11&quot; &quot;id-12&quot; &quot;id-13&quot; &quot;id-14&quot;
+[15] &quot;id-15&quot; &quot;id-16&quot; &quot;id-17&quot; &quot;id-18&quot; &quot;id-19&quot; &quot;id-20&quot; &quot;id-21&quot; &quot;id-22&quot; &quot;id-23&quot; &quot;id-24&quot; &quot;id-25&quot; &quot;id-26&quot; &quot;id-27&quot; &quot;id-28&quot;
+[29] &quot;id-29&quot; &quot;id-30&quot; &quot;id-31&quot; &quot;id-32&quot;
 </div>
 <div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # library(qdap)
