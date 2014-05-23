@@ -4,7 +4,7 @@
 #' 
 #' @param \ldots Document names to download. Quoted strings (complete urls) can
 #' also be supplied (if so no url argument is supplied).
-#' @param url The download url or Dropbox key. 
+#' @param url The download url or \href{https://www.dropbox.com/}{Dropbox} key. 
 #' @return Places a copy of the downloaded document in the users working 
 #' directory.
 #' @export

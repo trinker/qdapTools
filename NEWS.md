@@ -39,9 +39,14 @@ This version of `qdapTools` incorporates the `data.table` package.  This
   provide the ease of the lookup binary operators with the speed of the 
   `data.table` package.
 
-**MINOR FEATURES**
-
 **IMPROVEMENTS**
+
+* `v_outer` gains a speed boost through optimization optimization, including a 
+  suggestion from stackoverflow.com's eddi: 
+  <a href="http://stackoverflow.com/users/817778/eddi." target="_blank">http://stackoverflow.com/users/817778/eddi.</a>
+
+* `id` now allows the user to supply a character string prefix via the `prefix` 
+  argument.
 
 **CHANGES**
 

@@ -1,7 +1,7 @@
 #' Hash Table/Dictionary Lookup
 #'  
-#' \code{lookup} - \pkg{data.table} based hash table useful for large vector 
-#' lookups.
+#' \code{lookup} - \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}} 
+#' based hash table useful for large vector lookups.
 #' 
 #' @param terms A vector of terms to undergo a lookup.
 #' @param key.match Takes one of the following: (1) a two column data.frame of a 

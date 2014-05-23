@@ -1,4 +1,4 @@
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{list2df} - Convert a named list of vectors to a dataframe.
 #' 
@@ -7,9 +7,9 @@
 #' the rownames if converting a matrix).
 #' @param col2 Name for column 2 (the names of the vectors).
 #' @return \code{list2df} - Returns a dataframe with two columns.
-#' @details generally an internal function used for reshaping data.
 #' @keywords collapse list
 #' @export
+#' @seealso \code{\link[qdapTools]{mtabulate}}
 #' @rdname list2df
 #' @examples
 #' lst1 <- list(x=c("foo", "bar"), y=1:5)
@@ -37,6 +37,15 @@
 #' )
 #' 
 #' list_vect2df(L2)
+#' 
+#' set.seed(10)
+#' cnts <- data.frame(month=month.name,
+#'     matrix(sample(0:2, 36, TRUE), ncol=3))
+#' 
+#' counts2list(cnts[, -1], cnts[, 1])
+#' df2matrix(cnts)
+#' counts2list(df2matrix(cnts))
+#' counts2list(t(df2matrix(cnts)))
 #' 
 #' \dontrun{
 #' library(qdap)
@@ -67,7 +76,7 @@ list2df <- function(list.object, col1 = "X1", col2 = "X2") {
     dat
 }
 
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{matrix2df} - Convert a matrix to a dataframe and convert the rownames 
 #' to the first column.
@@ -92,7 +101,7 @@ matrix2df <- function(matrix.object, col1 = "var1") {
     dat
 }
 
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{vect2df} - Convert a named vector to a dataframe.
 #' 
@@ -128,7 +137,7 @@ vect2df <- function(vector.object, col1 = "X1", col2 = "X2", order = TRUE,
     out
 }
 
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{list_df2df} - Convert a list of equal numbered/named columns to a 
 #' dataframe using the list names as the level two variable.
@@ -149,7 +158,7 @@ list_df2df <- function(list.df.object, col1 = "X1") {
     out
 }
 
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{list_vect2df} - Convert a list of named vectors to a hierarchical
 #' dataframe.
@@ -157,7 +166,7 @@ list_df2df <- function(list.df.object, col1 = "X1") {
 #' @param list.vector.object A list of dataframes with equal number/named of 
 #' columns.
 #' @param col3 The name of the third column (\code{list_vect2df}).
-#' @param \dots Further arguments passed to \code{vect2df})
+#' @param \dots Further arguments passed to \code{vect2df}.
 #' @rdname list2df
 #' @return \code{list_vect2df} - Returns a dataframe.
 #' @export
@@ -176,7 +185,7 @@ list_vect2df <- function(list.vector.object, col1 = "X1", col2 = "X2",
 
 }
 
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{counts2list} - Convert a count matrix to a named list of elements.
 #' 
@@ -193,7 +202,7 @@ counts2list <- function(mat, nm = rownames(mat)) {
 }
 
 
-#' List/Matrix/Vector to Dataframe/List
+#' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
 #' \code{vect2list} - Convert a vector to a named list.
 #' 
@@ -222,3 +231,25 @@ vect2list <- function(vector.object, use.names = TRUE, numbered.names = FALSE){
     }
 }
 
+#' List/Matrix/Vector to Dataframe/List/Matrix/Matrix
+#' 
+#' \code{df2matrix} - Convert a dataframe to a \code{matrix} and simultaneously 
+#' move a column (default is the first column) to the rownames of a 
+#' \code{matrix}.
+#' 
+#' @param data.frame.object A \code{data.frame} object.
+#' @param i The column number or name to become the rownames of the 
+#' \code{matrix}.
+#' @rdname list2df
+#' @return \code{df2matrix} - Returns a matrix.
+#' @export
+df2matrix <- function(data.frame.object, i = 1) {
+
+    if (is.numeric(i)) {
+        i <- colnames(data.frame.object)[i]
+    }
+
+    x <- as.matrix(data.frame.object[, !colnames(data.frame.object) %in% c(i)])
+    row.names(x) <- data.frame.object[, i]
+    x
+}

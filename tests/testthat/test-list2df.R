@@ -124,3 +124,29 @@ test_that("vect2list gived intended output",{
     expect_identical(m, expected8)
 
 })
+
+test_that("df2matrix gived intended output",{
+	
+    cnts <- structure(list(month = c("January", "February", "March", "April", 
+        "May", "June"), X1 = c(1L, 0L, 1L, 1L, 2L, 2L), X2 = c(2L, 1L, 
+        2L, 1L, 2L, 2L), X3 = c(0L, 1L, 2L, 2L, 0L, 2L)), .Names = c("month", 
+        "X1", "X2", "X3"), row.names = c(NA, -6L), class = "data.frame")
+    
+    df2matrix(cnts)
+    m <- df2matrix(cnts)
+    expect_true(identical(rownames(m), cnts[, 1]))
+    expect_true(is.matrix(m))
+    expect_true(mode(m) == "numeric")
+
+    m2 <- df2matrix(cnts, 2)
+    expect_true(identical(as.integer(rownames(m2)), cnts[, 2]))
+    expect_true(is.matrix(m2))
+    expect_true(mode(m2) == "character")
+
+    m3 <- df2matrix(cnts, "X2")
+    expect_true(identical(as.integer(rownames(m3)), cnts[, 3]))
+    expect_true(is.matrix(m3))
+    expect_true(mode(m3) == "character")
+	
+})
+

@@ -25,7 +25,9 @@ mtabulate(mtcars$cyl[1:10])
 mtabulate(CO2[, "Plant"])
 
 dat <- data.frame(matrix(sample(c("A", "B"), 30, TRUE), ncol=3))
+mtabulate(dat)
 t(mtabulate(dat))
+counts2list(mtabulate(dat))
 }
 \author{
 Joran Elias and Tyler Rinker <tyler.rinker@gmail.com>.
@@ -34,7 +36,7 @@ Joran Elias and Tyler Rinker <tyler.rinker@gmail.com>.
 \url{http://stackoverflow.com/a/9961324/1000343}
 }
 \seealso{
-\code{\link[base]{tabulate}}
+\code{\link[base]{tabulate}}, \code{\link[qdapTools]{counts2list}}
 }
 \keyword{frequency}
 \keyword{tabulate}

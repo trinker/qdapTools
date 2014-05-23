@@ -9,7 +9,7 @@ url_dl(..., url = 61803503)
 \item{\ldots}{Document names to download. Quoted strings (complete urls) can
 also be supplied (if so no url argument is supplied).}
 
-\item{url}{The download url or Dropbox key.}
+\item{url}{The download url or \href{https://www.dropbox.com/}{Dropbox} key.}
 }
 \value{
 Places a copy of the downloaded document in the users working

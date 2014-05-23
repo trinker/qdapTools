@@ -55,8 +55,8 @@ missing elements are retained.}
 Outputs A new vector with reassigned values.
 }
 \description{
-\code{lookup} - \pkg{data.table} based hash table useful for large vector
-lookups.
+\code{lookup} - \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}}
+based hash table useful for large vector lookups.
 
 \code{\%l\%} - A binary operator version of \code{lookup}
 for when \code{key.match} is a data.frame or named list.

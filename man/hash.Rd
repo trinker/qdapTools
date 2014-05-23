@@ -36,8 +36,8 @@ hash_e(x, mode.out = "numeric")
 in its own environment.
 }
 \description{
-\code{hash} - Creates a \pkg{data.table} based hash table for quick hash
-style dictionary lookup.
+\code{hash} - Creates a \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}}
+based hash table for quick hash style dictionary lookup.
 
 \code{hash_look} - Works with a hash table such as is returned from
 \code{hash}, to lookup values.

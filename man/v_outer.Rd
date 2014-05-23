@@ -30,6 +30,9 @@ function.
 Vectorized \code{\link[base]{outer}}.
 }
 \examples{
+#|------------------------------------------------------|
+#|    SETTING UP VARIOUS FUNCTIONS THAT WILL BE USED    |
+#|------------------------------------------------------|
 pooled.sd <- function(x, y) {
     n1 <- length(x)
     n2 <- length(y)
@@ -40,13 +43,20 @@ pooled.sd <- function(x, y) {
 
 euc.dist <- function(x,y) sqrt(sum((x - y) ^ 2))
 sum2 <- function(x, y) sum(x, y)
+arbitrary <- function(x, y) round(sqrt(sum(x)) - sum(y), digits=1)
 
+## Cosine similarity
+cos_sim <- function(x, y) x \%*\% y / sqrt(x\%*\%x * y\%*\%y)
+#--------------------------------------------------------#
+
+## A data.frame
 v_outer(mtcars, cor)
 v_outer(mtcars, pooled.sd)
 v_outer(mtcars[, 1:7], euc.dist)
 v_outer(mtcars[, 1:7], sum2)
+v_outer(mtcars[, 1:7], arbitrary)
 
-#mtcars as a list
+## mtcars as a list
 mtcars2 <- lapply(mtcars[, 1:7], "[")
 v_outer(mtcars2, cor)
 v_outer(mtcars2, cor,  method = "spearman")
@@ -55,6 +65,13 @@ print(v_outer(mtcars[, 1:7], pooled.sd), digits = 1)
 print(v_outer(mtcars[, 1:7], pooled.sd), digits = NULL)
 v_outer(mtcars2, euc.dist)
 v_outer(mtcars2, sum2)
+v_outer(mtcars2, arbitrary)
+
+## A matrix
+mat <- matrix(rbinom(500, 0:1, .45), ncol=10)
+v_outer(mat, cos_sim)
+v_outer(mat, euc.dist)
+v_outer(mat, arbitrary)
 
 \dontrun{
 library(qdap)
@@ -64,17 +81,15 @@ L1 <- word_list(DATA$state, DATA$person)$cwl
 diag(x) <- (sapply(L1, length))
 x
 
-## Cosine similarity
-cos_sim <- function(x, y) x \%*\% y / sqrt(x\%*\%x * y\%*\%y)
-mat <- matrix(rbinom(500, 0:1, .45), ncol=10)
-v_outer(mat, cos_sim)
-
 v_outer(with(DATA, wfm(state, person)), cos_sim)
 with(DATA, Dissimilarity(state, person))
 }
 }
 \author{
 Vincent Zoonekynd and Tyler Rinker <tyler.rinker@gmail.com>.
+}
+\references{
+\url{http://stackoverflow.com/a/9917425/1000343}
 }
 \seealso{
 \code{\link[base]{outer}},

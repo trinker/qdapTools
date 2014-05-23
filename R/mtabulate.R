@@ -10,7 +10,7 @@
 #' @references \url{http://stackoverflow.com/a/9961324/1000343}
 #' @keywords tabulate frequency
 #' @export
-#' @seealso \code{\link[base]{tabulate}}
+#' @seealso \code{\link[base]{tabulate}}, \code{\link[qdapTools]{counts2list}}
 #' @examples
 #' mtabulate(list(w=letters[1:10], x=letters[1:5], z=letters))
 #' mtabulate(list(mtcars$cyl[1:10]))
@@ -20,7 +20,9 @@
 #' mtabulate(CO2[, "Plant"])
 #' 
 #' dat <- data.frame(matrix(sample(c("A", "B"), 30, TRUE), ncol=3))
+#' mtabulate(dat)
 #' t(mtabulate(dat))
+#' counts2list(mtabulate(dat))
 mtabulate <- function(vects) {
     lev <- sort(unique(unlist(vects)))
     dat <- do.call(rbind, lapply(vects, function(x, lev){ 

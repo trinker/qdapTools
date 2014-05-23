@@ -1,7 +1,7 @@
 #' Hash/Dictionary Lookup
 #' 
-#' \code{hash} - Creates a \pkg{data.table} based hash table for quick hash 
-#' style dictionary lookup.
+#' \code{hash} - Creates a \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}} 
+#' based hash table for quick hash style dictionary lookup.
 #' 
 #' @param x A two column dataframe.
 #' @param terms A vector of terms to undergo a lookup.

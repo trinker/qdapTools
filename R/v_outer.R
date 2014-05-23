@@ -11,9 +11,13 @@
 #' @seealso \code{\link[base]{outer}},
 #' \code{\link[stats]{cor}}
 #' @author Vincent Zoonekynd and Tyler Rinker <tyler.rinker@@gmail.com>.
+#' @references \url{http://stackoverflow.com/a/9917425/1000343}
 #' @export
 #' @rdname v_outer
 #' @examples
+#' #|------------------------------------------------------|
+#' #|    SETTING UP VARIOUS FUNCTIONS THAT WILL BE USED    |
+#' #|------------------------------------------------------|
 #' pooled.sd <- function(x, y) {
 #'     n1 <- length(x)
 #'     n2 <- length(y)
@@ -24,13 +28,20 @@
 #' 
 #' euc.dist <- function(x,y) sqrt(sum((x - y) ^ 2))
 #' sum2 <- function(x, y) sum(x, y)
+#' arbitrary <- function(x, y) round(sqrt(sum(x)) - sum(y), digits=1)
 #' 
+#' ## Cosine similarity
+#' cos_sim <- function(x, y) x %*% y / sqrt(x%*%x * y%*%y)
+#' #--------------------------------------------------------#
+#' 
+#' ## A data.frame
 #' v_outer(mtcars, cor)
 #' v_outer(mtcars, pooled.sd)
 #' v_outer(mtcars[, 1:7], euc.dist)
 #' v_outer(mtcars[, 1:7], sum2)
+#' v_outer(mtcars[, 1:7], arbitrary)
 #' 
-#' #mtcars as a list
+#' ## mtcars as a list
 #' mtcars2 <- lapply(mtcars[, 1:7], "[")
 #' v_outer(mtcars2, cor)
 #' v_outer(mtcars2, cor,  method = "spearman")
@@ -39,6 +50,13 @@
 #' print(v_outer(mtcars[, 1:7], pooled.sd), digits = NULL)
 #' v_outer(mtcars2, euc.dist)
 #' v_outer(mtcars2, sum2)
+#' v_outer(mtcars2, arbitrary)
+#' 
+#' ## A matrix
+#' mat <- matrix(rbinom(500, 0:1, .45), ncol=10)
+#' v_outer(mat, cos_sim)
+#' v_outer(mat, euc.dist)
+#' v_outer(mat, arbitrary)
 #' 
 #' \dontrun{
 #' library(qdap)
@@ -47,11 +65,6 @@
 #' (x <- v_outer(L1, wc3))
 #' diag(x) <- (sapply(L1, length))
 #' x
-#' 
-#' ## Cosine similarity
-#' cos_sim <- function(x, y) x %*% y / sqrt(x%*%x * y%*%y)
-#' mat <- matrix(rbinom(500, 0:1, .45), ncol=10)
-#' v_outer(mat, cos_sim)
 #' 
 #' v_outer(with(DATA, wfm(state, person)), cos_sim)
 #' with(DATA, Dissimilarity(state, person))
@@ -68,7 +81,6 @@ function(x, FUN, ...){
 #' @rdname v_outer
 v_outer.list <- 
 function(x, FUN, ...){
-    FUN <- match.fun(FUN)
 
     if (is.null(names(x))) {
         nms <- names(x) <- paste0("X", seq_along(x))
@@ -82,7 +94,7 @@ function(x, FUN, ...){
       Vectorize(function(i,j) FUN(unlist(x[[i]]), unlist(x[[j]]), ...))
     )
     dimnames(z) <- list(nms, nms)
-    class(z) <- "v_outer"
+    class(z) <- c("v_outer", class(z))
     z
 }
 
@@ -92,18 +104,17 @@ function(x, FUN, ...){
 #' @rdname v_outer
 v_outer.data.frame <- 
 function(x, FUN, ...){
-    FUN <- match.fun(FUN)
-	
-    nms <- colnames(x)
 
-    z <- outer(
-      nms, 
-      nms, 
-      Vectorize(function(i,j) FUN(x[, i], x[, j], ...))
-    )
-    dimnames(z) <- list(nms, nms)
-    class(z) <- "v_outer"
-    z
+    nc <- ncol(x)
+    mat <- matrix(rep(NA, nc^2), nc)
+    for (i in 1:nc) {
+        for (j in 1:nc) {
+            mat[i, j] <- FUN(.subset2(x, i), .subset2(x, j))
+        }
+    }
+    dimnames(mat) <- list(colnames(x), colnames(x))
+    class(mat) <- c("v_outer", class(mat))
+    mat
 }
 
 
@@ -112,23 +123,19 @@ function(x, FUN, ...){
 #' @rdname v_outer
 v_outer.matrix <- 
 function(x, FUN, ...){
-    FUN <- match.fun(FUN)
 
-    if (is.null(colnames(x))) {
-        nms <- colnames(x) <- paste0("X", 1:ncol(x))
-    } else {
-        nms <- colnames(x)
+    x <- as.data.frame(x, stringsAsFactors = FALSE)
+
+    nc <- ncol(x)
+    mat <- matrix(rep(NA, nc^2), nc)
+    for (i in 1:nc) {
+        for (j in 1:nc) {
+            mat[i, j] <- FUN(.subset2(x, i), .subset2(x, j))
+        }
     }
-
-    z <- outer(
-      nms, 
-      nms, 
-      Vectorize(function(i,j) FUN(x[, i], x[, j], ...))
-    )
-
-    dimnames(z) <- list(nms, nms)
-    class(z) <- c("v_outer", class(z))
-    z
+    dimnames(mat) <- list(colnames(x), colnames(x))
+    class(mat) <- c("v_outer", class(mat))
+    mat
 }
 
 #' Prints a v_outer Object.
