@@ -16,7 +16,12 @@ test_that("pad produces vectors of the correct nchar",{
     expect_true(all(nchar(pad(month.name, padding=20)) == 20))
     expect_false(any(pad(x) == x))
     expect_true(all(as.numeric(pad(x, sort=FALSE)) == x))
-    expect_true("      May" %in% pad(month.name))
+
+    OS <- Sys.info()["sysname"]
+    if (OS %in% c("Darwin", "Windows", "Linux")) {
+        expect_true("      May" %in% pad(month.name))
+    }		
+	
 })
 
 test_that("pad produces vectors of the correct length",{
