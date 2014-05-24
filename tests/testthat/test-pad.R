@@ -17,8 +17,7 @@ test_that("pad produces vectors of the correct nchar",{
     expect_false(any(pad(x) == x))
     expect_true(all(as.numeric(pad(x, sort=FALSE)) == x))
 
-    OS <- Sys.info()["sysname"]
-    if (OS %in% c("Darwin", "Windows", "Linux")) {
+    if (!grepl('SunOS',Sys.info()['sysname'], ignore.case = TRUE)) {
         expect_true("      May" %in% pad(month.name))
     }		
 	
