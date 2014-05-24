@@ -13,6 +13,12 @@
 #' If character spaces are padded.  The \code{detect} attempts to determine if x 
 #' is numeric (d) or not (s).
 #' @return Returns a character vector every element padded with 0/spaces.
+#' @note \code{pad} is a wrapper for the \code{\link[base]{sprintf}} function.
+#' \code{pad} may behave differently on various platforms in accordance with the
+#' documentation for \code{\link[base]{sprintf}}: "actual implementation will 
+#' follow the C99 standard and fine details (especially the behaviour under user 
+#' error) may depend on the platform."  See \code{\link[base]{sprintf}} for more 
+#' information.
 #' @export
 #' @seealso \code{\link[base]{sprintf}}
 #' @examples

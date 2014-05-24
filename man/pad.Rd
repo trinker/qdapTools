@@ -27,6 +27,14 @@ A convenience wrapper for \code{\link[base]{sprintf}} that pads the front end
 of strings with spaces or 0s. Useful for creating multiple uniform directories
 that will maintain correct order.
 }
+\note{
+\code{pad} is a wrapper for the \code{\link[base]{sprintf}} function.
+\code{pad} may behave differently on various platforms in accordance with the
+documentation for \code{\link[base]{sprintf}}: "actual implementation will
+follow the C99 standard and fine details (especially the behaviour under user
+error) may depend on the platform."  See \code{\link[base]{sprintf}} for more
+information.
+}
 \examples{
 pad(sample(1:10, 10))
 pad(sample(1:10, 10), sort=FALSE)
