@@ -38,9 +38,29 @@ pad <- function (x, padding = max(nchar(as.character(x))), sort = TRUE,
     if (is.na(type)) {
         type <- ifelse(is.numeric(x), "d", "s")
     }
-    x <- sprintf(paste0("%0", padding, type), x)
+    x <- sprintf_ish(x, padding, type)
     if (sort) {
         x <- sort(x)
     }
     x
 }
+
+sprintf_ish <- function(x, padding, type){
+    OS <- Sys.info()[['sysname']]
+ 
+    if (OS %in% c("Windows", "Linux")) {
+        sprintf(paste0("%0", padding, type), x)
+    } else {
+        type <- ifelse(type == "s", " ", "0")
+        pads <- sapply(padding - nchar(x), function(i)  {
+            if (i == 0) return("")
+            paste(rep(type, i), collapse = "")
+        })
+        paste0(pads, x)
+      
+    }
+}
+
+
+
+

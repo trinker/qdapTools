@@ -23,6 +23,9 @@ qdapTools 1.0.1
 
 **BUG FIXES**
 
+* `pad` did not work consistently across all platforms.  This behavior has been 
+  fixed.
+
 **NEW FEATURES**
 
 **MINOR FEATURES**
