@@ -67,7 +67,7 @@ build_site(pkg="C:/Users/trinker/GitHub/qdapTools")
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
-library(acc.roxygen2); library(qdap);
+library(acc.roxygen2); #library(qdap);
 extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
 	"%hl+%",  "%lc%", "%lc+%")
 
