@@ -99,9 +99,23 @@ function (terms, key.match, key.reassign = NULL, missing = NA) {
     } else {
         FUN <- match.fun(paste0("as.", mode(key.match[, 2])))
     }
+	
+	output <- lookup_helper(terms, key.match, missing)
 
-    FUN(lookup_helper(terms, key.match, missing))
+	if(attributes(output)[["missing"]]) return(FUN(output))
 
+    out_warn <- tryCatch({
+        FUN(output)
+    }, warning = function(w) {
+        TRUE
+    }, finally = {
+        FALSE
+    })
+	
+    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+	
+    attributes(output) <- NULL
+    output
 }
 
 #' @export
@@ -120,7 +134,22 @@ function (terms, key.match, key.reassign = NULL, missing = NA) {
         FUN <- match.fun(paste0("as.", mode(key.match[, 2])))
     }
 
-    FUN(lookup_helper(terms, key.match, missing))
+    output <- lookup_helper(terms, key.match, missing)
+
+    if(attributes(output)[["missing"]]) return(FUN(output))
+
+    out_warn <- tryCatch({
+        FUN(output)
+    }, warning = function(w) {
+        TRUE
+    }, finally = {
+        FALSE
+    })
+	
+    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+	
+    attributes(output) <- NULL
+    output
 
 }
 
@@ -139,7 +168,22 @@ function (terms, key.match, key.reassign = NULL, missing = NA) {
         FUN <- match.fun(paste0("as.", mode(key.match[, 2])))
     }
 
-    FUN(lookup_helper(terms, key.match, missing))
+	output <- lookup_helper(terms, key.match, missing)
+
+	if(attributes(output)[["missing"]]) return(FUN(output))
+
+    out_warn <- tryCatch({
+        FUN(output)
+    }, warning = function(w) {
+        TRUE
+    }, finally = {
+        FALSE
+    })
+	
+    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+	
+    attributes(output) <- NULL
+    output
 
 }
 
@@ -159,7 +203,22 @@ function(terms, key.match, key.reassign, missing = NA) {
         FUN <- match.fun(paste0("as.", mode(key.match[, 2])))
     }
 
-    FUN(lookup_helper(terms, key.match, missing))
+	output <- lookup_helper(terms, key.match, missing)
+
+	if(attributes(output)[["missing"]]) return(FUN(output))
+
+    out_warn <- tryCatch({
+        FUN(output)
+    }, warning = function(w) {
+        TRUE
+    }, finally = {
+        FALSE
+    })
+	
+    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+	
+    attributes(output) <- NULL
+    output
 }
 
 #' @export
@@ -178,7 +237,22 @@ function(terms, key.match, key.reassign, missing = NA) {
         FUN <- match.fun(paste0("as.", mode(key.match[, 2])))
     }
 
-    FUN(lookup_helper(terms, key.match, missing))
+	output <- lookup_helper(terms, key.match, missing)
+
+	if(attributes(output)[["missing"]]) return(FUN(output))
+
+    out_warn <- tryCatch({
+        FUN(output)
+    }, warning = function(w) {
+        TRUE
+    }, finally = {
+        FALSE
+    })
+	
+    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+	
+    attributes(output) <- NULL
+    output
 }
 
 #' @export
@@ -197,7 +271,22 @@ function(terms, key.match, key.reassign, missing = NA) {
         FUN <- match.fun(paste0("as.", mode(key.match[, 2])))
     }
 
-    FUN(lookup_helper(terms, key.match, missing))
+	output <- lookup_helper(terms, key.match, missing)
+
+	if(attributes(output)[["missing"]]) return(FUN(output))
+
+    out_warn <- tryCatch({
+        FUN(output)
+    }, warning = function(w) {
+        TRUE
+    }, finally = {
+        FALSE
+    })
+	
+    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+	
+    attributes(output) <- NULL
+    output
 }
 
 
@@ -212,7 +301,8 @@ lookup_helper <- function(terms, key, missing = NA) {
  
     setkey(key, x)
     out <- key[terms][[2]]
-
+    attributes(out) <- list(missing = TRUE)
+	
     if (!is.null(missing) && is.na(missing)) return(out)
     if (!is.null(missing) && !is.na(missing)) {
         hits <- which(is.na(out))
@@ -223,6 +313,7 @@ lookup_helper <- function(terms, key, missing = NA) {
     if (is.null(missing)) {
         hits <- which(is.na(out))
         out[hits] <- terms[[1]][hits]
+        attributes(out) <- list(missing = FALSE)
         return(out)
     }
 
@@ -292,18 +383,4 @@ lookup_helper <- function(terms, key, missing = NA) {
 
 
 
-#' Hash/Dictionary Lookup
-#' 
-#' \code{\%l*\%} - A deprecated binary operator version of \code{lookup}.  This
-#' will be removed in a subsequent version of \pkg{qdapTools}.  Use \code{\%l\%}
-#' instead.
-#' 
-#' @export
-#' @rdname Deprecated
-`%l*%` <- function(terms, key.match) {
-    .Deprecated(msg = paste("`%l*%` is deprecated.  Please use `%l%` instead."), 
-    	old = as.character(sys.call(sys.parent()))[1L])
-	
-    lookup(terms = terms, key.match = key.match, missing = NULL)
-}
 

@@ -33,6 +33,14 @@ test_that("lookup works with lists",{
 })
 
 
+test_that("lookup works with when terms mode and col 2 mode not the same",{
+	
+    m <- c("100", "101", "102", "103", "E")
 
-
-
+    expect_true(identical(m, 
+    	lookup(LETTERS[1:5], data.frame(LETTERS[1:4], 100:103), missing=NULL)
+    ))
+    expect_true(identical(m,     	
+        lookup(LETTERS[1:5], factor(LETTERS[1:4]), 100:103, missing=NULL)
+    ))
+})

@@ -22,6 +22,10 @@ qdapTools 1.0.2
 
 BUG FIXES
 
+* `lookup` would throw warning and convert to more restrictive mode when 
+  (1) `terms` mode and `key.reassign` modes didn't match & (2) `missing = NULL`.
+  This behavior has been fixed.  See issue #5.
+
 NEW FEATURES
 
 MINOR FEATURES
