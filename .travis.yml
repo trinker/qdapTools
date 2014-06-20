@@ -19,3 +19,4 @@ env:
    global:
      - R_BUILD_ARGS="--resave-data=best" 
      - DISPLAY=:99.0
+     - R_CHECK_ARGS="--as-cran"
