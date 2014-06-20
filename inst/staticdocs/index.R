@@ -30,6 +30,7 @@ sd_section("Data Reshaping",
   description="Data reshaping tools for use in the qdap package.",
   c(
     "list2df",
+  	"split_vector",
   	"mtabulate"
   ) 
 )

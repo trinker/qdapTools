@@ -28,6 +28,9 @@ qdapTools 1.0.2
 
 **NEW FEATURES**
 
+* `split_vector` added to split a `vector` into a list of vectors based on split 
+  points.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
