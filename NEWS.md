@@ -35,6 +35,10 @@ qdapTools 1.0.2
 
 **IMPROVEMENTS**
 
+* `list2df` would return `rownames` matching the names of the original list 
+  rather than numeric indexes.  `row.names = FALSE` was added to the call to
+  `data.frame` to correct this.
+
 **CHANGES**
 
 qdapTools 1.0.1

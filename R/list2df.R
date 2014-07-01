@@ -71,7 +71,7 @@ list2df <- function(list.object, col1 = "X1", col2 = "X2") {
 
     dat <- data.frame(x = unlist(list.object, ,FALSE), 
         y = rep(names(list.object), sapply(list.object, length)), 
-        stringsAsFactors = FALSE, check.names=FALSE)
+        stringsAsFactors = FALSE, check.names=FALSE, row.names=NULL)
     colnames(dat) <- c(col1, col2)
     dat
 }
@@ -96,7 +96,7 @@ matrix2df <- function(matrix.object, col1 = "var1") {
         rownames(matrix.object) <- 1:nrow(matrix.object)
     }
     dat <- data.frame(rownames(matrix.object), matrix.object, row.names=NULL, 
-        check.names=FALSE, stringsAsFactors = FALSE)
+        stringsAsFactors = FALSE, check.names=FALSE)
     colnames(dat)[1] <- col1
     dat
 }
