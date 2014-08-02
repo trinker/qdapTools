@@ -1,5 +1,6 @@
 # qdapTools
-[![Build Status](https://travis-ci.org/trinker/qdapTools.png?branch=master)](https://travis-ci.org/trinker/qdapTools)
+
+[![Build Status](https://travis-ci.org/trinker/qdapTools.png?branch=master)](https://travis-ci.org/trinker/qdapTools) [![DOI](https://zenodo.org/badge/5398/trinker/qdapTools.png)](http://dx.doi.org/10.5281/zenodo.11117)
 
 ![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
 [qdapTools](http://trinker.github.com/qdapTools_dev) is an R package that contains tools associated with the qdap package that may be useful outside of the context of text analysis.
