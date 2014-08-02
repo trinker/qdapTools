@@ -72,7 +72,29 @@ directory.</p>
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # ## Example 1 (download from Dropbox)# # download transcript of the debate to working directory# library(qdap)# url_dl(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)# # # load multiple files with read transcript and assign to working directory# dat1 &lt;- read.transcript(&quot;pres.deb1.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))# dat2 &lt;- read.transcript(&quot;pres.deb2.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))# dat3 &lt;- read.transcript(&quot;pres.deb3.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))# # docs &lt;- qcv(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)# dir() %in% docs# library(reports); delete(docs)    #remove the documents# dir() %in% docs# # ## Example 2 (quoted string urls)# url_dl(&quot;https://dl.dropboxusercontent.com/u/61803503/qdap.pdf&quot;,#    &quot;http://www.cran.r-project.org/doc/manuals/R-intro.pdf&quot;)# # delete(c(&quot;qdap.pdf&quot;, &quot;R-intro.pdf&quot;))# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# ## Example 1 (download from Dropbox)
+# # download transcript of the debate to working directory
+# library(qdap)
+# url_dl(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)
+# 
+# # load multiple files with read transcript and assign to working directory
+# dat1 &lt;- read.transcript(&quot;pres.deb1.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))
+# dat2 &lt;- read.transcript(&quot;pres.deb2.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))
+# dat3 &lt;- read.transcript(&quot;pres.deb3.docx&quot;, c(&quot;person&quot;, &quot;dialogue&quot;))
+# 
+# docs &lt;- qcv(pres.deb1.docx, pres.deb2.docx, pres.deb3.docx)
+# dir() %in% docs
+# library(reports); delete(docs)    #remove the documents
+# dir() %in% docs
+# 
+# ## Example 2 (quoted string urls)
+# url_dl(&quot;https://dl.dropboxusercontent.com/u/61803503/qdap.pdf&quot;,
+#    &quot;http://www.cran.r-project.org/doc/manuals/R-intro.pdf&quot;)
+# 
+# delete(c(&quot;qdap.pdf&quot;, &quot;R-intro.pdf&quot;))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>

@@ -147,9 +147,9 @@ lookup(1:10, codes)
 lookup(mtcars$carb, sort(unique(mtcars$carb)),
     c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;six&quot;, &quot;eight&quot;))
 </div>
-<div class='output'> [1] &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;four&quot;  &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;four&quot;  &quot;three&quot; &quot;three&quot; &quot;three&quot;
-[15] &quot;four&quot;  &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;two&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;  
-[29] &quot;four&quot;  &quot;six&quot;   &quot;eight&quot; &quot;two&quot;  
+<div class='output'> [1] &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;four&quot;  &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;four&quot;  &quot;three&quot;
+[13] &quot;three&quot; &quot;three&quot; &quot;four&quot;  &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot; 
+[25] &quot;two&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;six&quot;   &quot;eight&quot; &quot;two&quot;  
 </div>
 <div class='input'>
 lookup(mtcars$carb, sort(unique(mtcars$carb)),
@@ -210,16 +210,17 @@ tic &lt;- Sys.time()
 output &lt;- recode_me %l% split(1:(length(LETTERS)*10), LETTERS)
 difftime(Sys.time(), tic)
 </div>
-<div class='output'>Time difference of 0.824048 secs
+<div class='output'>Time difference of 1.22007 secs
 </div>
 <div class='input'>
 ## view it
 sample(output, 100)
 </div>
-<div class='output'>  [1] &quot;K&quot; &quot;K&quot; &quot;E&quot; &quot;S&quot; &quot;M&quot; &quot;N&quot; &quot;P&quot; &quot;E&quot; &quot;L&quot; &quot;E&quot; &quot;S&quot; &quot;M&quot; &quot;U&quot; &quot;C&quot; &quot;M&quot; &quot;C&quot; &quot;Q&quot; &quot;S&quot; &quot;Z&quot; &quot;Y&quot; &quot;G&quot; &quot;A&quot; &quot;H&quot; &quot;A&quot; &quot;J&quot; &quot;O&quot; &quot;R&quot; &quot;K&quot;
- [29] &quot;F&quot; &quot;H&quot; &quot;F&quot; &quot;T&quot; &quot;N&quot; &quot;R&quot; &quot;L&quot; &quot;E&quot; &quot;D&quot; &quot;W&quot; &quot;H&quot; &quot;L&quot; &quot;P&quot; &quot;W&quot; &quot;Q&quot; &quot;Z&quot; &quot;M&quot; &quot;Z&quot; &quot;X&quot; &quot;Z&quot; &quot;Z&quot; &quot;J&quot; &quot;O&quot; &quot;L&quot; &quot;X&quot; &quot;X&quot; &quot;E&quot; &quot;T&quot;
- [57] &quot;W&quot; &quot;N&quot; &quot;O&quot; &quot;H&quot; &quot;F&quot; &quot;J&quot; &quot;P&quot; &quot;X&quot; &quot;N&quot; &quot;Y&quot; &quot;T&quot; &quot;G&quot; &quot;X&quot; &quot;A&quot; &quot;M&quot; &quot;N&quot; &quot;U&quot; &quot;M&quot; &quot;Z&quot; &quot;K&quot; &quot;S&quot; &quot;A&quot; &quot;R&quot; &quot;Q&quot; &quot;Q&quot; &quot;C&quot; &quot;Y&quot; &quot;P&quot;
- [85] &quot;L&quot; &quot;G&quot; &quot;K&quot; &quot;C&quot; &quot;N&quot; &quot;X&quot; &quot;Z&quot; &quot;T&quot; &quot;D&quot; &quot;C&quot; &quot;N&quot; &quot;B&quot; &quot;F&quot; &quot;I&quot; &quot;O&quot; &quot;K&quot;
+<div class='output'>  [1] &quot;K&quot; &quot;K&quot; &quot;E&quot; &quot;S&quot; &quot;M&quot; &quot;N&quot; &quot;P&quot; &quot;E&quot; &quot;L&quot; &quot;E&quot; &quot;S&quot; &quot;M&quot; &quot;U&quot; &quot;C&quot; &quot;M&quot; &quot;C&quot; &quot;Q&quot; &quot;S&quot; &quot;Z&quot; &quot;Y&quot; &quot;G&quot; &quot;A&quot; &quot;H&quot; &quot;A&quot;
+ [25] &quot;J&quot; &quot;O&quot; &quot;R&quot; &quot;K&quot; &quot;F&quot; &quot;H&quot; &quot;F&quot; &quot;T&quot; &quot;N&quot; &quot;R&quot; &quot;L&quot; &quot;E&quot; &quot;D&quot; &quot;W&quot; &quot;H&quot; &quot;L&quot; &quot;P&quot; &quot;W&quot; &quot;Q&quot; &quot;Z&quot; &quot;M&quot; &quot;Z&quot; &quot;X&quot; &quot;Z&quot;
+ [49] &quot;Z&quot; &quot;J&quot; &quot;O&quot; &quot;L&quot; &quot;X&quot; &quot;X&quot; &quot;E&quot; &quot;T&quot; &quot;W&quot; &quot;N&quot; &quot;O&quot; &quot;H&quot; &quot;F&quot; &quot;J&quot; &quot;P&quot; &quot;X&quot; &quot;N&quot; &quot;Y&quot; &quot;T&quot; &quot;G&quot; &quot;X&quot; &quot;A&quot; &quot;M&quot; &quot;N&quot;
+ [73] &quot;U&quot; &quot;M&quot; &quot;Z&quot; &quot;K&quot; &quot;S&quot; &quot;A&quot; &quot;R&quot; &quot;Q&quot; &quot;Q&quot; &quot;C&quot; &quot;Y&quot; &quot;P&quot; &quot;L&quot; &quot;G&quot; &quot;K&quot; &quot;C&quot; &quot;N&quot; &quot;X&quot; &quot;Z&quot; &quot;T&quot; &quot;D&quot; &quot;C&quot; &quot;N&quot; &quot;B&quot;
+ [97] &quot;F&quot; &quot;I&quot; &quot;O&quot; &quot;K&quot;
 </div></pre>
   </div>
   <div class="span4">
@@ -232,7 +233,7 @@ sample(output, 100)
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/r-doc/data.table/setkey'>setDT</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/data.table/docs/setkey'>setDT</a></code>,
 <code>hash</code>
 
         
