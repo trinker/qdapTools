@@ -1,20 +1,3 @@
-## List/Matrix/Vector to Dataframe
-## 
-## \code{list2df} - Convert a named list of vectors to a dataframe.
-list2df <- function(list.object, col1 = "X1", col2 = "X2") {
-
-    ## Make sure the vectors have names; if not use numbers
-    if (is.null(names(list.object))){
-        names(list.object) <- seq_along(list.object)
-    }
-
-    dat <- data.frame(x = unlist(list.object, ,FALSE), 
-        y = rep(names(list.object), sapply(list.object, length)), 
-        stringsAsFactors = FALSE, check.names=FALSE)
-    colnames(dat) <- c(col1, col2)
-    dat
-}
-
 ## Paste an Unspecified Number Of Text Columns
 ## 
 ## \code{paste2} - Paste unspecified columns or a list of vectors together.

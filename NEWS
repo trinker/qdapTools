@@ -22,6 +22,9 @@ qdapTools 1.0.3
 
 BUG FIXES
 
+* `lookup` threw an error with single length input `terms` and `missing=NULL`
+  (see issue #6 for more).  This behavior has been fixed. 
+
 NEW FEATURES
 
 MINOR FEATURES

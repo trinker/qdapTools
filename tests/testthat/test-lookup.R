@@ -44,3 +44,12 @@ test_that("lookup works with when terms mode and col 2 mode not the same",{
         lookup(LETTERS[1:5], factor(LETTERS[1:4]), 100:103, missing=NULL)
     ))
 })
+
+test_that("lookup works with single length inputs",{
+	
+    m2 <- lookup("New Jersey", data.frame(c("New Jersey", "foo"), c("NJ", "bar"), 
+    	stringsAsFactors = FALSE), missing=NULL)
+    expect_identical(m2, "NJ")
+})
+
+

@@ -112,7 +112,7 @@ function (terms, key.match, key.reassign = NULL, missing = NA) {
         FALSE
     })
 	
-    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+    if(length(out_warn) == 1 && !isTRUE(out_warn)) return(FUN(output))
 	
     attributes(output) <- NULL
     output
@@ -146,7 +146,7 @@ function (terms, key.match, key.reassign = NULL, missing = NA) {
         FALSE
     })
 	
-    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+    if(length(out_warn) == 1 && !isTRUE(out_warn)) return(FUN(output))
 	
     attributes(output) <- NULL
     output
@@ -180,7 +180,7 @@ function (terms, key.match, key.reassign = NULL, missing = NA) {
         FALSE
     })
 	
-    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+    if(length(out_warn) == 1 && !isTRUE(out_warn)) return(FUN(output))
 	
     attributes(output) <- NULL
     output
@@ -215,7 +215,7 @@ function(terms, key.match, key.reassign, missing = NA) {
         FALSE
     })
 	
-    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+    if(length(out_warn) == 1 && !isTRUE(out_warn)) return(FUN(output))
 	
     attributes(output) <- NULL
     output
@@ -249,7 +249,7 @@ function(terms, key.match, key.reassign, missing = NA) {
         FALSE
     })
 	
-    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+    if(length(out_warn) == 1 && !isTRUE(out_warn)) return(FUN(output))
 	
     attributes(output) <- NULL
     output
@@ -283,7 +283,7 @@ function(terms, key.match, key.reassign, missing = NA) {
         FALSE
     })
 	
-    if(length(out_warn) == 1 && !out_warn) return(FUN(output))
+    if(length(out_warn) == 1 && !isTRUE(out_warn)) return(FUN(output))
 	
     attributes(output) <- NULL
     output
