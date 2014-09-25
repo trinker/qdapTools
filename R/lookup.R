@@ -296,7 +296,7 @@ lookup_helper <- function(terms, key, missing = NA) {
 	x <- i.y <- NULL
 	
     terms <- data.frame(x=terms, stringsAsFactors = FALSE)
-    setDT(key)
+    key <- data.table::data.table(key[c("x", "y")])
     setDT(terms)
  
     setkey(key, x)

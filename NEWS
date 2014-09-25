@@ -25,6 +25,11 @@ BUG FIXES
 * `lookup` threw an error with single length input `terms` and `missing=NULL`
   (see issue #6 for more).  This behavior has been fixed. 
 
+* `lookup` changed the order of existing `data.frames` because of `data.table`'s
+  scoping which modifies data in place.  This was spotted by Kirill Muller (see
+  issue #7) and a solution provided by Matthew Flickinger 
+  (http://stackoverflow.com/a/26046777/1000343).
+
 NEW FEATURES
 
 MINOR FEATURES

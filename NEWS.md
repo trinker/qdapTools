@@ -25,6 +25,11 @@ qdapTools 1.0.3
 * `lookup` threw an error with single length input `terms` and `missing=NULL`
   (see <a href="https://github.com/trinker/qdapTools/issues/6">issue #6</a> for more).  This behavior has been fixed. 
 
+* `lookup` changed the order of existing `data.frames` because of `data.table`'s
+  scoping which modifies data in place.  This was spotted by Kirill Muller (see
+  <a href="https://github.com/trinker/qdapTools/issues/7">issue #7</a>) and a solution provided by Matthew Flickinger 
+  (<a href="http://stackoverflow.com/a/26046777/1000343)." target="_blank">http://stackoverflow.com/a/26046777/1000343).</a>
+
 **NEW FEATURES**
 
 **MINOR FEATURES**
