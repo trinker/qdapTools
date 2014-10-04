@@ -17,8 +17,8 @@ Imports:
 Suggests:
     testthat
 LazyData: TRUE
-Description: This package is a collection of tools associated with the qdap
-    package that may be useful outside of the context of text analysis.
+Description: A collection of tools associated with the qdap package that may be
+    useful outside of the context of text analysis.
 License: GPL-2
 URL: http://trinker.github.com/qdapTools/
 BugReports: http://github.com/trinker/qdapTools/issues

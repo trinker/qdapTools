@@ -30,14 +30,6 @@ qdapTools 1.0.3
   <a href="https://github.com/trinker/qdapTools/issues/7">issue #7</a>) and a solution provided by Matthew Flickinger 
   (<a href="http://stackoverflow.com/a/26046777/1000343)." target="_blank">http://stackoverflow.com/a/26046777/1000343).</a>
 
-**NEW FEATURES**
-
-**MINOR FEATURES**
-
-**IMPROVEMENTS**
-
-**CHANGES**
-
 
 qdapTools 1.0.2
 ----------------------------------------------------------------
