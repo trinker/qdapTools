@@ -49,7 +49,6 @@ test_that("lookup works with single length inputs",{
 	
     m2 <- lookup("New Jersey", data.frame(c("New Jersey", "foo"), c("NJ", "bar"), 
     	stringsAsFactors = FALSE), missing=NULL)
-    expect_identical(m2, "NJ")
+    expect_equivalent(m2, "NJ")
 })
-
 

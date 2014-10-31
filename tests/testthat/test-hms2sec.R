@@ -28,4 +28,3 @@ test_that("hms2sec and sec2hms can be converted between",{
     expect_true(all(hms2sec(y) == b))
 
 })
-
