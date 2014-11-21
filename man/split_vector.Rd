@@ -36,6 +36,12 @@ split_vector(x, include = 2)
 set.seed(15)
 x <- sample(1:11, 25, TRUE, prob=c(.2, rep(.08, 10)))
 split_vector(x, 1)
+
+## relationship to `loc_split`
+all.equal(
+    split_vector(x, include = 1),
+    loc_split(x, which(x == ""), names=1:5)
+)
 }
 \author{
 Matthew Flickinger and Tyler Rinker <tyler.rinker@gmail.com>.
