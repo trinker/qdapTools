@@ -16,6 +16,22 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
+qdapTools 1.0.4
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+* `loc_split` added to split data forms (`list`, `vector`, `data.frame`, 
+  `matrix`) on a vector of integer lcoations.
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
 
 qdapTools 1.0.3
 ----------------------------------------------------------------
