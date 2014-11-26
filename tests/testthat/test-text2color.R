@@ -35,4 +35,3 @@ test_that("text2color produce proper vectors and types",{
 		c("red", "green", "blue", "white"))))
 
 })
-

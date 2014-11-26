@@ -17,8 +17,8 @@ test_that("split_vector ",{
     o1 <- split_vector(x)
     o2 <- split_vector(x, "C")
 
-    expect_true(identical(o1, o1_c))
-    expect_true(identical(o2, o2_c))
+    expect_equivalent(o1, o1_c)
+    expect_equivalent(o2, o2_c)
 
 })
 
@@ -33,7 +33,7 @@ test_that("split_vector ",{
 
     o3 <- split_vector(x, c("", "C"))
 
-    expect_true(identical(o3, o3_c))
+    expect_equivalent(o3, o3_c)
 
 })
 
@@ -60,9 +60,9 @@ test_that("split_vector ",{
     o5 <- split_vector(x, include = 1)
     o6 <- split_vector(x, include = 2)
 
-    expect_true(identical(o4, o4_c))
-    expect_true(identical(o5, o5_c))
-    expect_true(identical(o6, o6_c))
+    expect_equivalent(o4, o4_c)
+    expect_equivalent(o5, o5_c)
+    expect_equivalent(o6, o6_c)
 
 })
 
@@ -77,8 +77,7 @@ test_that("split_vector ",{
     
     o7 <- split_vector(x, 1)
 
-    expect_true(identical(o7, o7_c))
+    expect_equivalent(o7, o7_c)
 
 })
-
 

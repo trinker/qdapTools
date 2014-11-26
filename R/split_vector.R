@@ -11,6 +11,7 @@
 #' @return Returns a list of vectors. 
 #' @author Matthew Flickinger and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @references \url{http://stackoverflow.com/a/24319217/1000343} 
+#' @seealso \code{\link[qdapTools]{loc_split}}
 #' @export
 #' @examples
 #' set.seed(15)
@@ -27,6 +28,12 @@
 #' set.seed(15)
 #' x <- sample(1:11, 25, TRUE, prob=c(.2, rep(.08, 10)))
 #' split_vector(x, 1)
+#' 
+#' ## relationship to `loc_split`
+#' all.equal(
+#'     split_vector(x, include = 1),
+#'     loc_split(x, which(x == ""), names=1:5)
+#' )
 split_vector <- function(x, split = "", include = FALSE) {
 
     include <- as.numeric(include)
