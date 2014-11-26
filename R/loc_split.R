@@ -4,12 +4,13 @@
 #' 
 #' @param x A data form (\code{list}, \code{vector}, \code{data.frame}, 
 #' \code{matrix}).
-#' @param locs A vector of integer locations to split at.
+#' @param locs A vector of integer locations to split at.  If \code{locs} 
+#' contains the index 1, it will be silently dropped.
 #' @param names Optional vector of names to give to the list elements.
 #' @param \ldots Ignored.
 #' @return Returns of list of data forms broken at the \code{locs}.
 #' @note Two dimensional object will retain dimension (i.e., \code{drop = FALSE} 
-#' is used).
+#' is used). 
 #' @export
 #' @seealso \code{\link[qdapTools]{split_vector}},
 #' \url{https://github.com/trinker/loc_split_example} for real life use.
@@ -132,6 +133,7 @@ function(x, locs, names = NULL, ...) {
 loc_split_vector <-
 function(x, locs, names = NULL, ...) {
 
+    locs <- locs[!locs %in% "1"]		
     if (length(x) < max(locs)) stop("One or more `locs` elements exceeds length of `x`")
     setNames(split(x, cut(seq_along(x), c(0, locs - 1, length(x)))) , NULL)
 
@@ -140,6 +142,7 @@ function(x, locs, names = NULL, ...) {
 loc_split_mat <- 
 function(x, locs, names = NULL, ...) {
 
+    locs <- locs[!locs %in% "1"]		
     len <- nrow(x)
     if (len < max(locs)) stop("One or more `locs` elements exceeds nrow of `x`")
     seqs <- seq_len(len)
