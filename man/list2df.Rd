@@ -6,6 +6,7 @@
 \alias{list_df2df}
 \alias{list_vect2df}
 \alias{matrix2df}
+\alias{matrix2long}
 \alias{vect2df}
 \alias{vect2list}
 \title{List/Matrix/Vector to Dataframe/List/Matrix}
@@ -27,6 +28,8 @@ counts2list(mat, nm = rownames(mat))
 vect2list(vector.object, use.names = TRUE, numbered.names = FALSE)
 
 df2matrix(data.frame.object, i = 1)
+
+matrix2long(matrix.object, col1 = "cols", col2 = "rows", col3 = "vals")
 }
 \arguments{
 \item{list.object}{A named \code{\link[base]{list}} of vectors..}
@@ -86,6 +89,8 @@ the list names.}
 \code{vect2list} - Returns a list of named elements.
 
 \code{df2matrix} - Returns a matrix.
+
+\code{matrix2long} - Returns a long format dataframe.
 }
 \description{
 \code{list2df} - Convert a named list of vectors to a dataframe.
@@ -108,6 +113,9 @@ dataframe.
 \code{df2matrix} - Convert a dataframe to a \code{matrix} and simultaneously
 move a column (default is the first column) to the rownames of a
 \code{matrix}.
+
+\code{matrix2long} - Convert a matrix to a long format dataframe where column
+names become column 1, row names, column 2 and the values become column 3.
 }
 \examples{
 lst1 <- list(x=c("foo", "bar"), y=1:5)
@@ -144,6 +152,10 @@ counts2list(cnts[, -1], cnts[, 1])
 df2matrix(cnts)
 counts2list(df2matrix(cnts))
 counts2list(t(df2matrix(cnts)))
+
+mat <- matrix(1:9, ncol=3)
+matrix2long(mat)
+matrix2long(mtcars)
 
 \dontrun{
 library(qdap)

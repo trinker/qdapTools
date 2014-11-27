@@ -134,17 +134,17 @@ test_that("df2matrix gived intended output",{
     
     df2matrix(cnts)
     m <- df2matrix(cnts)
-    expect_true(identical(rownames(m), cnts[, 1]))
+    expect_equivalent(rownames(m), cnts[, 1])
     expect_true(is.matrix(m))
     expect_true(mode(m) == "numeric")
 
     m2 <- df2matrix(cnts, 2)
-    expect_true(identical(as.integer(rownames(m2)), cnts[, 2]))
+    expect_equivalent(as.integer(rownames(m2)), cnts[, 2])
     expect_true(is.matrix(m2))
     expect_true(mode(m2) == "character")
 
     m3 <- df2matrix(cnts, "X2")
-    expect_true(identical(as.integer(rownames(m3)), cnts[, 3]))
+    expect_equivalent(as.integer(rownames(m3)), cnts[, 3])
     expect_true(is.matrix(m3))
     expect_true(mode(m3) == "character")
 	
@@ -158,6 +158,6 @@ test_that("matrix2long gived intended output",{
         -9L), class = "data.frame")
     
     mat <- matrix(1:9, ncol=3)
-    expect_equivalent(matrix2long(mat))
+    expect_equivalent(matrix2long(mat), exmat)
     
 })

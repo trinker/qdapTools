@@ -26,6 +26,10 @@ qdapTools 1.0.4
 * `loc_split` added to split data forms (`list`, `vector`, `data.frame`, 
   `matrix`) on a vector of integer lcoations.
 
+* `matrix2long` makes a long format data.frame.  It takes a matrix object, stacks 
+  all columns and adds identifying columns by repeating row and column names
+  accordingly.  
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
