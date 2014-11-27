@@ -26,9 +26,8 @@ test_that("lookup works with lists",{
         C = 7,
         D = c(6, 8:10)
     )
-    
-    expect_true(identical(lookup(1:10, codes), 
-    	c("A", "A", "B", "A", "B", "D", "C", "D", "D", "D")))
+    expect_equivalent(lookup(1:10, codes), 
+        c("A", "A", "B", "A", "B", "D", "C", "D", "D", "D"))
 
 })
 

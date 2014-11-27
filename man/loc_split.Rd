@@ -30,7 +30,8 @@ loc_split(x, locs, names = NULL, ...)
 \item{x}{A data form (\code{list}, \code{vector}, \code{data.frame},
 \code{matrix}).}
 
-\item{locs}{A vector of integer locations to split at.}
+\item{locs}{A vector of integer locations to split at.  If \code{locs}
+contains the index 1, it will be silently dropped.}
 
 \item{names}{Optional vector of names to give to the list elements.}
 
