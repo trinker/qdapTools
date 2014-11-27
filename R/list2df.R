@@ -47,6 +47,10 @@
 #' counts2list(df2matrix(cnts))
 #' counts2list(t(df2matrix(cnts)))
 #' 
+#' mat <- matrix(1:9, ncol=3)
+#' matrix2long(mat)
+#' matrix2long(mtcars)
+#' 
 #' \dontrun{
 #' library(qdap)
 #' term <- c("the ", "she", " wh")
@@ -253,3 +257,34 @@ df2matrix <- function(data.frame.object, i = 1) {
     row.names(x) <- data.frame.object[, i]
     x
 }
+
+
+#' List/Matrix/Vector to Dataframe/List/Matrix
+#' 
+#' \code{matrix2long} - Convert a matrix to a long format dataframe where column 
+#' names become column 1, row names, column 2 and the values become column 3.
+#' 
+#' @rdname list2df
+#' @return \code{matrix2long} - Returns a long format dataframe.
+#' @export
+matrix2long <- function(matrix.object, col1 = "cols", col2 = "rows", col3 = "vals"){
+
+    if (is.null(rownames(matrix.object))) {
+        rownames(matrix.object) <- seq_len(nrow(matrix.object))
+    }
+
+    if (is.null(colnames(matrix.object))) {
+        colnames(matrix.object) <- seq_len(ncol(matrix.object))
+    }
+
+    out <- setNames(data.frame(
+        rep(colnames(matrix.object), each=nrow(matrix.object)),
+        rep(rownames(matrix.object), ncol(matrix.object)),
+        c(unlist(matrix.object)), 
+        stringsAsFactors = FALSE
+    ), c(col1, col2, col3))
+    rownames(out) <- NULL
+    out
+}
+
+

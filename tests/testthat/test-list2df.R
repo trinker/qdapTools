@@ -149,3 +149,15 @@ test_that("df2matrix gived intended output",{
     expect_true(mode(m3) == "character")
 	
 })
+
+test_that("matrix2long gived intended output",{
+    
+    exmat <- structure(list(cols = c("1", "1", "1", "2", "2", "2", "3", "3", 
+        "3"), rows = c("1", "2", "3", "1", "2", "3", "1", "2", "3"), 
+            vals = 1:9), .Names = c("cols", "rows", "vals"), row.names = c(NA, 
+        -9L), class = "data.frame")
+    
+    mat <- matrix(1:9, ncol=3)
+    expect_equivalent(matrix2long(mat))
+    
+})
