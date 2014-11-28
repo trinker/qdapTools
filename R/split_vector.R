@@ -3,11 +3,16 @@
 #' Splits a \code{vector} into a list of vectors based on split points.
 #' 
 #' @param x A vector with split points.
-#' @param split A vector of places (elements) to split on.
+#' @param split A vector of places (elements) to split on or a regular 
+#' expression if \code{regex} argument is \code{TRUE}.
 #' @param include An integer of \code{1} (\code{split} character(s) are not 
 #' included in the output), \code{2} (\code{split} character(s) are included at 
 #' the beginning of the output), or \code{3} (\code{split} character(s) are 
-#' included at the end of the output). 
+#' included at the end of the output).
+#' @param regex logical.  If \code{TRUE} regular expressions will be enabled for
+#' \code{split} argument.
+#' @param \ldots other arguments passed to \code{\link[base]{grep}} and
+#' \code{\link[base]{grepl}}.
 #' @return Returns a list of vectors. 
 #' @author Matthew Flickinger and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @references \url{http://stackoverflow.com/a/24319217/1000343} 
@@ -32,9 +37,9 @@
 #' ## relationship to `loc_split`
 #' all.equal(
 #'     split_vector(x, include = 1),
-#'     loc_split(x, which(x == ""), names=1:5)
+#'     loc_split(x, which(x == ""), names=1:6)
 #' )
-split_vector <- function(x, split = "", include = FALSE) {
+split_vector <- function(x, split = "", include = FALSE, regex = FALSE, ...) {
 
     include <- as.numeric(include)
 
@@ -43,8 +48,12 @@ split_vector <- function(x, split = "", include = FALSE) {
     }
 
     if (include %in% 0:1){
-        breaks <- x %in% split
-    
+        if (!regex){
+            breaks <- x %in% split 
+        } else {
+            breaks <- grepl(split, x, ...)
+      }
+	
         if(include == 1) {
             inds <- rep(TRUE, length(breaks))
         } else {
@@ -55,7 +64,12 @@ split_vector <- function(x, split = "", include = FALSE) {
         out
 
     } else {
-        locs <- which(x %in% split)
+        if (!regex){
+            locs <- which(x %in% split)
+        } else {
+		locs <- grep(split, x, ...)
+        }
+
         start <- c(1, locs + 1)
         end <- c(locs, length(x))
     
@@ -64,7 +78,6 @@ split_vector <- function(x, split = "", include = FALSE) {
         })
     }
 }
-
 
 
 

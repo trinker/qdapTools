@@ -34,6 +34,9 @@ qdapTools 1.0.4
 
 **IMPROVEMENTS**
 
+* `split_vector` picks up a `regex` argument to allow for regular expression 
+  search of break location.
+
 **CHANGES**
 
 

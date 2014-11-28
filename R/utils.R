@@ -37,3 +37,15 @@ function(multi.columns, sep=".", handle.na=TRUE, trim=TRUE){
 ## Remove leading/trailing white space.
 Trim <-
 function (x) gsub("^\\s+|\\s+$", "", x)
+
+hijack <- function(FUN, ...){
+
+    .FUN <- FUN
+
+    args <- list(...)
+    invisible(lapply(seq_along(args), function(i) {
+        formals(.FUN)[[names(args)[i]]] <<- args[[i]]
+    }))
+    
+    .FUN
+}

@@ -3,17 +3,24 @@
 \alias{split_vector}
 \title{Split a Vector By Split Points}
 \usage{
-split_vector(x, split = "", include = FALSE)
+split_vector(x, split = "", include = FALSE, regex = FALSE, ...)
 }
 \arguments{
 \item{x}{A vector with split points.}
 
-\item{split}{A vector of places (elements) to split on.}
+\item{split}{A vector of places (elements) to split on or a regular
+expression if \code{regex} argument is \code{TRUE}.}
 
 \item{include}{An integer of \code{1} (\code{split} character(s) are not
 included in the output), \code{2} (\code{split} character(s) are included at
 the beginning of the output), or \code{3} (\code{split} character(s) are
 included at the end of the output).}
+
+\item{regex}{logical.  If \code{TRUE} regular expressions will be enabled for
+\code{split} argument.}
+
+\item{\ldots}{other arguments passed to \code{\link[base]{grep}} and
+\code{\link[base]{grepl}}.}
 }
 \value{
 Returns a list of vectors.
@@ -40,7 +47,7 @@ split_vector(x, 1)
 ## relationship to `loc_split`
 all.equal(
     split_vector(x, include = 1),
-    loc_split(x, which(x == ""), names=1:5)
+    loc_split(x, which(x == ""), names=1:6)
 )
 }
 \author{
