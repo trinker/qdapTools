@@ -13,7 +13,8 @@ Depends:
 Imports:
     chron,
     data.table (>= 1.9.4),
-    RCurl
+    RCurl,
+    XML
 Suggests:
     testthat
 LazyData: TRUE
