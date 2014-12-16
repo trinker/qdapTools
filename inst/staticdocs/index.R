@@ -39,6 +39,7 @@ sd_section("Data Reshaping",
 sd_section("Assorted qdap Tools", 
   description="Assorted tools for use in the qdap package.",
   c(
+    "read_docx",
     "repo2github",        
     "url_dl",
     "v_outer"

@@ -30,6 +30,8 @@ qdapTools 1.0.4
   all columns and adds identifying columns by repeating row and column names
   accordingly.  
 
+* `read_docx` added to read in .docx dcouments.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
