@@ -1,7 +1,7 @@
 Package: qdapTools
 Type: Package
 Title: Tools for the qdap Package
-Version: 1.0.4
+Version: 1.1.0
 Date: 2014-04-19
 Authors@R: c(person("Bryan", "Goodrich", role = "ctb"), person("Dason",
     "Kurkiewicz", role = "ctb"), person("Kirill", "Muller", role = "ctb"),

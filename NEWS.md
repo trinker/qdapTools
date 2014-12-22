@@ -16,7 +16,7 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
- <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.4
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.4 - 1.1.0
 ----------------------------------------------------------------
 
 **NEW FEATURES**
