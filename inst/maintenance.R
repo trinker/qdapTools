@@ -19,18 +19,32 @@ library(highlight);  library(staticdocs);
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/qdapTools", launch = FALSE)
+R_USER <-  switch(Sys.info()[["user"]],
+    Tyler = "C:/Users/Tyler",
+    trinker = "C:/Users/trinker",
+    message("Computer name not found")
+)
+
+build_site(pkg=file.path(R_USER, "GitHub/qdapTools"))
 
 #STEP 2: reshape index
+
+R_USER <-  switch(Sys.info()[["user"]],
+    Tyler = "C:/Users/Tyler",
+    trinker = "C:/Users/trinker",
+    message("Computer name not found")
+)
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
-rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
+rdme <- file.path(R_USER, "GitHub/qdapTools/inst/extra_statdoc/readme.R")
 library(acc.roxygen2); library(qdap);
 extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
 	"%hl+%",  "%lc%", "%lc+%")
 
 drops <- qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
-	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, v_outer.matrix)
+	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, 
+    v_outer.matrix, loc_split.character, loc_split.data.frame, loc_split.default, 
+    loc_split.numeric, loc_split.factor, loc_split.list, loc_split.matrix)
 
 expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
 
@@ -44,7 +58,7 @@ cat(paste(x, collapse="\n"), file=path2)
 
 #STEP 3: move to trinker.guthub
 library(reports)
-file <- "C:/Users/trinker/GitHub/trinker.github.com/"
+file <- file.path(R_USER, "GitHub/trinker.github.com/")
 incoming <- file.path(file, "qdapTools_dev")
 delete(incoming)
 file.copy(path, file, TRUE, TRUE)
@@ -61,18 +75,26 @@ library(highlight);library(staticdocs);
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/qdapTools")
+R_USER <-  switch(Sys.info()[["user"]],
+    Tyler = "C:/Users/Tyler",
+    trinker = "C:/Users/trinker",
+    message("Computer name not found")
+)
+
+build_site(pkg=file.path(R_USER, "GitHub/qdapTools"))
 
 #STEP 2: reshape index
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
-rdme <- "C:/Users/trinker/GitHub/qdapTools/inst/extra_statdoc/readme.R"
+rdme <- "inst/extra_statdoc/readme.R"
 library(acc.roxygen2); #library(qdap);
 extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
 	"%hl+%",  "%lc%", "%lc+%")
 
 drops <- qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
-	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, v_outer.matrix)
+    hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, 
+    v_outer.matrix, loc_split.character, loc_split.data.frame, loc_split.default, 
+    loc_split.numeric, loc_split.factor, loc_split.list, loc_split.matrix)
 
 expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
 
@@ -86,12 +108,18 @@ cat(paste(x, collapse="\n"), file=path2)
 
 #STEP 3: move to trinker.guthub
 library(reports)
-file <- "C:/Users/trinker/GitHub/trinker.github.com/"
-incoming <- file.path(file, "qdapTools")
+file <- file.path(R_USER, "GitHub/trinker.github.com/")
+#incoming <- file.path(file, "qdapTools")
 delete(incoming)
 file.copy(path, file, TRUE, TRUE)
 file.rename(file.path(file, "web"), incoming)
 ## delete(path)
+
+#==========================
+# knit README.md
+#==========================
+knitr::knit2html("README.Rmd", output ='README.md'); reports::delete("README.html")
+
 
 #==========================
 # NEWS new version

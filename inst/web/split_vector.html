@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>split_vector. qdapTools 1.0.4</title>
+<title>split_vector. qdapTools 1.1.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Matthew Flickinger and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@ Matthew Flickinger and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.4</a>
+      <a class="brand" href="#">qdapTools 1.1.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -42,19 +42,26 @@ Matthew Flickinger and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>split_vector(x, split&nbsp;=&nbsp;"", include&nbsp;=&nbsp;FALSE)</div></pre>
+    <pre><div>split_vector(x, split&nbsp;=&nbsp;"", include&nbsp;=&nbsp;FALSE, regex&nbsp;=&nbsp;FALSE, ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>x</dt>
       <dd>A vector with split points.</dd>
       <dt>split</dt>
-      <dd>A vector of places (elements) to split on.</dd>
+      <dd>A vector of places (elements) to split on or a regular
+expression if <code>regex</code> argument is <code>TRUE</code>.</dd>
       <dt>include</dt>
       <dd>An integer of <code>1</code> (<code>split</code> character(s) are not
 included in the output), <code>2</code> (<code>split</code> character(s) are included at
 the beginning of the output), or <code>3</code> (<code>split</code> character(s) are
 included at the end of the output).</dd>
+      <dt>regex</dt>
+      <dd>logical.  If <code>TRUE</code> regular expressions will be enabled for
+<code>split</code> argument.</dd>
+      <dt>...</dt>
+      <dd>other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>grep</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/grep'>grepl</a></code>.</dd>
     </dl>
     
     <div class="Split a Vector By Split Points">
@@ -210,6 +217,19 @@ $`4`
 $`5`
 [1] 7
 
+</div>
+<div class='input'>
+## relationship to `loc_split`
+all.equal(
+    split_vector(x, include = 1),
+    loc_split(x, which(x == &quot;&quot;), names=1:6)
+)
+</div>
+<strong class='warning'>Warning message:
+length of `names` muse be equal to length of `locs` + 1; ignoring `names`</strong>
+<strong class='warning'>Warning message:
+no non-missing arguments to max; returning -Inf</strong>
+<div class='output'>[1] &quot;names for target but not for current&quot;
 </div></pre>
   </div>
   <div class="span4">
@@ -220,6 +240,10 @@ $`5`
       
     </ul> -->
       
+    <h2>See also</h2>
+    
+<code>loc_split</code>
+
     
     <h2>Author</h2>
     

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>list2df. qdapTools 1.0.4</title>
+<title>list2df. qdapTools 1.1.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.0.4</a>
+      <a class="brand" href="#">qdapTools 1.1.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -47,7 +47,8 @@
 <div>list_vect2df(list.vector.object, col1&nbsp;=&nbsp;"X1", col2&nbsp;=&nbsp;"X2", col3&nbsp;=&nbsp;"X3", order&nbsp;=&nbsp;TRUE, ...)</div>
 <div>counts2list(mat, nm&nbsp;=&nbsp;rownames(mat))</div>
 <div>vect2list(vector.object, use.names&nbsp;=&nbsp;TRUE, numbered.names&nbsp;=&nbsp;FALSE)</div>
-<div>df2matrix(data.frame.object, i&nbsp;=&nbsp;1)</div></pre>
+<div>df2matrix(data.frame.object, i&nbsp;=&nbsp;1)</div>
+<div>matrix2long(matrix.object, col1&nbsp;=&nbsp;"cols", col2&nbsp;=&nbsp;"rows", col3&nbsp;=&nbsp;"vals")</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -118,6 +119,8 @@ the list names.</dd>
   
       <p><code>df2matrix</code> - Returns a matrix.</p>
   
+      <p><code>matrix2long</code> - Returns a long format dataframe.</p>
+  
     </div>
 
     <div class="Description">
@@ -143,6 +146,9 @@ dataframe.</p>
       <p><code>df2matrix</code> - Convert a dataframe to a <code>matrix</code> and simultaneously
 move a column (default is the first column) to the rownames of a
 <code>matrix</code>.</p>
+  
+      <p><code>matrix2long</code> - Convert a matrix to a long format dataframe where column
+names become column 1, row names, column 2 and the values become column 3.</p>
   
     </div>
     
@@ -212,30 +218,30 @@ matrix2df(mtcars)
 </div>
 <div class='input'>matrix2df(cor(mtcars))
 </div>
-<div class='output'>   var1        mpg        cyl       disp         hp        drat         wt        qsec         vs          am       gear
-1   mpg  1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594  0.41868403  0.6640389  0.59983243  0.4802848
-2   cyl -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958 -0.59124207 -0.8108118 -0.52260705 -0.4926866
-3  disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799 -0.43369788 -0.7104159 -0.59122704 -0.5555692
-4    hp -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479 -0.70822339 -0.7230967 -0.24320426 -0.1257043
-5  drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406  0.09120476  0.4402785  0.71271113  0.6996101
-6    wt -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000 -0.17471588 -0.5549157 -0.69249526 -0.5832870
-7  qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159  1.00000000  0.7445354 -0.22986086 -0.2126822
-8    vs  0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157  0.74453544  1.0000000  0.16834512  0.2060233
-9    am  0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953 -0.22986086  0.1683451  1.00000000  0.7940588
-10 gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870 -0.21268223  0.2060233  0.79405876  1.0000000
-11 carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059 -0.65624923 -0.5696071  0.05753435  0.2740728
-          carb
-1  -0.55092507
-2   0.52698829
-3   0.39497686
-4   0.74981247
-5  -0.09078980
-6   0.42760594
-7  -0.65624923
-8  -0.56960714
-9   0.05753435
-10  0.27407284
-11  1.00000000
+<div class='output'>   var1        mpg        cyl       disp         hp        drat         wt        qsec         vs
+1   mpg  1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594  0.41868403  0.6640389
+2   cyl -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958 -0.59124207 -0.8108118
+3  disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799 -0.43369788 -0.7104159
+4    hp -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479 -0.70822339 -0.7230967
+5  drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406  0.09120476  0.4402785
+6    wt -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000 -0.17471588 -0.5549157
+7  qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159  1.00000000  0.7445354
+8    vs  0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157  0.74453544  1.0000000
+9    am  0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953 -0.22986086  0.1683451
+10 gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870 -0.21268223  0.2060233
+11 carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059 -0.65624923 -0.5696071
+            am       gear        carb
+1   0.59983243  0.4802848 -0.55092507
+2  -0.52260705 -0.4926866  0.52698829
+3  -0.59122704 -0.5555692  0.39497686
+4  -0.24320426 -0.1257043  0.74981247
+5   0.71271113  0.6996101 -0.09078980
+6  -0.69249526 -0.5832870  0.42760594
+7  -0.22986086 -0.2126822 -0.65624923
+8   0.16834512  0.2060233 -0.56960714
+9   1.00000000  0.7940588  0.05753435
+10  0.79405876  1.0000000  0.27407284
+11  0.05753435  0.2740728  1.00000000
 </div>
 <div class='input'>matrix2df(matrix(1:9, ncol=3))
 </div>
@@ -499,13 +505,384 @@ $December
 [1] &quot;January&quot;   &quot;March&quot;     &quot;April&quot;     &quot;April&quot;     &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot; 
 
 $X2
- [1] &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;July&quot;      &quot;August&quot;    &quot;August&quot;    &quot;September&quot; &quot;September&quot; &quot;October&quot;  
-[10] &quot;November&quot;  &quot;November&quot;  &quot;December&quot; 
+ [1] &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;July&quot;      &quot;August&quot;    &quot;August&quot;    &quot;September&quot; &quot;September&quot;
+ [9] &quot;October&quot;   &quot;November&quot;  &quot;November&quot;  &quot;December&quot; 
 
 $X3
- [1] &quot;January&quot;  &quot;February&quot; &quot;February&quot; &quot;March&quot;    &quot;March&quot;    &quot;May&quot;      &quot;May&quot;      &quot;June&quot;     &quot;July&quot;     &quot;October&quot; 
-[11] &quot;October&quot;  &quot;November&quot; &quot;December&quot; &quot;December&quot;
+ [1] &quot;January&quot;  &quot;February&quot; &quot;February&quot; &quot;March&quot;    &quot;March&quot;    &quot;May&quot;      &quot;May&quot;      &quot;June&quot;     &quot;July&quot;    
+[10] &quot;October&quot;  &quot;October&quot;  &quot;November&quot; &quot;December&quot; &quot;December&quot;
 
+</div>
+<div class='input'>
+mat &lt;- matrix(1:9, ncol=3)
+matrix2long(mat)
+</div>
+<div class='output'>  cols rows vals
+1    1    1    1
+2    1    2    2
+3    1    3    3
+4    2    1    4
+5    2    2    5
+6    2    3    6
+7    3    1    7
+8    3    2    8
+9    3    3    9
+</div>
+<div class='input'>matrix2long(mtcars)
+</div>
+<div class='output'>    cols                rows    vals
+1    mpg           Mazda RX4  21.000
+2    mpg       Mazda RX4 Wag  21.000
+3    mpg          Datsun 710  22.800
+4    mpg      Hornet 4 Drive  21.400
+5    mpg   Hornet Sportabout  18.700
+6    mpg             Valiant  18.100
+7    mpg          Duster 360  14.300
+8    mpg           Merc 240D  24.400
+9    mpg            Merc 230  22.800
+10   mpg            Merc 280  19.200
+11   mpg           Merc 280C  17.800
+12   mpg          Merc 450SE  16.400
+13   mpg          Merc 450SL  17.300
+14   mpg         Merc 450SLC  15.200
+15   mpg  Cadillac Fleetwood  10.400
+16   mpg Lincoln Continental  10.400
+17   mpg   Chrysler Imperial  14.700
+18   mpg            Fiat 128  32.400
+19   mpg         Honda Civic  30.400
+20   mpg      Toyota Corolla  33.900
+21   mpg       Toyota Corona  21.500
+22   mpg    Dodge Challenger  15.500
+23   mpg         AMC Javelin  15.200
+24   mpg          Camaro Z28  13.300
+25   mpg    Pontiac Firebird  19.200
+26   mpg           Fiat X1-9  27.300
+27   mpg       Porsche 914-2  26.000
+28   mpg        Lotus Europa  30.400
+29   mpg      Ford Pantera L  15.800
+30   mpg        Ferrari Dino  19.700
+31   mpg       Maserati Bora  15.000
+32   mpg          Volvo 142E  21.400
+33   cyl           Mazda RX4   6.000
+34   cyl       Mazda RX4 Wag   6.000
+35   cyl          Datsun 710   4.000
+36   cyl      Hornet 4 Drive   6.000
+37   cyl   Hornet Sportabout   8.000
+38   cyl             Valiant   6.000
+39   cyl          Duster 360   8.000
+40   cyl           Merc 240D   4.000
+41   cyl            Merc 230   4.000
+42   cyl            Merc 280   6.000
+43   cyl           Merc 280C   6.000
+44   cyl          Merc 450SE   8.000
+45   cyl          Merc 450SL   8.000
+46   cyl         Merc 450SLC   8.000
+47   cyl  Cadillac Fleetwood   8.000
+48   cyl Lincoln Continental   8.000
+49   cyl   Chrysler Imperial   8.000
+50   cyl            Fiat 128   4.000
+51   cyl         Honda Civic   4.000
+52   cyl      Toyota Corolla   4.000
+53   cyl       Toyota Corona   4.000
+54   cyl    Dodge Challenger   8.000
+55   cyl         AMC Javelin   8.000
+56   cyl          Camaro Z28   8.000
+57   cyl    Pontiac Firebird   8.000
+58   cyl           Fiat X1-9   4.000
+59   cyl       Porsche 914-2   4.000
+60   cyl        Lotus Europa   4.000
+61   cyl      Ford Pantera L   8.000
+62   cyl        Ferrari Dino   6.000
+63   cyl       Maserati Bora   8.000
+64   cyl          Volvo 142E   4.000
+65  disp           Mazda RX4 160.000
+66  disp       Mazda RX4 Wag 160.000
+67  disp          Datsun 710 108.000
+68  disp      Hornet 4 Drive 258.000
+69  disp   Hornet Sportabout 360.000
+70  disp             Valiant 225.000
+71  disp          Duster 360 360.000
+72  disp           Merc 240D 146.700
+73  disp            Merc 230 140.800
+74  disp            Merc 280 167.600
+75  disp           Merc 280C 167.600
+76  disp          Merc 450SE 275.800
+77  disp          Merc 450SL 275.800
+78  disp         Merc 450SLC 275.800
+79  disp  Cadillac Fleetwood 472.000
+80  disp Lincoln Continental 460.000
+81  disp   Chrysler Imperial 440.000
+82  disp            Fiat 128  78.700
+83  disp         Honda Civic  75.700
+84  disp      Toyota Corolla  71.100
+85  disp       Toyota Corona 120.100
+86  disp    Dodge Challenger 318.000
+87  disp         AMC Javelin 304.000
+88  disp          Camaro Z28 350.000
+89  disp    Pontiac Firebird 400.000
+90  disp           Fiat X1-9  79.000
+91  disp       Porsche 914-2 120.300
+92  disp        Lotus Europa  95.100
+93  disp      Ford Pantera L 351.000
+94  disp        Ferrari Dino 145.000
+95  disp       Maserati Bora 301.000
+96  disp          Volvo 142E 121.000
+97    hp           Mazda RX4 110.000
+98    hp       Mazda RX4 Wag 110.000
+99    hp          Datsun 710  93.000
+100   hp      Hornet 4 Drive 110.000
+101   hp   Hornet Sportabout 175.000
+102   hp             Valiant 105.000
+103   hp          Duster 360 245.000
+104   hp           Merc 240D  62.000
+105   hp            Merc 230  95.000
+106   hp            Merc 280 123.000
+107   hp           Merc 280C 123.000
+108   hp          Merc 450SE 180.000
+109   hp          Merc 450SL 180.000
+110   hp         Merc 450SLC 180.000
+111   hp  Cadillac Fleetwood 205.000
+112   hp Lincoln Continental 215.000
+113   hp   Chrysler Imperial 230.000
+114   hp            Fiat 128  66.000
+115   hp         Honda Civic  52.000
+116   hp      Toyota Corolla  65.000
+117   hp       Toyota Corona  97.000
+118   hp    Dodge Challenger 150.000
+119   hp         AMC Javelin 150.000
+120   hp          Camaro Z28 245.000
+121   hp    Pontiac Firebird 175.000
+122   hp           Fiat X1-9  66.000
+123   hp       Porsche 914-2  91.000
+124   hp        Lotus Europa 113.000
+125   hp      Ford Pantera L 264.000
+126   hp        Ferrari Dino 175.000
+127   hp       Maserati Bora 335.000
+128   hp          Volvo 142E 109.000
+129 drat           Mazda RX4   3.900
+130 drat       Mazda RX4 Wag   3.900
+131 drat          Datsun 710   3.850
+132 drat      Hornet 4 Drive   3.080
+133 drat   Hornet Sportabout   3.150
+134 drat             Valiant   2.760
+135 drat          Duster 360   3.210
+136 drat           Merc 240D   3.690
+137 drat            Merc 230   3.920
+138 drat            Merc 280   3.920
+139 drat           Merc 280C   3.920
+140 drat          Merc 450SE   3.070
+141 drat          Merc 450SL   3.070
+142 drat         Merc 450SLC   3.070
+143 drat  Cadillac Fleetwood   2.930
+144 drat Lincoln Continental   3.000
+145 drat   Chrysler Imperial   3.230
+146 drat            Fiat 128   4.080
+147 drat         Honda Civic   4.930
+148 drat      Toyota Corolla   4.220
+149 drat       Toyota Corona   3.700
+150 drat    Dodge Challenger   2.760
+151 drat         AMC Javelin   3.150
+152 drat          Camaro Z28   3.730
+153 drat    Pontiac Firebird   3.080
+154 drat           Fiat X1-9   4.080
+155 drat       Porsche 914-2   4.430
+156 drat        Lotus Europa   3.770
+157 drat      Ford Pantera L   4.220
+158 drat        Ferrari Dino   3.620
+159 drat       Maserati Bora   3.540
+160 drat          Volvo 142E   4.110
+161   wt           Mazda RX4   2.620
+162   wt       Mazda RX4 Wag   2.875
+163   wt          Datsun 710   2.320
+164   wt      Hornet 4 Drive   3.215
+165   wt   Hornet Sportabout   3.440
+166   wt             Valiant   3.460
+167   wt          Duster 360   3.570
+168   wt           Merc 240D   3.190
+169   wt            Merc 230   3.150
+170   wt            Merc 280   3.440
+171   wt           Merc 280C   3.440
+172   wt          Merc 450SE   4.070
+173   wt          Merc 450SL   3.730
+174   wt         Merc 450SLC   3.780
+175   wt  Cadillac Fleetwood   5.250
+176   wt Lincoln Continental   5.424
+177   wt   Chrysler Imperial   5.345
+178   wt            Fiat 128   2.200
+179   wt         Honda Civic   1.615
+180   wt      Toyota Corolla   1.835
+181   wt       Toyota Corona   2.465
+182   wt    Dodge Challenger   3.520
+183   wt         AMC Javelin   3.435
+184   wt          Camaro Z28   3.840
+185   wt    Pontiac Firebird   3.845
+186   wt           Fiat X1-9   1.935
+187   wt       Porsche 914-2   2.140
+188   wt        Lotus Europa   1.513
+189   wt      Ford Pantera L   3.170
+190   wt        Ferrari Dino   2.770
+191   wt       Maserati Bora   3.570
+192   wt          Volvo 142E   2.780
+193 qsec           Mazda RX4  16.460
+194 qsec       Mazda RX4 Wag  17.020
+195 qsec          Datsun 710  18.610
+196 qsec      Hornet 4 Drive  19.440
+197 qsec   Hornet Sportabout  17.020
+198 qsec             Valiant  20.220
+199 qsec          Duster 360  15.840
+200 qsec           Merc 240D  20.000
+201 qsec            Merc 230  22.900
+202 qsec            Merc 280  18.300
+203 qsec           Merc 280C  18.900
+204 qsec          Merc 450SE  17.400
+205 qsec          Merc 450SL  17.600
+206 qsec         Merc 450SLC  18.000
+207 qsec  Cadillac Fleetwood  17.980
+208 qsec Lincoln Continental  17.820
+209 qsec   Chrysler Imperial  17.420
+210 qsec            Fiat 128  19.470
+211 qsec         Honda Civic  18.520
+212 qsec      Toyota Corolla  19.900
+213 qsec       Toyota Corona  20.010
+214 qsec    Dodge Challenger  16.870
+215 qsec         AMC Javelin  17.300
+216 qsec          Camaro Z28  15.410
+217 qsec    Pontiac Firebird  17.050
+218 qsec           Fiat X1-9  18.900
+219 qsec       Porsche 914-2  16.700
+220 qsec        Lotus Europa  16.900
+221 qsec      Ford Pantera L  14.500
+222 qsec        Ferrari Dino  15.500
+223 qsec       Maserati Bora  14.600
+224 qsec          Volvo 142E  18.600
+225   vs           Mazda RX4   0.000
+226   vs       Mazda RX4 Wag   0.000
+227   vs          Datsun 710   1.000
+228   vs      Hornet 4 Drive   1.000
+229   vs   Hornet Sportabout   0.000
+230   vs             Valiant   1.000
+231   vs          Duster 360   0.000
+232   vs           Merc 240D   1.000
+233   vs            Merc 230   1.000
+234   vs            Merc 280   1.000
+235   vs           Merc 280C   1.000
+236   vs          Merc 450SE   0.000
+237   vs          Merc 450SL   0.000
+238   vs         Merc 450SLC   0.000
+239   vs  Cadillac Fleetwood   0.000
+240   vs Lincoln Continental   0.000
+241   vs   Chrysler Imperial   0.000
+242   vs            Fiat 128   1.000
+243   vs         Honda Civic   1.000
+244   vs      Toyota Corolla   1.000
+245   vs       Toyota Corona   1.000
+246   vs    Dodge Challenger   0.000
+247   vs         AMC Javelin   0.000
+248   vs          Camaro Z28   0.000
+249   vs    Pontiac Firebird   0.000
+250   vs           Fiat X1-9   1.000
+251   vs       Porsche 914-2   0.000
+252   vs        Lotus Europa   1.000
+253   vs      Ford Pantera L   0.000
+254   vs        Ferrari Dino   0.000
+255   vs       Maserati Bora   0.000
+256   vs          Volvo 142E   1.000
+257   am           Mazda RX4   1.000
+258   am       Mazda RX4 Wag   1.000
+259   am          Datsun 710   1.000
+260   am      Hornet 4 Drive   0.000
+261   am   Hornet Sportabout   0.000
+262   am             Valiant   0.000
+263   am          Duster 360   0.000
+264   am           Merc 240D   0.000
+265   am            Merc 230   0.000
+266   am            Merc 280   0.000
+267   am           Merc 280C   0.000
+268   am          Merc 450SE   0.000
+269   am          Merc 450SL   0.000
+270   am         Merc 450SLC   0.000
+271   am  Cadillac Fleetwood   0.000
+272   am Lincoln Continental   0.000
+273   am   Chrysler Imperial   0.000
+274   am            Fiat 128   1.000
+275   am         Honda Civic   1.000
+276   am      Toyota Corolla   1.000
+277   am       Toyota Corona   0.000
+278   am    Dodge Challenger   0.000
+279   am         AMC Javelin   0.000
+280   am          Camaro Z28   0.000
+281   am    Pontiac Firebird   0.000
+282   am           Fiat X1-9   1.000
+283   am       Porsche 914-2   1.000
+284   am        Lotus Europa   1.000
+285   am      Ford Pantera L   1.000
+286   am        Ferrari Dino   1.000
+287   am       Maserati Bora   1.000
+288   am          Volvo 142E   1.000
+289 gear           Mazda RX4   4.000
+290 gear       Mazda RX4 Wag   4.000
+291 gear          Datsun 710   4.000
+292 gear      Hornet 4 Drive   3.000
+293 gear   Hornet Sportabout   3.000
+294 gear             Valiant   3.000
+295 gear          Duster 360   3.000
+296 gear           Merc 240D   4.000
+297 gear            Merc 230   4.000
+298 gear            Merc 280   4.000
+299 gear           Merc 280C   4.000
+300 gear          Merc 450SE   3.000
+301 gear          Merc 450SL   3.000
+302 gear         Merc 450SLC   3.000
+303 gear  Cadillac Fleetwood   3.000
+304 gear Lincoln Continental   3.000
+305 gear   Chrysler Imperial   3.000
+306 gear            Fiat 128   4.000
+307 gear         Honda Civic   4.000
+308 gear      Toyota Corolla   4.000
+309 gear       Toyota Corona   3.000
+310 gear    Dodge Challenger   3.000
+311 gear         AMC Javelin   3.000
+312 gear          Camaro Z28   3.000
+313 gear    Pontiac Firebird   3.000
+314 gear           Fiat X1-9   4.000
+315 gear       Porsche 914-2   5.000
+316 gear        Lotus Europa   5.000
+317 gear      Ford Pantera L   5.000
+318 gear        Ferrari Dino   5.000
+319 gear       Maserati Bora   5.000
+320 gear          Volvo 142E   4.000
+321 carb           Mazda RX4   4.000
+322 carb       Mazda RX4 Wag   4.000
+323 carb          Datsun 710   1.000
+324 carb      Hornet 4 Drive   1.000
+325 carb   Hornet Sportabout   2.000
+326 carb             Valiant   1.000
+327 carb          Duster 360   4.000
+328 carb           Merc 240D   2.000
+329 carb            Merc 230   2.000
+330 carb            Merc 280   4.000
+331 carb           Merc 280C   4.000
+332 carb          Merc 450SE   3.000
+333 carb          Merc 450SL   3.000
+334 carb         Merc 450SLC   3.000
+335 carb  Cadillac Fleetwood   4.000
+336 carb Lincoln Continental   4.000
+337 carb   Chrysler Imperial   4.000
+338 carb            Fiat 128   1.000
+339 carb         Honda Civic   2.000
+340 carb      Toyota Corolla   1.000
+341 carb       Toyota Corona   1.000
+342 carb    Dodge Challenger   2.000
+343 carb         AMC Javelin   2.000
+344 carb          Camaro Z28   4.000
+345 carb    Pontiac Firebird   2.000
+346 carb           Fiat X1-9   1.000
+347 carb       Porsche 914-2   2.000
+348 carb        Lotus Europa   2.000
+349 carb      Ford Pantera L   4.000
+350 carb        Ferrari Dino   6.000
+351 carb       Maserati Bora   8.000
+352 carb          Volvo 142E   2.000
 </div>
 <div class='input'>
 ## &lt;strong&gt;Not run&lt;/strong&gt;: 
@@ -632,7 +1009,7 @@ $`4`
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>counts2list</li><li>df2matrix</li><li>list2df</li><li>list_df2df</li><li>list_vect2df</li><li>matrix2df</li><li>vect2df</li><li>vect2list</li>
+      <li>counts2list</li><li>df2matrix</li><li>list2df</li><li>list_df2df</li><li>list_vect2df</li><li>matrix2df</li><li>matrix2long</li><li>vect2df</li><li>vect2list</li>
     </ul>
     <ul>
       <li>collapse</li><li>list</li>
