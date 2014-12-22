@@ -19,8 +19,6 @@ And constructed with the following guidelines:
 qdapTools 1.0.4
 ----------------------------------------------------------------
 
-BUG FIXES
-
 NEW FEATURES
 
 * `loc_split` added to split data forms (`list`, `vector`, `data.frame`, 
@@ -32,14 +30,11 @@ NEW FEATURES
 
 * `read_docx` added to read in .docx dcouments.
 
-MINOR FEATURES
 
 IMPROVEMENTS
 
 * `split_vector` picks up a `regex` argument to allow for regular expression 
   search of break location.
-
-CHANGES
 
 
 qdapTools 1.0.3
@@ -84,14 +79,6 @@ BUG FIXES
 
 * `pad` did not work consistently across all platforms.  This behavior has been 
   fixed.
-
-NEW FEATURES
-
-MINOR FEATURES
-
-IMPROVEMENTS
-
-CHANGES
 
 
 qdapTools 1.0.0

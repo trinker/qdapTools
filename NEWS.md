@@ -16,10 +16,8 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-qdapTools 1.0.4
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.4
 ----------------------------------------------------------------
-
-**BUG FIXES**
 
 **NEW FEATURES**
 
@@ -32,17 +30,14 @@ qdapTools 1.0.4
 
 * `read_docx` added to read in .docx dcouments.
 
-**MINOR FEATURES**
 
 **IMPROVEMENTS**
 
 * `split_vector` picks up a `regex` argument to allow for regular expression 
   search of break location.
 
-**CHANGES**
 
-
-qdapTools 1.0.3
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.3
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -56,7 +51,7 @@ qdapTools 1.0.3
   (<a href="http://stackoverflow.com/a/26046777/1000343)." target="_blank">http://stackoverflow.com/a/26046777/1000343).</a>
 
 
-qdapTools 1.0.2
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.2
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -77,7 +72,7 @@ qdapTools 1.0.2
   `data.frame` to correct this.
 
 
-qdapTools 1.0.1
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.1
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -85,16 +80,8 @@ qdapTools 1.0.1
 * `pad` did not work consistently across all platforms.  This behavior has been 
   fixed.
 
-**NEW FEATURES**
 
-**MINOR FEATURES**
-
-**IMPROVEMENTS**
-
-**CHANGES**
-
-
-qdapTools 1.0.0
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.0
 ----------------------------------------------------------------
 
 This version of `qdapTools` incorporates the `data.table` package.  This 
@@ -135,7 +122,7 @@ This version of `qdapTools` incorporates the `data.table` package.  This
   a subsequent version of `qdapTools`.
 
 
-qdapTools 0.2.0
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 0.2.0
 ----------------------------------------------------------------
 
 This version of <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> highlights optimization of `lookup` and `v_outer`.
@@ -160,12 +147,12 @@ may utilize the **data.table** package to gain speed.
 
 
 
-qdapTools 0.1.0
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 0.1.0
 ----------------------------------------------------------------
 
 This release moves the `list2df` family of functions from `qdap` to <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a>.  
 This completes the process of moving generic `qdap` tools into a separate 
-qdapTools package.
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> package.
 
 **CHANGES**
 
@@ -175,7 +162,7 @@ qdapTools package.
 
 
 
-qdapTools 0.0.3
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 0.0.3
 ----------------------------------------------------------------
 
 **NEW FEATURES**
@@ -187,7 +174,7 @@ qdapTools 0.0.3
   with spaces or 0s.
 
 
-qdapTools 0.0.2
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 0.0.2
 ----------------------------------------------------------------
 
 First push to CRAN.
@@ -197,7 +184,7 @@ First push to CRAN.
   Suggestion by Kirill Muller see: 
   https://github.com/trinker/qdap/issues/167#issuecomment-41009219
 
-qdapTools 0.0.1
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 0.0.1
 ----------------------------------------------------------------
 
 Tools used by qdap that may be of use outside of the context of text analysis 
