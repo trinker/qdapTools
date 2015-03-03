@@ -11,12 +11,11 @@
 
 To download the development version of qdapTools:
 
-Download the [zip ball](https://github.com/trinker/qdapTools/zipball/master) or [tar ball](https://github.com/trinker/qdapTools/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
+Download the [zip ball](https://github.com/trinker/qdapTools/zipball/master) or [tar ball](https://github.com/trinker/qdapTools/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **pacman** package to install the development version:
 
 ```r
-# install.packages("devtools")
-
-devtools::install_github("trinker/qdapTools")
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh("trinker/qdapTools")
 ```
 
 ## Help
