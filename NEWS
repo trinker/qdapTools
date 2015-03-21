@@ -30,6 +30,9 @@ NEW FEATURES
 
 * `read_docx` added to read in .docx dcouments.
 
+* `start_end` added to find the locations of start/end places for the ones in a 
+  binary vector.
+
 
 IMPROVEMENTS
 

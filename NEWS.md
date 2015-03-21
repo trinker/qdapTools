@@ -22,13 +22,16 @@ And constructed with the following guidelines:
 **NEW FEATURES**
 
 * `loc_split` added to split data forms (`list`, `vector`, `data.frame`, 
-  `matrix`) on a vector of integer locations.
+  `matrix`) on a vector of integer lcoations.
 
 * `matrix2long` makes a long format data.frame.  It takes a matrix object, stacks 
   all columns and adds identifying columns by repeating row and column names
   accordingly.  
 
-* `read_docx` added to read in .docx documents.
+* `read_docx` added to read in .docx dcouments.
+
+* `start_end` added to find the locations of start/end places for the ones in a 
+  binary vector.
 
 
 **IMPROVEMENTS**
