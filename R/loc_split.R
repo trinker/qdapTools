@@ -12,8 +12,9 @@
 #' @note Two dimensional object will retain dimension (i.e., \code{drop = FALSE} 
 #' is used). 
 #' @export
-#' @family split functions
-#' @seealso \url{https://github.com/trinker/loc_split_example} for practical usage.
+#' @seealso \code{\link[qdapTools]{run_split}},
+#' \code{\link[qdapTools]{split_vector}}
+#' \url{https://github.com/trinker/loc_split_example} for practical usage.
 #' @examples
 #' ## character
 #' loc_split(LETTERS, c(4, 10, 16))
