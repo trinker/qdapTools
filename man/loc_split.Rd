@@ -72,7 +72,9 @@ loc_split(mtcars, vs_change)
 loc_split(mat, c(3, 6, 10))
 }
 \seealso{
-\code{\link[qdapTools]{split_vector}},
-\url{https://github.com/trinker/loc_split_example} for real life use.
+\url{https://github.com/trinker/loc_split_example} for practical usage.
+
+Other split.functions: \code{\link{run_split}};
+  \code{\link{split_vector}}
 }
 

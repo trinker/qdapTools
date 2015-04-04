@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>text2color. qdapTools 1.1.1</title>
+<title>text2color. qdapTools 1.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.1.1</a>
+      <a class="brand" href="#">qdapTools 1.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -54,21 +54,18 @@ that will be matched against corresponding colors.</dd>
 +1 is for unmatched words).</dd>
     </dl>
     
-    <div class="Map Words to Colors">
-      <h2>Map Words to Colors</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a vector of mapped colors equal in length to the words vector.</p>
+
+      <p><dl>
+Returns a vector of mapped colors equal in length to the words vector.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>A dictionary lookup that maps words to colors.</p>
   
     </div>
@@ -84,13 +81,13 @@ text2color(x$X1, c(&quot;the&quot;, &quot;and&quot;, &quot;is&quot;), c(&quot;re
 </div>
 <strong class='warning'>Warning message:
 length of colors should be 1 more than length of recode.words</strong>
-<div class='output'> [1] &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;red&quot;   &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot; 
-[14] &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;red&quot;   &quot;green&quot; &quot;blue&quot;  &quot;blue&quot; 
+<div class='output'> [1] &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;red&quot;   &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot;  &quot;blue&quot; 
+[17] &quot;red&quot;   &quot;green&quot; &quot;blue&quot;  &quot;blue&quot; 
 </div>
 <div class='input'>text2color(x$X1, c(&quot;the&quot;, &quot;and&quot;, &quot;is&quot;), c(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;white&quot;))
 </div>
-<div class='output'> [1] &quot;white&quot; &quot;white&quot; &quot;white&quot; &quot;blue&quot;  &quot;red&quot;   &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;blue&quot;  &quot;white&quot; &quot;blue&quot;  &quot;white&quot; &quot;white&quot;
-[14] &quot;white&quot; &quot;white&quot; &quot;white&quot; &quot;red&quot;   &quot;green&quot; &quot;white&quot; &quot;white&quot;
+<div class='output'> [1] &quot;white&quot; &quot;white&quot; &quot;white&quot; &quot;blue&quot;  &quot;red&quot;   &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;blue&quot;  &quot;white&quot; &quot;blue&quot;  &quot;white&quot; &quot;white&quot; &quot;white&quot; &quot;white&quot; &quot;white&quot;
+[17] &quot;red&quot;   &quot;green&quot; &quot;white&quot; &quot;white&quot;
 </div>
 <div class='input'>x$X2 &lt;- text2color(x$X1, list(c(&quot;the&quot;, &quot;and&quot;, &quot;is&quot;), &quot;that&quot;),
     c(&quot;red&quot;, &quot;green&quot;, &quot;white&quot;))

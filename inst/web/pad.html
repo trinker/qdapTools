@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>pad. qdapTools 1.1.1</title>
+<title>pad. qdapTools 1.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.1.1</a>
+      <a class="brand" href="#">qdapTools 1.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -58,22 +58,19 @@ If character spaces are padded.  The <code>detect</code> attempts to determine i
 is numeric (d) or not (s).</dd>
     </dl>
     
-    <div class="Pad Strings">
-      <h2>Pad Strings</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a character vector every element padded with 0/spaces.</p>
+
+      <p><dl>
+Returns a character vector every element padded with 0/spaces.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
-      <p>A convenience wrapper for <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> that pads the front end
+
+      <p>A convenience wrapper for <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> that pads the front end
 of strings with spaces or 0s. Useful for creating multiple uniform directories
 that will maintain correct order.</p>
   
@@ -81,12 +78,12 @@ that will maintain correct order.</p>
 
     <div class="Note">
       <h2>Note</h2>
-      
-      <p><code>pad</code> is a wrapper for the <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> function.
+
+      <p><code>pad</code> is a wrapper for the <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> function.
 <code>pad</code> may behave differently on various platforms in accordance with the
-documentation for <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code>: "actual implementation will
+documentation for <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code>: "actual implementation will
 follow the C99 standard and fine details (especially the behaviour under user
-error) may depend on the platform."  See <code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code> for more
+error) may depend on the platform."  See <code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code> for more
 information.</p>
   
     </div>
@@ -114,8 +111,8 @@ information.</p>
 </div>
 <div class='input'>pad(month.name)
 </div>
-<div class='output'> [1] &quot;      May&quot; &quot;     July&quot; &quot;     June&quot; &quot;    April&quot; &quot;    March&quot; &quot;   August&quot; &quot;  January&quot; &quot;  October&quot;
- [9] &quot; December&quot; &quot; February&quot; &quot; November&quot; &quot;September&quot;
+<div class='output'> [1] &quot;      May&quot; &quot;     July&quot; &quot;     June&quot; &quot;    April&quot; &quot;    March&quot; &quot;   August&quot; &quot;  January&quot; &quot;  October&quot; &quot; December&quot; &quot; February&quot;
+[11] &quot; November&quot; &quot;September&quot;
 </div></pre>
   </div>
   <div class="span4">
@@ -128,7 +125,7 @@ information.</p>
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/sprintf'>sprintf</a></code>
+<code><a href='http://www.inside-r.org/r-doc/base/sprintf'>sprintf</a></code>
 
         
   </div>

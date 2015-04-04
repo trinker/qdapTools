@@ -12,9 +12,9 @@ devtools::test()
 #staticdocs dev version
 #========================
 #packages
-# library(devtools); install_github("staticdocs", "hadley")
-# install_github("acc.roxygen2", "trinker");install.packages("rstudioapi")
-library(highlight);  library(staticdocs); 
+pacman::p_load_gh("hadley/staticdocs")
+pacman::p_load(highlight)
+
 
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
@@ -25,28 +25,23 @@ R_USER <-  switch(Sys.info()[["user"]],
     message("Computer name not found")
 )
 
-build_site(pkg=file.path(R_USER, "GitHub/qdapTools"))
+build_site(pkg=file.path(R_USER, "GitHub/qdapTools"), launch = FALSE)
 
 #STEP 2: reshape index
-
-R_USER <-  switch(Sys.info()[["user"]],
-    Tyler = "C:/Users/Tyler",
-    trinker = "C:/Users/trinker",
-    message("Computer name not found")
-)
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- file.path(R_USER, "GitHub/qdapTools/inst/extra_statdoc/readme.R")
-library(acc.roxygen2); library(qdap);
-extras <- qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
+
+extras <- qdap::qcv("hash_look", "%l%", "%l+%", "sec2hms", "%hl%", 
 	"%hl+%",  "%lc%", "%lc+%")
 
-drops <- qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
+drops <- qdap::qcv(lookup.character, lookup.data.frame, lookup.list, lookup.matrix, 
 	hash_e, lookup.factor, lookup.numeric,v_outer.data.frame, v_outer.list, 
     v_outer.matrix, loc_split.character, loc_split.data.frame, loc_split.default, 
     loc_split.numeric, loc_split.factor, loc_split.list, loc_split.matrix)
 
-expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
+
+acc.roxygen2::expand_statdoc(path2, to.icon = extras, readme = rdme, drop=drops)
 
 x <- readLines(path2)
 x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
@@ -57,10 +52,9 @@ cat(paste(x, collapse="\n"), file=path2)
 
 
 #STEP 3: move to trinker.guthub
-library(reports)
 file <- file.path(R_USER, "GitHub/trinker.github.com/")
 incoming <- file.path(file, "qdapTools_dev")
-delete(incoming)
+reports::delete(incoming)
 file.copy(path, file, TRUE, TRUE)
 file.rename(file.path(file, "web"), incoming)
 ## delete(path)
@@ -107,10 +101,9 @@ cat(paste(x, collapse="\n"), file=path2)
 
 
 #STEP 3: move to trinker.guthub
-library(reports)
 file <- file.path(R_USER, "GitHub/trinker.github.com/")
-#incoming <- file.path(file, "qdapTools")
-delete(incoming)
+# incoming <- file.path(file, "qdapTools")
+reports::delete(incoming)
 file.copy(path, file, TRUE, TRUE)
 file.rename(file.path(file, "web"), incoming)
 ## delete(path)

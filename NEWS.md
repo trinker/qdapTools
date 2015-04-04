@@ -16,6 +16,18 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.3.0
+----------------------------------------------------------------
+
+**NEW FEATURES**
+
+* `read_docx` added to read in .docx dcouments.
+
+* `start_end` added to find the locations of start/end places for the ones in a 
+  binary vector.
+
+* `run_split` added to split a string into run chunks.
+
  <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.4 - 1.1.0
 ----------------------------------------------------------------
 
@@ -28,10 +40,7 @@ And constructed with the following guidelines:
   all columns and adds identifying columns by repeating row and column names
   accordingly.  
 
-* `read_docx` added to read in .docx dcouments.
-
-* `start_end` added to find the locations of start/end places for the ones in a 
-  binary vector.
+* `run_split` added to split strings into runs.
 
 
 **IMPROVEMENTS**

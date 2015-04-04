@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>list2df. qdapTools 1.1.1</title>
+<title>list2df. qdapTools 1.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.1.1</a>
+      <a class="brand" href="#">qdapTools 1.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -53,7 +53,7 @@
     <h2>Arguments</h2>
     <dl>
       <dt>list.object</dt>
-      <dd>A named <code><a href='http://www.inside-r.org/packages/cran/base/docs/list'>list</a></code> of vectors..</dd>
+      <dd>A named <code><a href='http://www.inside-r.org/r-doc/base/list'>list</a></code> of vectors..</dd>
       <dt>col1</dt>
       <dd>Name for column 1 (the vector elements if converting a list or
 the rownames if converting a matrix).</dd>
@@ -95,15 +95,11 @@ the list names.</dd>
       <dd>Further arguments passed to <code>vect2df</code>.</dd>
     </dl>
     
-    <div class="List/Matrix/Vector to Dataframe/List/Matrix">
-      <h2>List/Matrix/Vector to Dataframe/List/Matrix</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p><code>list2df</code> - Returns a dataframe with two columns.</p>
+
+      <p><dl>
+<code>list2df</code> - Returns a dataframe with two columns.</p>
   
       <p><code>matrix2df</code> - Returns a dataframe.</p>
   
@@ -119,13 +115,14 @@ the list names.</dd>
   
       <p><code>df2matrix</code> - Returns a matrix.</p>
   
-      <p><code>matrix2long</code> - Returns a long format dataframe.</p>
+      <p><code>matrix2long</code> - Returns a long format dataframe.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p><code>list2df</code> - Convert a named list of vectors to a dataframe.</p>
   
       <p><code>matrix2df</code> - Convert a matrix to a dataframe and convert the rownames
@@ -218,30 +215,30 @@ matrix2df(mtcars)
 </div>
 <div class='input'>matrix2df(cor(mtcars))
 </div>
-<div class='output'>   var1        mpg        cyl       disp         hp        drat         wt        qsec         vs
-1   mpg  1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594  0.41868403  0.6640389
-2   cyl -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958 -0.59124207 -0.8108118
-3  disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799 -0.43369788 -0.7104159
-4    hp -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479 -0.70822339 -0.7230967
-5  drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406  0.09120476  0.4402785
-6    wt -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000 -0.17471588 -0.5549157
-7  qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159  1.00000000  0.7445354
-8    vs  0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157  0.74453544  1.0000000
-9    am  0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953 -0.22986086  0.1683451
-10 gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870 -0.21268223  0.2060233
-11 carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059 -0.65624923 -0.5696071
-            am       gear        carb
-1   0.59983243  0.4802848 -0.55092507
-2  -0.52260705 -0.4926866  0.52698829
-3  -0.59122704 -0.5555692  0.39497686
-4  -0.24320426 -0.1257043  0.74981247
-5   0.71271113  0.6996101 -0.09078980
-6  -0.69249526 -0.5832870  0.42760594
-7  -0.22986086 -0.2126822 -0.65624923
-8   0.16834512  0.2060233 -0.56960714
-9   1.00000000  0.7940588  0.05753435
-10  0.79405876  1.0000000  0.27407284
-11  0.05753435  0.2740728  1.00000000
+<div class='output'>   var1        mpg        cyl       disp         hp        drat         wt        qsec         vs          am       gear
+1   mpg  1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594  0.41868403  0.6640389  0.59983243  0.4802848
+2   cyl -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958 -0.59124207 -0.8108118 -0.52260705 -0.4926866
+3  disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799 -0.43369788 -0.7104159 -0.59122704 -0.5555692
+4    hp -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479 -0.70822339 -0.7230967 -0.24320426 -0.1257043
+5  drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406  0.09120476  0.4402785  0.71271113  0.6996101
+6    wt -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000 -0.17471588 -0.5549157 -0.69249526 -0.5832870
+7  qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159  1.00000000  0.7445354 -0.22986086 -0.2126822
+8    vs  0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157  0.74453544  1.0000000  0.16834512  0.2060233
+9    am  0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953 -0.22986086  0.1683451  1.00000000  0.7940588
+10 gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870 -0.21268223  0.2060233  0.79405876  1.0000000
+11 carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059 -0.65624923 -0.5696071  0.05753435  0.2740728
+          carb
+1  -0.55092507
+2   0.52698829
+3   0.39497686
+4   0.74981247
+5  -0.09078980
+6   0.42760594
+7  -0.65624923
+8  -0.56960714
+9   0.05753435
+10  0.27407284
+11  1.00000000
 </div>
 <div class='input'>matrix2df(matrix(1:9, ncol=3))
 </div>
@@ -505,12 +502,12 @@ $December
 [1] &quot;January&quot;   &quot;March&quot;     &quot;April&quot;     &quot;April&quot;     &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot; 
 
 $X2
- [1] &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;July&quot;      &quot;August&quot;    &quot;August&quot;    &quot;September&quot; &quot;September&quot;
- [9] &quot;October&quot;   &quot;November&quot;  &quot;November&quot;  &quot;December&quot; 
+ [1] &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;July&quot;      &quot;August&quot;    &quot;August&quot;    &quot;September&quot; &quot;September&quot; &quot;October&quot;   &quot;November&quot; 
+[11] &quot;November&quot;  &quot;December&quot; 
 
 $X3
- [1] &quot;January&quot;  &quot;February&quot; &quot;February&quot; &quot;March&quot;    &quot;March&quot;    &quot;May&quot;      &quot;May&quot;      &quot;June&quot;     &quot;July&quot;    
-[10] &quot;October&quot;  &quot;October&quot;  &quot;November&quot; &quot;December&quot; &quot;December&quot;
+ [1] &quot;January&quot;  &quot;February&quot; &quot;February&quot; &quot;March&quot;    &quot;March&quot;    &quot;May&quot;      &quot;May&quot;      &quot;June&quot;     &quot;July&quot;     &quot;October&quot;  &quot;October&quot; 
+[12] &quot;November&quot; &quot;December&quot; &quot;December&quot;
 
 </div>
 <div class='input'>

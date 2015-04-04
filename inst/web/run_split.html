@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>hms2sec. qdapTools 1.3.0</title>
+<title>run_split. qdapTools 1.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="">
+<meta name="author" content="
+Robert Reed and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+">
 
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -35,28 +37,24 @@
         
       </header>
       
-      <h1>Convert h:m:s To/From Seconds</h1>
+      <h1>Split a String Into Run Chunks</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>hms2sec(x)</div>
-<div>sec2hms(x)</div></pre>
+    <pre><div>run_split(x)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>x</dt>
-      <dd>A vector of times in h:m:s (for <code>hms2sec</code>) or seconds (for
-<code>sec2hms</code>) .</dd>
+      <dd>A string.</dd>
     </dl>
     
     <div class="Value">
       <h2>Value</h2>
 
       <p><dl>
-<code>hms2sec</code> - Returns a vector of times in seconds.</p>
-  
-      <p><code>sec2hms</code> - Returns a vector of times in h:m:s format.
+Returns a list of vectors.
 </dl></p>
   
     </div>
@@ -64,39 +62,57 @@
     <div class="Description">
       <h2>Description</h2>
 
-      <p><code>hms2sec</code> - Converts a vector of h:m:s to seconds.</p>
+      <p>Splits a string into a vector or runs.</p>
   
-      <p><code>sec2hms</code> - Converts a vector of seconds to h:m:s.</p>
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+
+      <p><a href = 'http://stackoverflow.com/a/24319217/1000343'>http://stackoverflow.com/a/24319217/1000343</a></p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>hms2sec(c(&quot;02:00:03&quot;, &quot;04:03:01&quot;))
+    <pre class="examples"><div class='input'>run_split(c(&quot;122333444455555666666&quot;, NA, &quot;abbcccddddeeeeeffffff&quot;))
 </div>
-<div class='output'>[1]  7203 14581
-</div>
-<div class='input'>hms2sec(sec2hms(c(222, 1234, 55)))
-</div>
-<div class='output'>[1]  222 1234   55
-</div>
-<div class='input'>sec2hms(c(256, 3456, 56565))
-</div>
-<div class='output'>[1] 00:04:16 00:57:36 15:42:45
+<div class='output'>[[1]]
+[1] &quot;1&quot;      &quot;22&quot;     &quot;333&quot;    &quot;4444&quot;   &quot;55555&quot;  &quot;666666&quot;
+
+[[2]]
+[1] NA
+
+[[3]]
+[1] &quot;a&quot;      &quot;bb&quot;     &quot;ccc&quot;    &quot;dddd&quot;   &quot;eeeee&quot;  &quot;ffffff&quot;
+
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>hms2sec</li><li>sec2hms</li>
+      <li>run_split</li>
     </ul>
     <ul>
-      <li>conversion</li><li>time,</li>
+      
     </ul> -->
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/packages/cran/chron/docs/dates'>times</a></code>
+Other split.functions: <code><a href='loc_split.html'>loc_split</a></code>,
+  <code><a href='loc_split.html'>loc_split.character</a></code>,
+  <code><a href='loc_split.html'>loc_split.data.frame</a></code>,
+  <code><a href='loc_split.html'>loc_split.default</a></code>,
+  <code><a href='loc_split.html'>loc_split.factor</a></code>,
+  <code><a href='loc_split.html'>loc_split.list</a></code>,
+  <code><a href='loc_split.html'>loc_split.matrix</a></code>,
+  <code><a href='loc_split.html'>loc_split.numeric</a></code>;
+  <code><a href='split_vector.html'>split_vector</a></code>
 
-        
+    
+    <h2>Author</h2>
+    
+Robert Reed and Tyler Rinker <tyler.rinker@gmail.com>.
+
+    
   </div>
 </div>
       

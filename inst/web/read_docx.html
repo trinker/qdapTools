@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>read_docx. qdapTools 1.1.1</title>
+<title>read_docx. qdapTools 1.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Bryan Goodrich and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -22,7 +22,7 @@ Bryan Goodrich and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.1.1</a>
+      <a class="brand" href="#">qdapTools 1.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -52,21 +52,18 @@ Bryan Goodrich and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
       <dd>The number of lines to skip.</dd>
     </dl>
     
-    <div class="Read in .docx Content">
-      <h2>Read in .docx Content</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns a character vector.</p>
+
+      <p><dl>
+Returns a character vector.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>Read in the content from a .docx file.</p>
   
     </div>
@@ -110,8 +107,16 @@ Bryan Goodrich and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
 #     xlab(&quot;Duration&quot;) +
 #     scale_x_continuous(expand = c(0,0),
 #         limits = c(0, nchar(unbag(parts[[1]])) + 25)) +
-#     theme_black() +
-#     theme(panel.grid.major=element_line(color=&quot;grey20&quot;))
+#     theme_grey() +
+#     theme(
+#         panel.grid.major=element_line(color=&quot;grey20&quot;),
+#         panel.grid.minor=element_line(color=&quot;grey20&quot;),
+#         plot.background = element_rect(fill=&quot;black&quot;),
+#         panel.background = element_rect(fill=&quot;black&quot;),
+#         panel.border = element_rect(colour = &quot;grey50&quot;, fill=NA, size=1),
+#         axis.text=element_text(color=&quot;grey50&quot;),
+#         axis.title=element_text(color=&quot;grey50&quot;)
+#     )
 # ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>

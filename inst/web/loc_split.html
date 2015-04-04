@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>loc_split. qdapTools 1.1.1</title>
+<title>loc_split. qdapTools 1.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.1.1</a>
+      <a class="brand" href="#">qdapTools 1.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -63,28 +63,25 @@ contains the index 1, it will be silently dropped.</dd>
       <dd>Ignored.</dd>
     </dl>
     
-    <div class="Split Data Forms at Specified Locations">
-      <h2>Split Data Forms at Specified Locations</h2>
-      
-    </div>
-
     <div class="Value">
       <h2>Value</h2>
-      
-      <p>Returns of list of data forms broken at the <code>locs</code>.</p>
+
+      <p><dl>
+Returns of list of data forms broken at the <code>locs</code>.
+</dl></p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
-      
+
       <p>Split data forms at specified integer locations.</p>
   
     </div>
 
     <div class="Note">
       <h2>Note</h2>
-      
+
       <p>Two dimensional object will retain dimension (i.e., <code>drop = FALSE</code>
 is used).</p>
   
@@ -133,8 +130,8 @@ loc_split(1:100, c(33, 66))
  [1] 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65
 
 [[3]]
- [1]  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91
-[27]  92  93  94  95  96  97  98  99 100
+ [1]  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97
+[33]  98  99 100
 
 </div>
 <div class='input'>
@@ -420,8 +417,10 @@ Volvo 142E 21.4   4  121 109 4.11 2.78 18.6  1  1    4    2
       
     <h2>See also</h2>
     
-<code>split_vector</code>,
-<a href = 'https://github.com/trinker/loc_split_example'>https://github.com/trinker/loc_split_example</a> for real life use.
+<a href = 'https://github.com/trinker/loc_split_example'>https://github.com/trinker/loc_split_example</a> for practical usage.
+
+Other split.functions: <code><a href='run_split.html'>run_split</a></code>;
+  <code><a href='split_vector.html'>split_vector</a></code>
 
         
   </div>

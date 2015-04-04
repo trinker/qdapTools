@@ -58,6 +58,13 @@ Matthew Flickinger and Tyler Rinker <tyler.rinker@gmail.com>.
 \url{http://stackoverflow.com/a/24319217/1000343}
 }
 \seealso{
-\code{\link[qdapTools]{loc_split}}
+Other split.functions: \code{\link{loc_split}},
+  \code{\link{loc_split.character}},
+  \code{\link{loc_split.data.frame}},
+  \code{\link{loc_split.default}},
+  \code{\link{loc_split.factor}},
+  \code{\link{loc_split.list}},
+  \code{\link{loc_split.matrix}},
+  \code{\link{loc_split.numeric}}; \code{\link{run_split}}
 }
 

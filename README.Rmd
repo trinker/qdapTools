@@ -1,10 +1,20 @@
 # qdapTools
 
-[![Build Status](https://travis-ci.org/trinker/qdapTools.png?branch=master)](https://travis-ci.org/trinker/qdapTools) 
-[![Coverage Status](https://coveralls.io/repos/trinker/qdapTools/badge.png)](https://coveralls.io/r/trinker/qdapTools)
-[![DOI](https://zenodo.org/badge/5398/trinker/qdapTools.png)](http://dx.doi.org/10.5281/zenodo.11117)
+```{r, echo=FALSE}
+library("pax")
+desc <- suppressWarnings(readLines("DESCRIPTION"))
+regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
+loc <- grep(regex, desc)
+ver <- gsub(regex, "\\2", desc[loc])
+verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+````
 
-![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
+[![Build Status](https://travis-ci.org/trinker/qdapTools.svg?branch=master)](https://travis-ci.org/trinker/qdapTools) 
+[![Coverage Status](https://coveralls.io/repos/trinker/qdapTools/badge.svg)](https://coveralls.io/r/trinker/qdapTools)
+[![DOI](https://zenodo.org/badge/5398/trinker/qdapTools.svg)](http://dx.doi.org/10.5281/zenodo.11117)
+`r verbad`
+
+![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.svg)   
 [qdapTools](http://trinker.github.com/qdapTools_dev) is an R package that contains tools associated with the qdap package that may be useful outside of the context of text analysis.
 
 ## Installation

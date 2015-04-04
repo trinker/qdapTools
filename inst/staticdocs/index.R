@@ -31,6 +31,7 @@ sd_section("Data Reshaping",
   c(
     "list2df",
     "loc_split",
+    "run_split",
   	"split_vector",
     "start_end",
   	"mtabulate"
