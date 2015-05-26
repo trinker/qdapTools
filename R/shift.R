@@ -5,7 +5,7 @@
 #' @param x A vector.
 #' @param n The number of moves left or right to shift.
 #' @param direction A direction to shift; must be either "left" or "right".
-#' Use ecplicit directional shift functions \code{shift_right} and 
+#' Use explicit directional shift functions \code{shift_right} and 
 #' \code{shift_left} for better performance.
 #' @return Returns a shifted vector.
 #' @rdname shift
