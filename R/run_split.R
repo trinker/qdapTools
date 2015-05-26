@@ -1,6 +1,6 @@
 #' Split a String Into Run Chunks
 #' 
-#' Splits a string into a vector or runs.
+#' Splits a string into a vector of runs.
 #' 
 #' @param x A string.
 #' @return Returns a list of vectors. 

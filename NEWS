@@ -28,6 +28,8 @@ NEW FEATURES
 
 * `run_split` added to split a string into run chunks.
 
+* `shift`, `shift_left`, and `shift_right` added to shift vectors.
+
 qdapTools 1.0.4 - 1.1.0
 ----------------------------------------------------------------
 
