@@ -136,7 +136,7 @@ function(x, locs, names = NULL, ...) {
 
     locs <- locs[!locs %in% "1"]		
     if (length(x) < max(locs)) stop("One or more `locs` elements exceeds length of `x`")
-    setNames(split(x, cut(seq_along(x), c(0, locs - 1, length(x)))) , NULL)
+    stats::setNames(split(x, cut(seq_along(x), c(0, locs - 1, length(x)))) , NULL)
 
 }
 
@@ -149,7 +149,7 @@ function(x, locs, names = NULL, ...) {
     seqs <- seq_len(len)
 
     splitseqs <- split(seqs, cut(seqs, c(0, locs - 1, len)))
-    setNames(lapply(splitseqs, function(i) x[i, ,drop=FALSE]), NULL)
+    stats::setNames(lapply(splitseqs, function(i) x[i, ,drop=FALSE]), NULL)
 
 }
 

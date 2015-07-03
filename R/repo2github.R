@@ -83,8 +83,8 @@ repo2github <- function(password, project.dir = getwd(),
         }
         url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
         tmp <- tempfile( fileext = ".zip" )
-        download.file(url,tmp)
-        unzip(tmp, exdir = tempdir())       
+        utils::download.file(url,tmp)
+        utils::unzip(tmp, exdir = tempdir())       
         system(paste0(tempdir(), "/curl http://curl.haxx.se/ca/cacert.pem -o " , 
             tempdir() , "/curl-ca-bundle.crt"))
      	json <- paste0(" { \"name\":\"" , repo , "\" } ") #string we desire formatting
