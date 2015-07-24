@@ -28,6 +28,12 @@ And constructed with the following guidelines:
 
 * `run_split` added to split a string into run chunks.
 
+* `shift`, `shift_left`, and `shift_right` added to shift vectors.
+
+**IMPROVEMENTS**
+
+* `counts2list` now uses a faster indexing to gain a speed boost.
+
  <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.4 - 1.1.0
 ----------------------------------------------------------------
 
