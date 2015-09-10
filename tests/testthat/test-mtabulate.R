@@ -26,7 +26,7 @@ test_that("mtabulate gives the desired output for lists",{
         "z"), class = "data.frame")
     
     eout2 <- structure(list(`4` = 11L, `6` = 7L, `8` = 14L), .Names = c("4", 
-        "6", "8"), row.names = c(NA, -1L), class = "data.frame")
+        "6", "8"), class = "data.frame", row.names = "1")
     
     expect_equivalent(out1, eout1)
     expect_equivalent(out2, eout2)
@@ -40,7 +40,8 @@ test_that("mtabulate gives the desired output for vectors",{
     out4 <- mtabulate(CO2[, "Plant"])
   
     eout3 <- structure(list(`4` = c(0L, 0L, 1L, 0L), `6` = c(1L, 1L, 0L, 1L
-        )), .Names = c("4", "6"), row.names = c(NA, -4L), class = "data.frame")
+        )), .Names = c("4", "6"), class = "data.frame", row.names = c("1", 
+        "2", "3", "4"))
 
     expect_equivalent(out3, eout3)
     

@@ -34,6 +34,11 @@ And constructed with the following guidelines:
 
 * `counts2list` now uses a faster indexing to gain a speed boost.
 
+* `mtabulate` picks up a speed boost thanks to more reliance on **data.table**.
+
+* `loc_split`  picks up a speed boost thanks to indexing and dropping a reliance 
+  on `cut` + `split`.
+
  <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.0.4 - 1.1.0
 ----------------------------------------------------------------
 
