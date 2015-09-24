@@ -33,19 +33,23 @@ mtabulate <- function(vects) { #old version retired 9/9/15 #unretired b/c http:/
 }
 
 
-## mtabulate <- function(vects) {
+## mtabulate <- function(vects, drop.na = TRUE) {
 ## 
 ##     x <- y <- . <- NULL
 ##     vects <- as.list(vects)
 ##     if (is.null(names(vects))) names(vects) <- seq_along(vects)
 ##     dat <- data.table::data.table(
 ##         x = names(vects),
-##         y = vects
+##         y = vects, 
+##         stringsAsFactors = FALSE
 ##     )
+##     dat$y <- relist(unlist(dat$y), skeleton=dat$y)
+##     data.table::setDT(dat)
 ##     dat <- dat[, .(y = unlist(y)), by = x]
 ##     out <- suppressMessages(data.table::dcast(dat, x ~ y, fun=length, drop=FALSE, fill=0))
 ##     out2 <- as.data.frame(out[, -1, with=FALSE])
 ##     rownames(out2) <- out[[1]]
+##     if (isTRUE(drop.na)) out2[, "NA"] <- NULL
 ##     out2[names(vects), ]
 ## }
 
