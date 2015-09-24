@@ -36,7 +36,7 @@ mtabulate <- function(vects) {
     out <- suppressMessages(data.table::dcast(dat, x ~ y, fun=length, drop=FALSE, fill=0))
     out2 <- as.data.frame(out[, -1, with=FALSE])
     rownames(out2) <- out[[1]]
-    out2
+    out2[order(names(vects)), ]
 }
 ## mtabulate <- function(vects) { #old version retired 9/9/15
 ##     lev <- sort(unique(unlist(vects)))
