@@ -23,29 +23,30 @@
 #' mtabulate(dat)
 #' t(mtabulate(dat))
 #' counts2list(mtabulate(dat))
-mtabulate <- function(vects) {
-
-    x <- y <- . <- NULL
-    vects <- as.list(vects)
-    if (is.null(names(vects))) names(vects) <- seq_along(vects)
-    dat <- data.table::data.table(
-        x = names(vects),
-        y = vects
-    )
-    dat <- dat[, .(y = unlist(y)), by = x]
-    out <- suppressMessages(data.table::dcast(dat, x ~ y, fun=length, drop=FALSE, fill=0))
-    out2 <- as.data.frame(out[, -1, with=FALSE])
-    rownames(out2) <- out[[1]]
-    out2[names(vects), ]
+mtabulate <- function(vects) { #old version retired 9/9/15 #unretired b/c http://stackoverflow.com/questions/32753014/data-table-na-blurs-unlist-type?noredirect=1#comment53346347_32753014
+    lev <- sort(unique(unlist(vects)))
+    dat <- do.call(rbind, lapply(vects, function(x, lev){ 
+        tabulate(factor(x, levels = lev, ordered = TRUE),
+        nbins = length(lev))}, lev = lev))
+    colnames(dat) <- sort(lev) 
+    data.frame(dat, check.names = FALSE)
 }
-## mtabulate <- function(vects) { #old version retired 9/9/15
-##     lev <- sort(unique(unlist(vects)))
-##     dat <- do.call(rbind, lapply(vects, function(x, lev){ 
-##         tabulate(factor(x, levels = lev, ordered = TRUE),
-##         nbins = length(lev))}, lev = lev))
-##     colnames(dat) <- sort(lev) 
-##     data.frame(dat, check.names = FALSE)
-## }
 
+
+## mtabulate <- function(vects) {
+## 
+##     x <- y <- . <- NULL
+##     vects <- as.list(vects)
+##     if (is.null(names(vects))) names(vects) <- seq_along(vects)
+##     dat <- data.table::data.table(
+##         x = names(vects),
+##         y = vects
+##     )
+##     dat <- dat[, .(y = unlist(y)), by = x]
+##     out <- suppressMessages(data.table::dcast(dat, x ~ y, fun=length, drop=FALSE, fill=0))
+##     out2 <- as.data.frame(out[, -1, with=FALSE])
+##     rownames(out2) <- out[[1]]
+##     out2[names(vects), ]
+## }
 
 

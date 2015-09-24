@@ -34,8 +34,6 @@ And constructed with the following guidelines:
 
 * `counts2list` now uses a faster indexing to gain a speed boost.
 
-* `mtabulate` picks up a speed boost thanks to more reliance on **data.table**.
-
 * `loc_split`  picks up a speed boost thanks to indexing and dropping a reliance 
   on `cut` + `split`.
 
@@ -45,7 +43,7 @@ And constructed with the following guidelines:
 **NEW FEATURES**
 
 * `loc_split` added to split data forms (`list`, `vector`, `data.frame`, 
-  `matrix`) on a vector of integer lcoations.
+  `matrix`) on a vector of integer locations.
 
 * `matrix2long` makes a long format data.frame.  It takes a matrix object, stacks 
   all columns and adds identifying columns by repeating row and column names
