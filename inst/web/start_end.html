@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>start_end. qdapTools 1.3.0</title>
+<title>start_end. qdapTools 1.3.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Roland (&lt;a href = 'http://stackoverflow.com/users/1412059/roland'&gt;http://stackoverflow.com/users/1412059/roland&lt;/a&gt;) and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -16,13 +16,25 @@ Roland (&lt;a href = 'http://stackoverflow.com/users/1412059/roland'&gt;http://s
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.3.0</a>
+      <a class="brand" href="#">qdapTools 1.3.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -94,9 +106,9 @@ Returns a two column <code><a href='http://www.inside-r.org/r-doc/base/data.fram
 </div>
 <div class='input'>(y &lt;- sample(c(TRUE, FALSE), 50, TRUE, c(.35, .65)))
 </div>
-<div class='output'> [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
-[22] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
-[43] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+<div class='output'> [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+[21] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+[41] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
 </div>
 <div class='input'>start_end(y)
 </div>

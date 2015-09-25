@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>lookup_e. qdapTools 1.3.0</title>
+<title>lookup_e. qdapTools 1.3.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -14,13 +14,25 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.3.0</a>
+      <a class="brand" href="#">qdapTools 1.3.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -131,8 +143,9 @@ lookup_e(1:10, codes)
 lookup_e(mtcars$carb, sort(unique(mtcars$carb)),
     c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;six&quot;, &quot;eight&quot;))
 </div>
-<div class='output'> [1] &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;four&quot;  &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;four&quot;  &quot;three&quot; &quot;three&quot; &quot;three&quot; &quot;four&quot;  &quot;four&quot; 
-[17] &quot;four&quot;  &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;two&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;six&quot;   &quot;eight&quot; &quot;two&quot;  
+<div class='output'> [1] &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;four&quot;  &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;four&quot;  &quot;three&quot; &quot;three&quot; &quot;three&quot; &quot;four&quot; 
+[16] &quot;four&quot;  &quot;four&quot;  &quot;one&quot;   &quot;two&quot;   &quot;one&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;two&quot;   &quot;one&quot;   &quot;two&quot;   &quot;two&quot;   &quot;four&quot;  &quot;six&quot;  
+[31] &quot;eight&quot; &quot;two&quot;  
 </div>
 <div class='input'>
 lookup_e(mtcars$carb, sort(unique(mtcars$carb)),

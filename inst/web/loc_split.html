@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>loc_split. qdapTools 1.3.0</title>
+<title>loc_split. qdapTools 1.3.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -14,13 +14,25 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.3.0</a>
+      <a class="brand" href="#">qdapTools 1.3.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -130,8 +142,8 @@ loc_split(1:100, c(33, 66))
  [1] 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65
 
 [[3]]
- [1]  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97
-[33]  98  99 100
+ [1]  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95
+[31]  96  97  98  99 100
 
 </div>
 <div class='input'>
@@ -417,10 +429,9 @@ Volvo 142E 21.4   4  121 109 4.11 2.78 18.6  1  1    4    2
       
     <h2>See also</h2>
     
+<code>run_split</code>,
+<code>split_vector</code>
 <a href = 'https://github.com/trinker/loc_split_example'>https://github.com/trinker/loc_split_example</a> for practical usage.
-
-Other split.functions: <code><a href='run_split.html'>run_split</a></code>;
-  <code><a href='split_vector.html'>split_vector</a></code>
 
         
   </div>

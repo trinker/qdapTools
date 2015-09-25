@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>mtabulate. qdapTools 1.3.0</title>
+<title>mtabulate. qdapTools 1.3.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="
 Joran Elias and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
@@ -16,13 +16,25 @@ Joran Elias and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">qdapTools 1.3.0</a>
+      <a class="brand" href="#">qdapTools 1.3.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -47,15 +59,19 @@ Joran Elias and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
     <h2>Arguments</h2>
     <dl>
       <dt>vects</dt>
-      <dd>A list of named/unnamed vectors.</dd>
+      <dd>A <code><a href='http://www.inside-r.org/r-doc/base/vector'>vector</a></code>, <code><a href='http://www.inside-r.org/r-doc/base/list'>list</a></code>, or
+<code><a href='http://www.inside-r.org/r-doc/base/data.frame'>data.frame</a></code> of named/unnamed vectors.</dd>
     </dl>
     
     <div class="Value">
       <h2>Value</h2>
 
       <p><dl>
-Returns a dataframe with frequency counts per list item (levels
-unused by any vectors in the list are dropped).  If list of vectors is named
+Returns a <code><a href='http://www.inside-r.org/r-doc/base/data.frame'>data.frame</a></code> with columns equal to
+number of unique elements and the number of rows equal to the the original
+length of the <code><a href='http://www.inside-r.org/r-doc/base/vector'>vector</a></code>, <code><a href='http://www.inside-r.org/r-doc/base/list'>list</a></code>, or
+<code><a href='http://www.inside-r.org/r-doc/base/data.frame'>data.frame</a></code> (length equals ncols in
+<code><a href='http://www.inside-r.org/r-doc/base/data.frame'>data.frame</a></code>).  If list of vectors is named
 these will be the rownames of the dataframe.
 </dl></p>
   
@@ -64,7 +80,7 @@ these will be the rownames of the dataframe.
     <div class="Description">
       <h2>Description</h2>
 
-      <p>A wrapper for <code><a href='http://www.inside-r.org/r-doc/base/tabulate'>tabulate</a></code> that works on multiple vectors.</p>
+      <p>Similar to <code><a href='http://www.inside-r.org/r-doc/base/tabulate'>tabulate</a></code> that works on multiple vectors.</p>
   
     </div>
 
@@ -209,15 +225,20 @@ B  6  6  2
 </div>
 <div class='input'>counts2list(mtabulate(dat))
 </div>
-<div class='output'>$X1
- [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;
-
-$X2
- [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;
-
-$X3
- [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot;
-
+<div class='output'>      X1  X2  X3 
+ [1,] &quot;A&quot; &quot;A&quot; &quot;A&quot;
+ [2,] &quot;A&quot; &quot;A&quot; &quot;A&quot;
+ [3,] &quot;A&quot; &quot;A&quot; &quot;A&quot;
+ [4,] &quot;A&quot; &quot;A&quot; &quot;A&quot;
+ [5,] &quot;B&quot; &quot;B&quot; &quot;A&quot;
+ [6,] &quot;B&quot; &quot;B&quot; &quot;A&quot;
+ [7,] &quot;B&quot; &quot;B&quot; &quot;A&quot;
+ [8,] &quot;B&quot; &quot;B&quot; &quot;A&quot;
+ [9,] &quot;B&quot; &quot;B&quot; &quot;B&quot;
+[10,] &quot;B&quot; &quot;B&quot; &quot;B&quot;
+attr(,&quot;names&quot;)
+ [1] &quot;X1&quot; &quot;X2&quot; &quot;X3&quot; NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA  
+[25] NA   NA   NA   NA   NA   NA  
 </div></pre>
   </div>
   <div class="span4">
