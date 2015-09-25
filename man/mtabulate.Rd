@@ -7,15 +7,19 @@
 mtabulate(vects)
 }
 \arguments{
-\item{vects}{A list of named/unnamed vectors.}
+\item{vects}{A \code{\link[base]{vector}}, \code{\link[base]{list}}, or
+\code{\link[base]{data.frame}} of named/unnamed vectors.}
 }
 \value{
-Returns a dataframe with frequency counts per list item (levels
-unused by any vectors in the list are dropped).  If list of vectors is named
+Returns a \code{\link[base]{data.frame}} with columns equal to
+number of unique elements and the number of rows equal to the the original
+length of the \code{\link[base]{vector}}, \code{\link[base]{list}}, or
+\code{\link[base]{data.frame}} (length equals ncols in
+\code{\link[base]{data.frame}}).  If list of vectors is named
 these will be the rownames of the dataframe.
 }
 \description{
-A wrapper for \code{\link[base]{tabulate}} that works on multiple vectors.
+Similar to \code{\link[base]{tabulate}} that works on multiple vectors.
 }
 \examples{
 mtabulate(list(w=letters[1:10], x=letters[1:5], z=letters))

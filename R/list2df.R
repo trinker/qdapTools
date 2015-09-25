@@ -199,12 +199,18 @@ list_vect2df <- function(list.vector.object, col1 = "X1", col2 = "X2",
 #' @return \code{counts2list} - Returns a list of elements.
 #' @export
 counts2list <- function(mat, nm = rownames(mat)) {
-    stats::setNames(lapply(1:nrow(mat), function(i) {
-        x <- unlist(mat[i, , drop = FALSE])
-        x <- x[x > 0]
-        rep(names(x), x)
-    }),  nm = nm)
+    nms <- colnames(mat)
+    stats::setNames(apply(mat, 1, function(x) rep(nms, x)),  nm = nm)
 }
+
+#counts2list <- function(mat, nm = rownames(mat)) {
+#    stats::setNames(lapply(1:nrow(mat), function(i) {
+#        x <- unlist(mat[i, , drop = FALSE])
+#        x <- x[x > 0]
+#        rep(names(x), x)
+#    }),  nm = nm)
+#}
+
 
 #' List/Matrix/Vector to Dataframe/List/Matrix
 #' 
