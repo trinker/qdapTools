@@ -6,8 +6,8 @@
 [![Build Status](https://travis-ci.org/trinker/qdapTools.svg?branch=master)](https://travis-ci.org/trinker/qdapTools) 
 [![Coverage Status](https://coveralls.io/repos/trinker/qdapTools/badge.svg)](https://coveralls.io/r/trinker/qdapTools)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapTools.svg)](http://dx.doi.org/10.5281/zenodo.11117)
-<a href="https://img.shields.io/badge/Version-1.3.1-orange.svg"><img src="https://img.shields.io/badge/Version-1.3.1-orange.svg" alt="Version"/></a></p>
 [![](http://cranlogs.r-pkg.org/badges/qdapTools)](http://cran.rstudio.com/web/packages/qdapTools/index.html)  
+<a href="https://img.shields.io/badge/Version-1.3.1-orange.svg"><img src="https://img.shields.io/badge/Version-1.3.1-orange.svg" alt="Version"/></a></p>
 
 ![qdapicon](https://dl.dropbox.com/u/61803503/qdapicon.png)   
 
