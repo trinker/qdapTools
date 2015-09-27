@@ -16,7 +16,23 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
- <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.3.0
+
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.3.2
+----------------------------------------------------------------
+
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+
+ <a href="https://github.com/trinker/qdapTools" target="_blank">qdapTools</a> 1.3.1
 ----------------------------------------------------------------
 
 **NEW FEATURES**
@@ -32,7 +48,7 @@ And constructed with the following guidelines:
 
 **IMPROVEMENTS**
 
-* `counts2list` now uses a faster indexing to gain a speed boost.
+* `counts2list` now uses `apply` and gains a speed boost.
 
 * `loc_split`  picks up a speed boost thanks to indexing and dropping a reliance 
   on `cut` + `split`.
