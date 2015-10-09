@@ -1,6 +1,6 @@
 # qdapTools
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, supressMessages=TRUE}
 library("pax")
 desc <- suppressWarnings(readLines("DESCRIPTION"))
 regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
