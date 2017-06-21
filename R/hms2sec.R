@@ -41,13 +41,16 @@ function(x) {
 #' @export
 #' @rdname timeconv
 #' @importFrom chron times
-sec2hms <-
-function(x) {
+sec2hms <- function(x) {
     l1 <- FALSE
+    missing <- which(is.na(x))
+    x[missing] <- 0
+    
     if (length(x) == 1) {
         x <- c(x, 0)
         l1 <- TRUE
     } 
+    
     h <- floor(x/3600)
     m <- floor((x-h*3600)/60)
     s <- x-(m*60 + h*3600)
@@ -57,6 +60,7 @@ function(x) {
     if (l1) {
         out <- out[1]
     }
+    out[missing] <- NA
     out
 }
 
