@@ -37,15 +37,15 @@ hash_e(x, mode.out = "numeric")
 in its own environment.
 }
 \description{
-\code{hash} - Creates a \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}} 
+\code{hash} - Creates a \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}}
 based hash table for quick hash style dictionary lookup.
 
-\code{hash_look} - Works with a hash table such as is returned from 
+\code{hash_look} - Works with a hash table such as is returned from
 \code{hash}, to lookup values.
 
 \code{\%hl\%} - A binary operator version of \code{hash_look}.
 
-\code{\%hl+\%} - A binary operator version of \code{hash_look} 
+\code{\%hl+\%} - A binary operator version of \code{hash_look}
 for when \code{missing} is assumed to be \code{NULL}.
 
 \code{hash_e} - Creates a new environment for quick hash style dictionary lookup.
@@ -56,7 +56,7 @@ for when \code{missing} is assumed to be \code{NULL}.
 ##===================##
 (DF <- aggregate(mpg~as.character(carb), mtcars, mean))
 x <- sample(DF[, 1], 20, TRUE)
-new.hash <- hash(DF) 
+new.hash <- hash(DF)
 x2 <- c(9, 12, x)
 hash_look(x, new.hash)
 
