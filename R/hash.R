@@ -71,6 +71,7 @@ function(x) {
 #' @export
 `[[.qdap_hash` <- `[[.data.frame`
 
+
 #' Hash/Dictionary Lookup
 #'
 #' \code{hash_look} - Works with a hash table such as is returned from
@@ -138,6 +139,9 @@ hash_lookup_helper <- function(terms, key, missing = NA) {
     terms <- data.frame(x=terms, stringsAsFactors = FALSE)
     setDT(terms)
 
+    ## line added to avoid conflict with open.
+    key <- data.table::data.table(data.table::copy(key))
+    
     out <- key[terms][[2]]
 
     if (!is.null(missing) && is.na(missing)) return(out)
