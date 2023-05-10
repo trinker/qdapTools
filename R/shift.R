@@ -11,7 +11,6 @@
 #' @rdname shift
 #' @keywords shift
 #' @export
-#' @rdname shift
 #' @examples
 #' lapply(0:9, function(i) shift(1:10, i))
 #' lapply(0:9, function(i) shift(1:10, i, "left"))

@@ -1,6 +1,6 @@
 #' Hash/Dictionary Lookup
 #'
-#' \code{hash} - Creates a \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}}
+#' \code{hash} - Creates a \href{https://github.com/Rdatatable/data.table/wiki}{\pkg{data.table}}
 #' based hash table for quick hash style dictionary lookup.
 #'
 #' @param x A two column dataframe.
@@ -11,7 +11,6 @@
 #' @seealso
 #' \code{\link[data.table]{setDT}},
 #' \code{\link[qdapTools]{hash}}
-#' @keywords hash, dictionary, lookup
 #' @rdname hash
 #' @export
 #' @importFrom data.table setkey setDT

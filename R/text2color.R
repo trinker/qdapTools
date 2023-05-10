@@ -9,7 +9,6 @@
 #' +1 is for unmatched words).
 #' @return Returns a vector of mapped colors equal in length to the words vector.
 #' @seealso \code{\link[qdapTools]{lookup}}
-#' @keywords color, lookup, recode, dictionary
 #' @export
 #' @examples
 #' x <- structure(list(X1 = structure(c(3L, 1L, 8L, 4L, 7L, 2L, 2L, 2L, 

@@ -11,8 +11,8 @@
 #' @seealso \code{\link[base]{outer}},
 #' \code{\link[stats]{cor}}
 #' @author Vincent Zoonekynd, eddi of stackoverflow.com, and Tyler Rinker <tyler.rinker@@gmail.com>.
-#' @references \url{http://stackoverflow.com/a/9917425/1000343} \cr 
-#' \url{http://stackoverflow.com/q/23817341/1000343}
+#' @references \url{https://stackoverflow.com/a/9917425/1000343} \cr 
+#' \url{https://stackoverflow.com/q/23817341/1000343}
 #' @export
 #' @rdname v_outer
 #' @examples

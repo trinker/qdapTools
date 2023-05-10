@@ -37,7 +37,7 @@ hash_e(x, mode.out = "numeric")
 in its own environment.
 }
 \description{
-\code{hash} - Creates a \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}}
+\code{hash} - Creates a \href{https://github.com/Rdatatable/data.table/wiki}{\pkg{data.table}}
 based hash table for quick hash style dictionary lookup.
 
 \code{hash_look} - Works with a hash table such as is returned from
@@ -83,7 +83,7 @@ x2 \%hl\% new.hash2
 x2 \%hl+\% new.hash2
 }
 \references{
-\url{http://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary}
+https://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary
 }
 \seealso{
 \code{\link[data.table]{setDT}},
@@ -94,6 +94,3 @@ x2 \%hl+\% new.hash2
 \author{
 \code{hash_e} - Bryan Goodrich and Tyler Rinker <tyler.rinker@gmail.com>.
 }
-\keyword{dictionary,}
-\keyword{hash,}
-\keyword{lookup}

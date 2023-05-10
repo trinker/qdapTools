@@ -4,7 +4,7 @@
 #' without first creating the repository in the clouds. 
 #' \code{\link[qdapTools]{repo2github}} is designed for the initial push to 
 #' GitHub.  Future pushes can be handled via RStudio or other 
-#' \href{http://git-scm.com/}{Git} interface.
+#' \href{https://git-scm.com/}{Git} interface.
 #' 
 #' @param password GitHub user password (character string).  If this is not 
 #' supplied the user will be prompted to enter a password.
@@ -12,13 +12,13 @@
 #' @param repo A character string naming the repo; default attempts to use the 
 #' report project directory name.
 #' @param github.user GitHub user name (character string).
-#' @param gitpath Path to the location of \href{http://git-scm.com/}{Git}.  If 
+#' @param gitpath Path to the location of \href{https://git-scm.com/}{Git}.  If 
 #' \code{NULL} \code{repo2github} will attempt to locate the path if necessary.
 #' @param readme logical.  If \code{TRUE} repo initializes with a README.md file.
 #' @return Creates GitHub repository.
 #' @author Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@@gmail.com>
-#' @references \url{http://stackoverflow.com/a/15047013/1000343} \cr
-#' \url{http://stackoverflow.com/a/18692400/1000343}
+#' @references \url{https://stackoverflow.com/a/15047013/1000343} \cr
+#' \url{https://stackoverflow.com/a/18692400/1000343}
 #' @section Warning: For Windows users this function creates a temporary _netrc 
 #' file in the home directory and attempts to delete this file.  The _netrc 
 #' contains username and password information for GitHub. 
@@ -81,11 +81,11 @@ repo2github <- function(password, project.dir = getwd(),
             gitpath <- c("C:/Program Files (x86)/Git/bin/git.exe",
                 "C:/Program Files/Git/bin/git.exe")[test][1]
         }
-        url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
+        url <- "https://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
         tmp <- tempfile( fileext = ".zip" )
         utils::download.file(url,tmp)
         utils::unzip(tmp, exdir = tempdir())       
-        system(paste0(tempdir(), "/curl http://curl.haxx.se/ca/cacert.pem -o " , 
+        system(paste0(tempdir(), "/curl https://curl.haxx.se/ca/cacert.pem -o " , 
             tempdir() , "/curl-ca-bundle.crt"))
      	json <- paste0(" { \"name\":\"" , repo , "\" } ") #string we desire formatting
 	    json <- shQuote(json , type = "cmd" )

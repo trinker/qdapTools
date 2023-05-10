@@ -97,8 +97,8 @@ with(DATA, Dissimilarity(state, person))
 }
 }
 \references{
-\url{http://stackoverflow.com/a/9917425/1000343} \cr 
-\url{http://stackoverflow.com/q/23817341/1000343}
+\url{https://stackoverflow.com/a/9917425/1000343} \cr 
+\url{https://stackoverflow.com/q/23817341/1000343}
 }
 \seealso{
 \code{\link[base]{outer}},

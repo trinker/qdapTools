@@ -5,7 +5,6 @@
 #' @param x A vector of times in h:m:s (for \code{hms2sec}) or seconds (for 
 #' \code{sec2hms}) .
 #' @return \code{hms2sec} - Returns a vector of times in seconds.  
-#' @keywords time, conversion
 #' @seealso \code{\link[chron]{times}}
 #' @rdname timeconv
 #' @export

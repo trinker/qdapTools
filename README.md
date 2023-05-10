@@ -2,11 +2,10 @@
 
 
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://travis-ci.org/trinker/qdapTools.svg?branch=master)](https://travis-ci.org/trinker/qdapTools) 
-[![Coverage Status](https://coveralls.io/repos/trinker/qdapTools/badge.svg)](https://coveralls.io/r/trinker/qdapTools)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/0.1.0/active.svg)](https://www.repostatus.org/#active)
+[![Coverage Status](https://coveralls.io/repos/trinker/qdapTools/badge.svg)](https://coveralls.io/github/trinker/qdapTools)
 [![DOI](https://zenodo.org/badge/5398/trinker/qdapTools.svg)](http://dx.doi.org/10.5281/zenodo.11117)
-[![](http://cranlogs.r-pkg.org/badges/qdapTools)](https://CRAN.R-project.org/package=qdapTools)  
+[![](https://cranlogs.r-pkg.org/badges/qdapTools)](https://CRAN.R-project.org/package=qdapTools)  
 
 
 

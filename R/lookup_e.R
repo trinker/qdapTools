@@ -15,7 +15,6 @@
 #' @return Outputs A new vector with reassigned values.
 #' @seealso 
 #' \code{\link[base]{new.env}}, \code{\link[qdapTools]{lookup}},
-#' @keywords dictionary, hash, lookup
 #' @export
 #' @rdname lookup_e
 #' @examples

@@ -4,8 +4,7 @@
 \alias{pad}
 \title{Pad Strings}
 \usage{
-pad(x, padding = max(nchar(as.character(x))), sort = TRUE,
-  type = "detect")
+pad(x, padding = max(nchar(as.character(x))), sort = TRUE, type = "detect")
 }
 \arguments{
 \item{x}{A character, factor, numeric vector.}

@@ -21,8 +21,7 @@ lookup(terms, key.match, key.reassign = NULL, missing = NA)
 
 \method{lookup}{list}(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup}{data.frame}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup}{data.frame}(terms, key.match, key.reassign = NULL, missing = NA)
 
 \method{lookup}{matrix}(terms, key.match, key.reassign = NULL, missing = NA)
 
@@ -59,11 +58,6 @@ missing elements are retained.}
 Outputs A new vector with reassigned values.
 }
 \description{
-Hash Table/Dictionary Lookup
- 
-\code{lookup} - \href{http://datatable.r-forge.r-project.org/}{\pkg{data.table}} 
-based hash table useful for large vector lookups.
-
 \code{\%l\%} - A binary operator version of \code{lookup} 
 for when \code{key.match} is a data.frame or named list.
 
@@ -142,6 +136,3 @@ sample(output, 100)
 \code{\link[data.table]{setDT}},
 \code{\link[qdapTools]{hash}}
 }
-\keyword{dictionary,}
-\keyword{hash,}
-\keyword{lookup}

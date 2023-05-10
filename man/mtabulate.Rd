@@ -35,7 +35,7 @@ t(mtabulate(dat))
 counts2list(mtabulate(dat))
 }
 \references{
-\url{http://stackoverflow.com/a/9961324/1000343}
+\url{https://stackoverflow.com/a/9961324/1000343}
 }
 \seealso{
 \code{\link[base]{tabulate}}, \code{\link[qdapTools]{counts2list}}

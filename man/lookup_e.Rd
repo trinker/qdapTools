@@ -16,22 +16,17 @@
 \usage{
 lookup_e(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup_e}{matrix}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup_e}{matrix}(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup_e}{data.frame}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup_e}{data.frame}(terms, key.match, key.reassign = NULL, missing = NA)
 
 \method{lookup_e}{list}(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup_e}{numeric}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup_e}{numeric}(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup_e}{factor}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup_e}{factor}(terms, key.match, key.reassign = NULL, missing = NA)
 
-\method{lookup_e}{character}(terms, key.match, key.reassign = NULL,
-  missing = NA)
+\method{lookup_e}{character}(terms, key.match, key.reassign = NULL, missing = NA)
 
 terms \%le\% key.match
 
@@ -56,10 +51,6 @@ missing elements are retained.}
 Outputs A new vector with reassigned values.
 }
 \description{
-Hash Table/Dictionary Lookup
- 
-\code{lookup_e} - Environment based hash table useful for large vector lookups.
-
 \code{\%le\%} - A binary operator version of \code{lookup_e} 
 for when \code{key.match} is a data.frame or named list.
 
@@ -105,6 +96,3 @@ lookup_e(mtcars$carb, sort(unique(mtcars$carb)),
 \seealso{
 \code{\link[base]{new.env}}, \code{\link[qdapTools]{lookup}},
 }
-\keyword{dictionary,}
-\keyword{hash,}
-\keyword{lookup}

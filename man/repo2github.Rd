@@ -4,8 +4,14 @@
 \alias{repo2github}
 \title{Upload a Local Repo to GitHub}
 \usage{
-repo2github(password, project.dir = getwd(), repo = basename(getwd()),
-  github.user = getOption("github.user"), gitpath = NULL, readme = TRUE)
+repo2github(
+  password,
+  project.dir = getwd(),
+  repo = basename(getwd()),
+  github.user = getOption("github.user"),
+  gitpath = NULL,
+  readme = TRUE
+)
 }
 \arguments{
 \item{password}{GitHub user password (character string).  If this is not 
@@ -18,7 +24,7 @@ report project directory name.}
 
 \item{github.user}{GitHub user name (character string).}
 
-\item{gitpath}{Path to the location of \href{http://git-scm.com/}{Git}.  If 
+\item{gitpath}{Path to the location of \href{https://git-scm.com/}{Git}.  If 
 \code{NULL} \code{repo2github} will attempt to locate the path if necessary.}
 
 \item{readme}{logical.  If \code{TRUE} repo initializes with a README.md file.}
@@ -31,7 +37,7 @@ Allows uploading a local repository to \href{https://github.com/}{GitHub}
 without first creating the repository in the clouds. 
 \code{\link[qdapTools]{repo2github}} is designed for the initial push to 
 GitHub.  Future pushes can be handled via RStudio or other 
-\href{http://git-scm.com/}{Git} interface.
+\href{https://git-scm.com/}{Git} interface.
 }
 \details{
 The arguments \code{project.dir} and \code{repo} use 
@@ -64,8 +70,8 @@ repo2github()
 }
 }
 \references{
-\url{http://stackoverflow.com/a/15047013/1000343} \cr
-\url{http://stackoverflow.com/a/18692400/1000343}
+\url{https://stackoverflow.com/a/15047013/1000343} \cr
+\url{https://stackoverflow.com/a/18692400/1000343}
 }
 \author{
 Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@gmail.com>

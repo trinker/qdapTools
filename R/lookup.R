@@ -17,7 +17,6 @@
 #' @seealso 
 #' \code{\link[data.table]{setDT}},
 #' \code{\link[qdapTools]{hash}}
-#' @keywords dictionary, hash, lookup
 #' @export
 #' @rdname lookup
 #' @examples

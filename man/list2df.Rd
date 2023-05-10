@@ -16,13 +16,18 @@ list2df(list.object, col1 = "X1", col2 = "X2")
 
 matrix2df(matrix.object, col1 = "var1")
 
-vect2df(vector.object, col1 = "X1", col2 = "X2", order = TRUE,
-  rev = FALSE)
+vect2df(vector.object, col1 = "X1", col2 = "X2", order = TRUE, rev = FALSE)
 
 list_df2df(list.df.object, col1 = "X1")
 
-list_vect2df(list.vector.object, col1 = "X1", col2 = "X2", col3 = "X3",
-  order = TRUE, ...)
+list_vect2df(
+  list.vector.object,
+  col1 = "X1",
+  col2 = "X2",
+  col3 = "X3",
+  order = TRUE,
+  ...
+)
 
 counts2list(mat, nm = rownames(mat))
 

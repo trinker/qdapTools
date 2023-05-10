@@ -19,7 +19,7 @@ Splits a string into a vector of runs.
 run_split(c("122333444455555666666", NA, "abbcccddddeeeeeffffff"))
 }
 \references{
-\url{http://stackoverflow.com/a/24319217/1000343}
+\url{https://stackoverflow.com/a/24319217/1000343}
 }
 \seealso{
 \code{\link[qdapTools]{loc_split}},

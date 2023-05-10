@@ -8,7 +8,7 @@
 #' in its own environment.  
 #' @author \code{hash_e} - Bryan Goodrich and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @seealso \code{\link[base]{environment}}
-#' @references \url{http://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary}
+#' @references https://www.talkstats.com/showthread.php/22754-Create-a-fast-dictionary
 #' @rdname hash
 #' @export
 hash_e <- 

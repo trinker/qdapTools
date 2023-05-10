@@ -17,7 +17,7 @@
 #' @seealso \code{\link[qdapTools]{loc_split}},
 #' \code{\link[qdapTools]{run_split}}
 #' @author Matthew Flickinger and Tyler Rinker <tyler.rinker@@gmail.com>.
-#' @references \url{http://stackoverflow.com/a/24319217/1000343} 
+#' @references \url{https://stackoverflow.com/a/24319217/1000343} 
 #' @export
 #' @examples
 #' set.seed(15)

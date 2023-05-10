@@ -31,5 +31,3 @@ sec2hms(c(256, 3456, 56565))
 \seealso{
 \code{\link[chron]{times}}
 }
-\keyword{conversion}
-\keyword{time,}

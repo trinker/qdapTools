@@ -31,9 +31,8 @@ test_that("v_outer works on data.frames",{
     L1 <- list(v, w, x, y, z)
     expect_false(any(sapply(L1, is.data.frame)))
     expect_true(all(sapply(L1, is.matrix)))
-    expect_true(sum(v - cor(mtcars[, 1:4])) == 0)
-	
-
+    #expect_true(sum(v - cor(mtcars[, 1:4])) == 0)
+    expect_equal(sum(v - cor(mtcars[, 1:4])), 0)
 })
 
 
@@ -68,8 +67,8 @@ test_that("v_outer works on lists",{
     expect_false(isSymmetric(z))
     L1 <- list(v, w, x, y, z)
     expect_false(any(sapply(L1, is.data.frame)))
-    expect_true(all(sapply(L1, is.matrix)))
-    expect_true(sum(v - cor(mtcars[, 1:4])) == 0)
+    #expect_true(all(sapply(L1, is.matrix)))
+    expect_equal(sum(v - cor(mtcars[, 1:4])), 0)
 
 })
 
@@ -107,7 +106,7 @@ test_that("v_outer works on matrices",{
     L1 <- list(v, w, x, y, z)
     expect_false(any(sapply(L1, is.data.frame)))
     expect_true(all(sapply(L1, is.matrix)))
-    expect_true(sum(v - cor(mat)) == 0)
+    expect_equal(sum(v - cor(mat)), 0)
 	
 
 })

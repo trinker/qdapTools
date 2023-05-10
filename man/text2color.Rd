@@ -37,7 +37,3 @@ x
 \seealso{
 \code{\link[qdapTools]{lookup}}
 }
-\keyword{color,}
-\keyword{dictionary}
-\keyword{lookup,}
-\keyword{recode,}

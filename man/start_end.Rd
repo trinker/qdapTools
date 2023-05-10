@@ -22,10 +22,10 @@ start_end(x)
 start_end(y)
 }
 \references{
-\url{http://stackoverflow.com/a/29184841/1000343}
+\url{https://stackoverflow.com/a/29184841/1000343}
 }
 \author{
-Roland (\url{http://stackoverflow.com/users/1412059/roland}) and Tyler Rinker <tyler.rinker@gmail.com>.
+Roland (\url{https://stackoverflow.com/users/1412059/roland}) and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \keyword{begin}
 \keyword{end}
